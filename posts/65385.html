@@ -1,0 +1,3125 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>微服务 | myl's blog</title><meta name="author" content="myl"><meta name="copyright" content="myl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微服务 https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1LQ4y127n4&#x2F;?p&#x3D;4&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;1a39594354c31d775ddc587407a55282    Ⅰ实用一 微服务治理1.1 认识微服务 1.1.1 服务架构演变    分布式架构需要考虑的问题  服务粒度 服务集群地址如何维护 服务之间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微服务">
+<meta property="og:url" content="http://yileman.github.io/posts/65385.html">
+<meta property="og:site_name" content="myl&#39;s blog">
+<meta property="og:description" content="微服务 https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1LQ4y127n4&#x2F;?p&#x3D;4&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;1a39594354c31d775ddc587407a55282    Ⅰ实用一 微服务治理1.1 认识微服务 1.1.1 服务架构演变    分布式架构需要考虑的问题  服务粒度 服务集群地址如何维护 服务之间">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg">
+<meta property="article:published_time" content="2024-01-18T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-15T13:32:42.370Z">
+<meta property="article:author" content="myl">
+<meta property="article:tag" content="java高级">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg"><link rel="shortcut icon" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg"><link rel="canonical" href="http://yileman.github.io/posts/65385.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微服务',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-15 21:32:42'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="myl's blog"><span class="site-name">myl's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">微服务</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-18T00:00:00.000Z" title="发表于 2024-01-18 08:00:00">2024-01-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-15T13:32:42.370Z" title="更新于 2024-03-15 21:32:42">2024-03-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/study/">study</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="微服务"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>微服务</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1LQ4y127n4/?p=4&spm_id_from=pageDriver&vd_source=1a39594354c31d775ddc587407a55282">https://www.bilibili.com/video/BV1LQ4y127n4/?p=4&amp;spm_id_from=pageDriver&amp;vd_source=1a39594354c31d775ddc587407a55282</a></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231225193851920.png" alt="image-20231225193851920"></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231225194031227.png" alt="image-20231225194031227"></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231225194055227.png" alt="image-20231225194055227"></p>
+<h1 id="Ⅰ实用"><a href="#Ⅰ实用" class="headerlink" title="Ⅰ实用"></a>Ⅰ实用</h1><h2 id="一-微服务治理"><a href="#一-微服务治理" class="headerlink" title="一 微服务治理"></a>一 微服务治理</h2><h3 id="1-1-认识微服务"><a href="#1-1-认识微服务" class="headerlink" title="1.1 认识微服务"></a>1.1 认识微服务</h3><ul>
+<li><p><strong>1.1.1 服务架构演变</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231225195315177.png" alt="image-20231225195315177"></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231225195321668.png" alt="image-20231225195321668"></p>
+<ul>
+<li><p>分布式架构需要考虑的问题</p>
+<ul>
+<li>服务粒度</li>
+<li>服务集群地址如何维护</li>
+<li>服务之间如何远程调用</li>
+<li>服务健康如何感知</li>
+</ul>
+</li>
+<li><p>微服务</p>
+<ul>
+<li><p>微服务是一种经过良好架构设计的<strong>分布式</strong>架构方案</p>
+</li>
+<li><p>微服务架构特征：</p>
+<ul>
+<li><p>单一职责：微服务拆分粒度更小，每一个服务都对应唯一的业务能力，做到单一职责，避免重复业务开发</p>
+</li>
+<li><p>面向服务：微服务对外暴露业务接口</p>
+</li>
+<li><p>自治：团队独立、技术独立、数据独立、部署独立</p>
+</li>
+<li><p>隔离性强：服务调用做好隔离、容错、降级，避免出现级联问题</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.1.2 微服务技术对比</strong></p>
+<ul>
+<li>微服务这种方案需要技术框架来落地，全球的互联网公司都在积极尝试自己的微服务落地技术。在国内最知名的就是<code>SpringCloud</code>和阿里巴巴的<code>Dubbo</code>。</li>
+<li><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226152113680.png" alt="image-20231226152113680"></li>
+<li><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226152055182.png" alt="image-20231226152055182"></li>
+</ul>
+</li>
+<li><p><strong>1.1.3 SpringCloud</strong></p>
+<ul>
+<li><p>SpringCloud是目前国内使用最广泛的微服务框架。官网地址：<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud%E3%80%82">https://spring.io/projects/spring-cloud。</a></p>
+</li>
+<li><p>SpringCloud集成了各种微服务功能组件，并基于SpringBoot实现了这些组件的自动装配，从而提供了良好的开箱即用体验：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226152831844.png" alt="image-20231226152831844"></p>
+</li>
+<li><p>本文档<code>Hoxton.SR10</code>、<code>使用2.3.x版本的SpringBoot</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-微服务拆分调用"><a href="#1-2-微服务拆分调用" class="headerlink" title="1.2 微服务拆分调用"></a>1.2 微服务拆分调用</h3><ul>
+<li><p><strong>1.2.1 服务拆分</strong></p>
+<ul>
+<li>注意事项<ul>
+<li>单一职责：不同微服务，不要重复开发相同业务</li>
+<li>数据独立：不要访问其它微服务的数据库</li>
+<li>面向服务：将自己的业务暴露为接口，供其它微服务调用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.2.2 服务调用</strong></p>
+<ul>
+<li><p>本质：服务A发送http请求到服务B，获取返回数据</p>
+</li>
+<li><p>注册RestTemplate</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226154207705.png" alt="image-20231226154207705"></p>
+</li>
+<li><p>服务远程调用RestTemplate</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226154214893.png" alt="image-20231226154214893"></p>
+</li>
+<li><p>注意</p>
+<ul>
+<li>基于RestTemplate发起的http请求实现远程调用</li>
+<li>http请求做远程调用是与语言无关的调用，只要知道对方的ip、端口、接口路径、请求参数即可。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.2.3 提供者与消费者</strong></p>
+<ul>
+<li>服务提供者：一次业务中，被其它微服务调用的服务。（提供接口给其它微服务）</li>
+<li>服务消费者：一次业务中，调用其它微服务的服务。（调用其它微服务提供的接口）</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-3-eureka注册中心"><a href="#1-3-eureka注册中心" class="headerlink" title="1.3 eureka注册中心"></a>1.3 eureka注册中心</h3><ul>
+<li><p><strong>1.3.1 远程调用的问题</strong></p>
+<ul>
+<li>服务消费者该如何获取服务提供者的地址信息？<ul>
+<li>服务提供者启动时向eureka注册自己的信息</li>
+<li>eureka保存这些信息</li>
+<li>消费者根据服务名称向eureka拉取提供者信息</li>
+</ul>
+</li>
+<li>如果有多个服务提供者，消费者该如何选择？<ul>
+<li>服务消费者利用负载均衡算法，从服务列表中挑选一个</li>
+</ul>
+</li>
+<li>消费者如何得知服务提供者的健康状态？<ul>
+<li>服务提供者会每隔30秒向EurekaServer发送心跳请求，报告健康状态</li>
+<li>eureka会更新记录服务列表信息，心跳不正常会被剔除</li>
+<li>消费者就可以拉取到最新的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.3.2 eureka原理</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226154919880.png" alt="image-20231226154919880"></p>
+</li>
+<li><p><strong>1.3.3 搭建EurekaServer</strong></p>
+<ul>
+<li><p>无论是消费者还是提供者都可以注册Eureka服务</p>
+</li>
+<li><p>导入<code>spring-cloud-starter-netflix-eureka-server</code>坐标</p>
+</li>
+<li><p>编写启动类，添加@EnableEurekaServer注解</p>
+</li>
+<li><p>添加application.yml文件，编写配置：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226155909088.png" alt="image-20231226155909088"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>1.3.4 服务拉取</strong></p>
+<ul>
+<li><p>服务拉取是基于服务名称获取服务列表，然后在对服务列表做负载均衡</p>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>修改OrderService的代码，修改访问的url路径，用服务名代替ip、端口：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226160833093.png" alt="image-20231226160833093"></p>
+</li>
+<li><p>在order-service项目的启动类OrderApplication中的RestTemplate添加<strong>负载均衡</strong>注解：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226160841985.png" alt="image-20231226160841985"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-Ribbon负载均衡原理"><a href="#1-4-Ribbon负载均衡原理" class="headerlink" title="1.4 Ribbon负载均衡原理"></a>1.4 Ribbon负载均衡原理</h3><ul>
+<li><p><strong>1.4.1 负载均衡原理</strong></p>
+<ul>
+<li><p>请求流程</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226161000368.png" alt="image-20231226161000368"></p>
+</li>
+<li><p>负载均衡流程</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226161100240.png" alt="image-20231226161100240"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>1.4.2 负载均衡策略</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226161909330.png" alt="image-20231226161909330"></p>
+<ul>
+<li><p>通过定义<code>IRule</code>实现可以修改负载均衡规则，有两种方式：</p>
+<ul>
+<li><p>代码方式：在order-service中的OrderApplication类中，定义一个新的IRule：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226161959572.png" alt="image-20231226161959572"></p>
+</li>
+<li><p>配置文件方式：在order-service的application.yml文件中，添加新的配置也可以修改规则：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226162009232.png" alt="image-20231226162009232"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.4.3 懒加载</strong></p>
+<ul>
+<li><p>Ribbon默认是采用<strong>懒加载</strong>，即第一次访问时才会去创建LoadBalanceClient，请求时间会很长。</p>
+<p>而<strong>饥饿加载</strong>则会在项目启动时创建，降低第一次访问的耗时，通过下面配置开启饥饿加载：</p>
+</li>
+<li><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226162113706.png" alt="image-20231226162113706"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5-nacos注册中心"><a href="#1-5-nacos注册中心" class="headerlink" title="1.5 nacos注册中心"></a>1.5 nacos注册中心</h3><ul>
+<li><p><strong>1.5.1 简介</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nacos.io/">Nacos</a>是阿里巴巴的产品，现在是<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud">SpringCloud</a>中的一个组件。相比<a target="_blank" rel="noopener" href="https://github.com/Netflix/eureka">Eureka</a>功能更加丰富，在国内受欢迎程度较高。</li>
+</ul>
+</li>
+<li><p><strong>1.5.2 入门</strong></p>
+<ul>
+<li><p>解压即可</p>
+</li>
+<li><p>conf目录下有一个配置文件<code>application.properties</code>，默认端口8848</p>
+</li>
+<li><p>bin目录为可执行文件，启动命令windows</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startup.cmd -m standalone</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认账号和密码： nacos</p>
+</li>
+<li><p>服务注册到nacos</p>
+<ul>
+<li><p>在cloud-demo父工程中添加<code>spring-cloud-alilbaba</code>的管理依赖：</p>
+</li>
+<li><p>注释掉order-service和user-service中原有的eureka依赖</p>
+</li>
+<li><p>添加nacos的客户端依赖：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226163146936.png" alt="image-20231226163146936"></p>
+</li>
+<li><p>修改user-service&amp;order-service中的application.yml文件，注释eureka地址，添加nacos地址：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226163212299.png" alt="image-20231226163212299"></p>
+</li>
+<li><p>启动并测试</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.5.3 Nacos服务分级存储模型</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226163554779.png" alt="image-20231226163554779"></p>
+<ul>
+<li><p>问题</p>
+<ul>
+<li>服务调用尽可能选择本地集群的服务，跨集群调用延迟较高</li>
+<li>本地集群不可访问时，再去访问其它集群</li>
+</ul>
+</li>
+<li><p>服务集群属性</p>
+<ul>
+<li>集群属性</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226163719746.png" alt="image-20231226163719746"></p>
+<ul>
+<li><p>负载均衡策略</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226164050472.png" alt="image-20231226164050472"></p>
+</li>
+<li><p>根据权重负载均衡</p>
+<ul>
+<li>在Nacos控制台可以设置实例的权重值，首先选中实例后面的编辑按钮</li>
+<li>将权重设置为0.1，测试可以发现8081被访问到的频率大大降低</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.5.4 Nacos环境隔离</strong></p>
+<ul>
+<li><p>Nacos中服务存储和数据存储的最外层都是一个名为namespace的东西，用来做最外层隔离</p>
+<ul>
+<li>不同环境之间的服务不能相互访问</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>在Nacos控制台可以创建namespace，用来隔离不同环境</p>
+</li>
+<li><p>然后填写一个新的命名空间信息</p>
+</li>
+<li><p>保存后会在控制台看到这个命名空间的id</p>
+</li>
+<li><p>修改order-service的application.yml，添加namespace</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226171545634.png" alt="image-20231226171545634"></p>
+</li>
+<li><p>重启order-service后，再来查看控制台</p>
+</li>
+<li><p>此时访问order-service，因为namespace不同，会导致找不到userservice，控制台会报错</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.5.5 nacos和eureka对比</strong></p>
+<ul>
+<li><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226171917654.png" alt="image-20231226171917654"></p>
+</li>
+<li><p>心跳检测失败对于非临时实例nacos不会直接挂掉它</p>
+<ul>
+<li><p>临时实例和非临时实例设置</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226172019183.png" alt="image-20231226172019183"></p>
+</li>
+</ul>
+</li>
+<li><p>其他对比</p>
+<ul>
+<li>相同点<ul>
+<li>都支持服务注册和服务拉取</li>
+<li>都支持服务提供者心跳方式做健康检测</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>Nacos支持服务端主动检测提供者状态：临时实例采用心跳模式，非临时实例采用主动检测模式</li>
+<li>临时实例心跳不正常会被剔除，非临时实例则不会被剔除</li>
+<li>Nacos支持服务列表变更的消息推送模式，服务列表更新更及时</li>
+<li>Nacos集群默认采用AP方式，当集群中存在非临时实例时，采用CP模式；Eureka采用AP方式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-6-Nacos配置管理"><a href="#1-6-Nacos配置管理" class="headerlink" title="1.6 Nacos配置管理"></a>1.6 Nacos配置管理</h3><ul>
+<li><p><strong>1.6.1 统一配置管理</strong></p>
+<ul>
+<li><p>配置更改热更新</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226172518141.png" alt="image-20231226172518141"></p>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>在Nacos中添加配置信息</p>
+<ul>
+<li>配置文件id：<code>[服务名称]-[profile].[后缀]</code>  如： <code>userservice-dev.yaml</code></li>
+<li>格式支持<code>yaml</code> <code>properties</code></li>
+</ul>
+</li>
+<li><p>在弹出表单中填写配置信息</p>
+</li>
+<li><p>配置获取的步骤如下</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226172549902.png" alt="image-20231226172549902"></p>
+</li>
+</ul>
+</li>
+<li><p>在微服务中读取统一配置</p>
+<ul>
+<li><p>引入Nacos的配置管理客户端依赖：</p>
+</li>
+<li><p>在userservice中的resource目录添加一个<code>bootstrap.yml</code>文件，这个文件是引导文件，优先级高于<code>application.yml</code></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226172910290.png" alt="image-20231226172910290"></p>
+</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>不是所有的配置都适合放到配置中心，维护起来比较麻烦</li>
+<li>建议将一些关键参数，需要运行时调整的参数放到nacos配置中心，一般都是自定义配置</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.6.2 配置热更新</strong></p>
+<ul>
+<li>方式一：在@Value注入的变量所在类上添加注解@RefreshScope</li>
+<li>方式二：使用@ConfigurationProperties注解</li>
+</ul>
+</li>
+<li><p><strong>1.6.3 配置共享</strong></p>
+<ul>
+<li><p>微服务启动时会从nacos读取多个配置文件：</p>
+<ul>
+<li><code>[spring.application.name]-[spring.profiles.active].yaml</code>，例如：<code>userservice-dev.yaml</code></li>
+<li><code>[spring.application.name].yaml</code>，例如：<code>userservice.yaml</code></li>
+</ul>
+</li>
+<li><p>无论profile如何变化，<code>[spring.application.name].yaml</code>这个文件一定会加载，因此多环境共享配置可以写入这个文件</p>
+</li>
+<li><p>多种配置的优先级</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226173508631.png" alt="image-20231226173508631"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>1.6.4 搭建Nacos集群</strong></p>
+<ul>
+<li>步骤<ul>
+<li>搭建MySQL集群并初始化数据库表</li>
+<li>下载解压nacos</li>
+<li>修改集群配置（节点信息）、数据库</li>
+<li>分别启动多个nacos节点</li>
+<li>nginx反向代理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-7-Feign"><a href="#1-7-Feign" class="headerlink" title="1.7 Feign"></a>1.7 Feign</h3><ul>
+<li><p><strong>1.7.1 RestTemplate方式调用存在的问题</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226175217724.png" alt="image-20231226175217724"></p>
+<ul>
+<li>问题<ul>
+<li>可读性差</li>
+<li>参数复杂URL难以维护</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.7.2 Feign简介</strong></p>
+<ul>
+<li><p>Feign是一个声明式的http客户端，官方地址：<a target="_blank" rel="noopener" href="https://github.com/OpenFeign/feign">https://github.com/OpenFeign/feign</a></p>
+</li>
+<li><p>其作用就是帮助我们优雅的实现http请求的发送，解决上面提到的问题。</p>
+</li>
+<li><p>使用步骤</p>
+<ul>
+<li><p>引入依赖</p>
+</li>
+<li><p>在order-service的启动类添加注解开启Feign的功能</p>
+<ul>
+<li><code>@EnableFeignClients</code></li>
+</ul>
+</li>
+<li><p>编写Feign客户端</p>
+<p>​	<img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226175523847.png" alt="image-20231226175523847"></p>
+</li>
+<li><p>用Feign客户端代替RestTemplate</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226175604242.png" alt="image-20231226175604242"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.7.3 自定义Feign配置</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226175919842.png" alt="image-20231226175919842"></p>
+<ul>
+<li>两种方式修改，一个是修改配置文件，另一种是声明Bean</li>
+</ul>
+</li>
+<li><p><strong>1.7.4 Feign性能优化</strong></p>
+<ul>
+<li><p>Feign底层</p>
+<ul>
+<li><code>URLConnection</code>：默认实现，不支持连接池</li>
+<li><code>Apache HttpClient</code> ：支持连接池</li>
+<li><code>OKHttp</code>：支持连接池</li>
+</ul>
+</li>
+<li><p>因此优化Feign的性能主要包括：</p>
+<ul>
+<li>使用连接池代替默认的<code>URLConnection</code></li>
+<li>日志级别，最好用<code>basic</code>或<code>none</code></li>
+</ul>
+</li>
+<li><p>性能优化-连接池配置</p>
+<ul>
+<li><p>引入依赖</p>
+<ul>
+<li>feign-httpclient</li>
+</ul>
+</li>
+<li><p>配置连接池</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226184843230.png" alt="image-20231226184843230"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>1.7.5 Feign最佳实践</strong></p>
+<ul>
+<li><p>方式一：继承，给消费者的FeignClient和提供者的controller定义统一的父接口作为标准。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226185220376.png" alt="image-20231226185220376"></p>
+<ul>
+<li>缺点是会造成紧耦合，父接口参数列表中的映射不会被继承</li>
+</ul>
+</li>
+<li><p>方式二：抽取，将FeignClient抽取为独立模块，并且把接口有关的POJO、默认的Feign配置都放到这个模块中，提供给所有消费者使用</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226185415060.png" alt="image-20231226185415060"></p>
+<ul>
+<li><p>缺点是需要写所有的东西，比如order-service引入提取出来的公共模块 feign-api 模块时，也有可能把不需要使用的远程调用方法引入进来了</p>
+</li>
+<li><p>当定义的FeignClient不在SpringBootApplication的扫描包范围时，这些FeignClient无法使用。有两种方式解决：</p>
+<ul>
+<li>方式一：指定FeignClient所在包</li>
+<li>方式二：指定FeignClient字节码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-8-统一网关Gateway"><a href="#1-8-统一网关Gateway" class="headerlink" title="1.8 统一网关Gateway"></a>1.8 统一网关Gateway</h3><p><strong>1.8.1 为什么需要</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226190702250.png" alt="image-20231226190702250"></p>
+<ul>
+<li><p>在SpringCloud中网关的实现包括两种：</p>
+<ul>
+<li>gateway</li>
+<li>zuul</li>
+</ul>
+</li>
+<li><p>Zuul是基于Servlet的实现，属于阻塞式编程。而SpringCloudGateway则是基于Spring5中提供的WebFlux，属于响应式编程的实现，具备更好的性能。</p>
+</li>
+</ul>
+<p><strong>1.8.2 入门</strong></p>
+<ul>
+<li><p>创建新的module,引入SpringCloudGateway的依赖和nacos的服务发现依赖：</p>
+</li>
+<li><p>编写路由配置及nacos地址</p>
+<ul>
+<li><p>路由配置</p>
+<ul>
+<li>路由id：路由的唯一标示</li>
+<li>路由目标（uri）：路由的目标地址，http代表固定地址，lb代表根据服务名负载均衡</li>
+<li>路由断言（predicates）：判断路由的规则</li>
+<li>路由过滤器（filters）：对请求或响应做处理</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226191243141.png" alt="z"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.8.3 断言工厂</strong></p>
+<ul>
+<li><p><strong>Route Predicate Factory</strong></p>
+<ul>
+<li>路由id</li>
+<li>uri</li>
+<li>predicates</li>
+<li>filters</li>
+</ul>
+</li>
+<li><p>在配置文件中写的断言规则只是字符串，这些字符串会被Predicate Factory读取并处理，转变为路由判断的条件</p>
+<ul>
+<li><p>例如<code>Path=/user/**</code>是按照路径匹配，这个规则是由org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory类来处理的</p>
+</li>
+<li><p>像这样的断言工厂在SpringCloudGateway还有十几个</p>
+</li>
+</ul>
+</li>
+<li><p>Spring提供的11种基本的Predicate工厂</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226191638193.png" alt="image-20231226191638193"></p>
+</li>
+</ul>
+<p><strong>1.8.4 过滤器工厂GatewayFilter</strong></p>
+<ul>
+<li><p><strong>GatewayFilter</strong>是网关中提供的一种过滤器，可以对进入网关的<strong>请求</strong>和微服务返回的<strong>响应</strong>做处理：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226191658938.png" alt="image-20231226191658938"></p>
+</li>
+<li><p>Spring提供了31种不同的路由过滤器工厂.</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226191717071.png" alt="image-20231226191717071"></p>
+</li>
+<li><p>默认过滤器</p>
+<ul>
+<li><p>如果要对所有的路由都生效，则可以将过滤器工厂写到default下。格式如下：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226192549965.png" alt="image-20231226192549965"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.8.5 全局过滤器GlobalFilter</strong></p>
+<ul>
+<li><p>区别在于GatewayFilter通过配置定义，处理逻辑是固定的。而GlobalFilter的逻辑需要自己写代码实现。</p>
+</li>
+<li><p>定义方式是实现<code>GlobalFilter</code>接口。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226192454491.png" alt="image-20231226192454491"></p>
+</li>
+<li><p>demo案例:定义全局过滤器，拦截并判断用户身份</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226192805427.png" alt="image-20231226192805427"></p>
+<ul>
+<li><p>自定义类，实现GlobalFilter接口，添加@Order注解：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226192823337.png" alt="image-20231226192823337"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.8.6  过滤器执行顺序</strong></p>
+<ul>
+<li><p>请求进入网关会碰到三类过滤器：当前路由的过滤器、DefaultFilter、GlobalFilter</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226192940005.png" alt="image-20231226192940005"></p>
+</li>
+<li><p>执行顺序</p>
+<ul>
+<li><p>每一个过滤器都必须指定一个int类型的order值，<strong>order值越小，优先级越高，执行顺序越靠前</strong>。</p>
+</li>
+<li><p>路由过滤器和defaultFilter的order由Spring指定，默认是按照声明顺序从1递增。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226193334218.png" alt="image-20231226193334218"></p>
+</li>
+<li><p>当过滤器的order值一样时，会按照 defaultFilter &gt; 路由过滤器 &gt; GlobalFilter的顺序执行。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.8.7  跨域问题</strong></p>
+<ul>
+<li><p>跨域：域名不一致就是跨域，主要包括：</p>
+<ul>
+<li>域名不同： <a target="_blank" rel="noopener" href="http://www.taobao.com/">www.taobao.com</a> 和 <a target="_blank" rel="noopener" href="http://www.taobao.org/">www.taobao.org</a> 和 <a target="_blank" rel="noopener" href="http://www.jd.com/">www.jd.com</a> 和 miaosha.jd.com</li>
+<li>域名相同，端口不同：localhost:8080和localhost8081</li>
+</ul>
+</li>
+<li><p>跨域问题：浏览器禁止请求的发起者与服务端发生跨域ajax请求，请求被浏览器拦截的问题</p>
+</li>
+<li><p>解决方案：CORS</p>
+</li>
+<li><p>网关处理跨域采用的同样是CORS方案，并且只需要简单配置即可实现：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20231226193517515.png" alt="image-20231226193517515"></p>
+</li>
+</ul>
+<h2 id="二-Docker"><a href="#二-Docker" class="headerlink" title="二 Docker"></a>二 Docker</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><ul>
+<li><p>Docker如何解决依赖的兼容问题的？</p>
+<ul>
+<li>将应用的Libs（函数库）、Deps（依赖）、配置与应用一起打包</li>
+<li>将每个应用放到一个隔离<strong>容器</strong>去运行，避免互相干扰</li>
+</ul>
+</li>
+<li><p>Docker如何解决不同系统环境的问题？</p>
+<ul>
+<li>Docker将用户程序与所需要调用的系统(比如Ubuntu)函数库一起打包</li>
+<li>Docker运行到不同操作系统时，直接基于打包的库函数，借助于操作系统的Linux内核来运行</li>
+</ul>
+</li>
+<li><p>Docker如何解决大型项目依赖关系复杂，不同组件依赖的兼容性问题？</p>
+<ul>
+<li>Docker允许开发中将应用、依赖、函数库、配置一起<strong>打包</strong>，形成可移植镜像</li>
+<li>Docker应用运行在容器中，使用沙箱机制，相互<strong>隔离</strong></li>
+</ul>
+</li>
+<li><p>Docker如何解决开发、测试、生产环境有差异的问题</p>
+<ul>
+<li>Docker镜像中包含完整运行环境，包括系统函数库，仅依赖系统的Linux内核，因此可以在任意Linux操作系统上运行</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.1.1 Docker与虚拟机</strong></p>
+<ul>
+<li><p>虚拟机（virtual machine）是在操作系统中模拟硬件设备，然后运行另一个操作系统，比如在 Windows 系统里面运行 Ubuntu 系统，这样就可以运行任意的Ubuntu应用了。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102100734819.png" alt="image-20240102100734819"></p>
+</li>
+<li><p>差异</p>
+<ul>
+<li>docker是一个系统进程；虚拟机是在操作系统中的操作系统</li>
+<li>docker体积小、启动速度快、性能好；虚拟机体积大、启动速度慢、性能一般</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.1.2 Docker架构</strong></p>
+<ul>
+<li><p>镜像（image）：Docker将应用程序及其所需的依赖、函数库、环境、配置等文件打包在一起，称为镜像。</p>
+</li>
+<li><p>容器（Container）：镜像中的应用程序运行后形成的进程就是<strong>容器</strong>，只是Docker会给容器做隔离，对外不可见。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102101207896.png" alt="image-20240102101207896"></p>
+</li>
+<li><p>DockerHub：DockerHub是一个Docker镜像的托管平台。这样的平台称为Docker Registry。</p>
+<ul>
+<li>类似的还有阿里云镜像服务，统称为DockerRegistry</li>
+</ul>
+</li>
+<li><p>docker架构</p>
+<ul>
+<li><p>CS架构</p>
+</li>
+<li><p>服务端(server)：Docker守护进程，负责处理Docker指令，管理镜像、容器等</p>
+</li>
+<li><p>客户端(client)：通过命令或RestAPI向Docker服务端发送指令。可以在本地或远程向服务端发送指令。</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102102347257.png" alt="image-20240102102347257"></p>
+<ul>
+<li>注：一般使用docker就是发送指令获取到镜像</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-安装"><a href="#2-2-安装" class="headerlink" title="2.2 安装"></a>2.2 安装</h3><ul>
+<li><p>如果之前安装过旧版本的Docker，可以使用下面命令卸载：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker /</span><br><span class="line">                  docker-client /</span><br><span class="line">                  docker-client-latest /</span><br><span class="line">                  docker-common /</span><br><span class="line">                  docker-latest /</span><br><span class="line">                  docker-latest-logrotate /</span><br><span class="line">                  docker-logrotate /</span><br><span class="line">                  docker-selinux /</span><br><span class="line">                  docker-engine-selinux /</span><br><span class="line">                  docker-engine /</span><br><span class="line">                  docker-ce</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>虚拟机需要联网，安装yum工具</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils /</span><br><span class="line">           device-mapper-persistent-data /</span><br><span class="line">           lvm2 --skip-broken</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后更新本地镜像源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置docker镜像源</span></span><br><span class="line">yum-config-manager /</span><br><span class="line">    --add-repo /</span><br><span class="line">    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">    </span><br><span class="line">sed -i &#x27;s/download.docker.com/mirrors.aliyun.com//docker-ce/g&#x27; /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"></span><br><span class="line">yum makecache fast</span><br></pre></td></tr></table></figure>
+
+<p>然后输入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y docker-ce</span><br></pre></td></tr></table></figure>
+
+<p>docker-ce为社区免费版本。稍等片刻，docker即可安装成功。</p>
+</li>
+<li><p>启动前关闭防火墙，因为Docker应用需要用到各种端口，逐一去修改防火墙设置。非常麻烦</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line"><span class="comment"># 禁止开机启动防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过命令启动docker：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker  <span class="comment"># 启动docker服务</span></span><br><span class="line"></span><br><span class="line">systemctl stop docker  <span class="comment"># 停止docker服务</span></span><br><span class="line"></span><br><span class="line">systemctl restart docker  <span class="comment"># 重启docker服务</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后输入命令，可以查看docker版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看状态</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置镜像加速</p>
+<p><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
+</li>
+</ul>
+<h3 id="2-3-一般操作"><a href="#2-3-一般操作" class="headerlink" title="2.3 一般操作"></a>2.3 一般操作</h3><ul>
+<li><p>镜像相关命令</p>
+<ul>
+<li>镜像名称一般分两部分组成：<code>[repository]:[tag]</code>。<ul>
+<li>eg：<code>mysql:5.7</code></li>
+</ul>
+</li>
+<li>在没有指定tag时，默认是latest，代表最新版本的镜像</li>
+</ul>
+</li>
+<li><p>镜像操作</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102111427941.png" alt="image-20240102111427941"></p>
+</li>
+<li><p>容器操作</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102111916857.png" alt="image-20240102111916857"></p>
+<ul>
+<li><p>这里的 <code>docker rm</code>删除的是硬盘中的容器对象</p>
+</li>
+<li><p><code>docker run</code>的常见参数</p>
+<ul>
+<li><code>--name</code>：指定容器名称</li>
+<li><code>-p</code>：指定端口</li>
+<li><code>-d</code>：后台运行</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102112848850.png" alt="image-20240102112848850"></p>
+<ul>
+<li>外部访问宿主机的80端口(前面的)的时候就会映射到内部指定的80端口(后面的 )，从而访问到nginx</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据卷</p>
+<ul>
+<li><p>容器与数据耦合的问题</p>
+<ul>
+<li>修改不方便：需要进入容器内部修改</li>
+<li>数据不可复用：在容器内的修改对外不可见</li>
+<li>升级困难：升级必然会删除旧容器</li>
+</ul>
+</li>
+<li><p>数据卷：一个虚拟目录，指向宿主机文件系统中的某个目录</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102153532341.png" alt="image-20240102153532341"></p>
+</li>
+</ul>
+</li>
+<li><p>数据卷操作</p>
+<ul>
+<li><code>docker volume [COMMAND]</code><ul>
+<li>create	  创建一个volume</li>
+<li>inspect    显示一个或多个volume信息</li>
+<li>ls               列出所有volume</li>
+<li>prune       删除未使用的volume</li>
+<li>rm             删除一个或多个指定的volume</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>将数据卷挂载到容器中</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102154009301.png" alt="image-20240102154009301"></p>
+<ul>
+<li><code>-v volumeName:/targetContainerPath</code></li>
+<li>如果容器运行时vlolume不存在，会被自动创建出来</li>
+</ul>
+</li>
+<li><p>练习</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102160118303.png" alt="image-20240102160118303"></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102162712831.png" alt="image-20240102162712831"></p>
+<h3 id="2-4-自定义镜像"><a href="#2-4-自定义镜像" class="headerlink" title="2.4 自定义镜像"></a>2.4 自定义镜像</h3><ul>
+<li><p>镜像是将应用程序及其需要的系统函数库、环境、配置、依赖打包而成。</p>
+</li>
+<li><p>镜像结构</p>
+<ul>
+<li>基础镜像<strong>BaseImage</strong>：应用依赖的系统函数库、环境、配置、文件等</li>
+<li>层<strong>Layer</strong>：在BaseImage基础上添加安装包、依赖、配置等，每次操作都形成新的一层<ul>
+<li>为了节省升级成本</li>
+</ul>
+</li>
+<li>入口<strong>Entrypoint</strong>：镜像运行入口，一般是程序启动的脚本和参数</li>
+</ul>
+</li>
+<li><p>Dockerfile：就是一个文本文件，其中包含一个个的<strong>指令</strong>(Instruction)，用指令来说明要执行什么操作来构建镜像。每一个指令都会形成一层Layer</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102161834986.png" alt="image-20240102161834986"></p>
+</li>
+</ul>
+<h3 id="2-5-DockerCompose"><a href="#2-5-DockerCompose" class="headerlink" title="2.5 DockerCompose"></a>2.5 DockerCompose</h3><ul>
+<li><p>Docker Compose可以基于Compose文件帮我们快速的部署分布式应用，而无需手动一个个创建和运行容器</p>
+</li>
+<li><p>Compose文件是一个文本文件，通过指令定义集群中的每个容器如何运行（对比上面黑底白字的指令）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240102162600295.png" alt="image-20240102162600295"></p>
+</li>
+</ul>
+<h3 id="2-6-镜像仓库"><a href="#2-6-镜像仓库" class="headerlink" title="2.6 镜像仓库"></a>2.6 镜像仓库</h3><ul>
+<li><p>公共仓库：例如Docker官方的 <a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker Hub</a>，国内也有一些云服务商提供类似于 Docker Hub 的公开服务，比如 <a target="_blank" rel="noopener" href="https://c.163.com/hub">网易云镜像服务</a>、<a target="_blank" rel="noopener" href="https://hub.daocloud.io/">DaoCloud</a><a target="_blank" rel="noopener" href="https://hub.daocloud.io/"> </a><a target="_blank" rel="noopener" href="https://hub.daocloud.io/">镜像服务</a>、<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">阿里云镜像服务</a>等。</p>
+</li>
+<li><p>除了使用公开仓库外，用户还可以在本地搭建私有 Docker Registry。企业自己的镜像最好是采用私有Docker Registry来实现。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/_/registry">https://hub.docker.com/_/registry</a></li>
+</ul>
+</li>
+<li><p>简化版</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d /</span><br><span class="line">    --restart=always /</span><br><span class="line">    --name registry	/</span><br><span class="line">    -p 5000:5000 /</span><br><span class="line">    -v registry-data:/var/lib/registry /</span><br><span class="line">    registry</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>命令中挂载了一个数据卷registry-data到容器内的&#x2F;var&#x2F;lib&#x2F;registry 目录，这是私有镜像库存放数据的目录。</p>
+<p>访问<a target="_blank" rel="noopener" href="http://yourip:5000/v2/_catalog">http://YourIp:5000/v2/_catalog</a> 可以查看当前私有镜像服务中包含的镜像</p>
+</li>
+</ul>
+</li>
+<li><p>带有图形化界面版本（新建一个docker-compose.yml文件）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">&#x27;3.0&#x27;</span></span><br><span class="line">services:</span><br><span class="line">  registry:</span><br><span class="line">    image: registry</span><br><span class="line">    volumes:</span><br><span class="line">      - ./registry-data:/var/lib/registry</span><br><span class="line">  ui:</span><br><span class="line">    image: joxit/docker-registry-ui:static</span><br><span class="line">    ports:</span><br><span class="line">      - 8080:80</span><br><span class="line">    environment:</span><br><span class="line">      - REGISTRY_TITLE=传智教育私有仓库</span><br><span class="line">      - REGISTRY_URL=http://registry:5000</span><br><span class="line">    depends_on:</span><br><span class="line">      - registry</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行命令 <code>docker-compose up -d</code></li>
+</ul>
+</li>
+<li><p>配置docker信任地址</p>
+<p>我们的私服采用的是http协议，默认不被Docker信任，所以需要做一个配置：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开要修改的文件</span></span><br><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"><span class="comment"># 添加内容：</span></span><br><span class="line"><span class="string">&quot;insecure-registries&quot;</span>:[<span class="string">&quot;http://192.168.150.101:8080&quot;</span>]</span><br><span class="line"><span class="comment"># 重加载</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"><span class="comment"># 重启docker</span></span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="三-异步通信"><a href="#三-异步通信" class="headerlink" title="三 异步通信"></a>三 异步通信</h2><h3 id="3-1-MQ"><a href="#3-1-MQ" class="headerlink" title="3.1 MQ"></a>3.1 MQ</h3><p><strong>3.1.1 简介</strong></p>
+<ul>
+<li>同步通讯和异步通讯区别<ul>
+<li>视频和文字聊天的区别</li>
+</ul>
+</li>
+<li>微服务之间的基于Feign的调用就属于同步方式，存在一些问题<ul>
+<li>耦合度高，每次加入新的需求，都要修改原来的代码</li>
+<li>性能下降，调用者需要等待服务提供者响应，如果调用链过长则响应时间等于每次调用的时间之和。</li>
+<li>资源浪费，调用链中的每个服务在等待响应过程中，不能释放请求占用的资源，高并发场景下会极度浪费系统资源</li>
+<li>级联失败，如果服务提供者出现问题，所有调用方都会跟着出问题，如同多米诺骨牌一样，迅速导致整个微服务群故障</li>
+</ul>
+</li>
+<li>同步调用的优点是时效性强，可以立即得到结果</li>
+</ul>
+<p><strong>3.1.2 异步通讯</strong></p>
+<ul>
+<li><p>异步调用常见实现就是<strong>事件驱动模式</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103094411644.png" alt="image-20240103094411644"></p>
+</li>
+<li><p>优点</p>
+</li>
+<li><p>服务解耦</p>
+</li>
+<li><p>性能提升，吞吐量提高</p>
+</li>
+<li><p>服务没有强依赖，不担心级联失败问题</p>
+</li>
+<li><p>流量削峰</p>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>依赖于Broker的可靠性、安全性、吞吐能力</li>
+<li>架构复杂了，业务没有明显的流程线，不好追踪管理</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.1.3 MQ常见框架</strong></p>
+<ul>
+<li><p>MQ （MessageQueue），中文是消息队列，字面来看就是存放消息的队列。也就是事件驱动架构中的Broker。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103095429085.png" alt="image-20240103095429085"></p>
+</li>
+</ul>
+<h3 id="3-2-RabbitMQ"><a href="#3-2-RabbitMQ" class="headerlink" title="3.2 RabbitMQ"></a>3.2 RabbitMQ</h3><p><strong>3.2.1 简介</strong></p>
+<ul>
+<li><p>RabbitMQ是基于Erlang语言开发的开源消息通信中间件，官网地址：<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/">https://www.rabbitmq.com/</a></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103101849353.png" alt="image-20240103101849353"></p>
+</li>
+<li><p>相关概念</p>
+<ul>
+<li>channel：操作MQ的工具</li>
+<li>exchange：路由消息到队列中</li>
+<li>queue：缓存消息</li>
+<li>virtual host：虚拟主机，是对queue、exchange等资源的逻辑分组</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.2.2 常见消息模型</strong></p>
+<ul>
+<li><p>基本消息队列（BasicQueue）</p>
+</li>
+<li><p>工作消息队列（WorkQueue）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103102207335.png" alt="image-20240103102207335"></p>
+</li>
+<li><p>发布订阅（Publish、Subscribe），又根据交换机类型不同分为三种：</p>
+<ul>
+<li>Fanout Exchange：广播</li>
+<li>Direct Exchange：路由</li>
+<li>Topic Exchange：主题</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103102220169.png" alt="image-20240103102220169"></p>
+</li>
+</ul>
+<p><strong>3.2.3 demo</strong></p>
+<ul>
+<li><p>基本消息队列的消息发送流程：</p>
+<p>1.建立connection</p>
+<p>2.创建channel</p>
+<p>3.利用channel声明队列</p>
+<p>4.利用channel向队列发送消息</p>
+</li>
+<li><p>基本消息队列的消息接收流程：</p>
+<p>1.建立connection</p>
+<p>2.创建channel</p>
+<p>3.利用channel声明队列</p>
+<p>4.定义consumer的消费行为<code>handleDelivery()</code></p>
+<p>5.利用channel将消费者与队列绑定</p>
+</li>
+</ul>
+<h3 id="3-3-SpringAMQP"><a href="#3-3-SpringAMQP" class="headerlink" title="3.3 SpringAMQP"></a>3.3 SpringAMQP</h3><ul>
+<li><strong>A</strong>dvanced <strong>M</strong>essage <strong>Q</strong>ueuing <strong>P</strong>rotocol，是用于在应用程序之间传递业务消息的开放<strong>标准</strong>。该协议与语言和平台无关，更符合微服务中独立性的要求。</li>
+<li>SpringAMQP是基于AMQP协议定义的一套API规范，提供了模板来接收和发送消息。包含两部分，其中spring-smqp是基础抽象，spring-rabbit是底层的默认实现</li>
+<li>springAMQP如何发送消息<ul>
+<li>引入amqp的starter依赖</li>
+<li>配置RabbitMQ地址</li>
+<li>利用RabbitTemplate的<code>convertAndSend</code>方法</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.3.1 简单队列 BasicQueue</strong></p>
+<ul>
+<li><p>1对1</p>
+</li>
+<li><p>引入依赖</p>
+</li>
+<li><p>编写publisher，向simple.queue发送消息</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103104251376.png" alt="image-20240103104251376"></p>
+</li>
+<li><p>编写consumer，监听simple.queue</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103104338382.png" alt="image-20240103104338382"></p>
+</li>
+</ul>
+<p><strong>3.3.2 工作队列 WorkQueue</strong> </p>
+<ul>
+<li><p>一个publisher对多个consumer</p>
+<ul>
+<li>可以提高消息处理速度，避免队列消息堆积</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103104739557.png" alt="image-20240103104739557"></p>
+</li>
+<li><p>操作过程同上，只不过consumer中多了几个<code>@RabbitListener</code>注解的方法</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103104948786.png" alt="image-20240103104948786"></p>
+</li>
+</ul>
+<p> <strong>3.3.3 发布、订阅模型</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103105323891.png" alt="image-20240103105323891"></p>
+<ul>
+<li><p>交换机的作用</p>
+<ul>
+<li>接收publisher发送的消息</li>
+<li>将消息按照规则路由到与之绑定的队列</li>
+<li>不能缓存消息，路由失败，消息丢失</li>
+<li>FanoutExchange的会将消息路由到每个绑定的队列</li>
+</ul>
+</li>
+<li><p>声明队列、交换机、绑定关系的Bean</p>
+<ul>
+<li><p>Queue</p>
+</li>
+<li><p>FanoutExchange</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103105928868.png" alt="image-20240103105928868"></p>
+</li>
+<li><p>Binding</p>
+</li>
+</ul>
+</li>
+<li><p>Fanout</p>
+<ul>
+<li><p>所有的队列都能接收</p>
+</li>
+<li><p>demo</p>
+<ul>
+<li>在consumer服务中，利用代码声明队列、交换机，并将两者绑定</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103105732430.png" alt="image-20240103105732430"></p>
+<ul>
+<li>在consumer服务中，编写两个消费者方法，分别监听fanout.queue1和fanout.queue2</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103105804740.png" alt="image-20240103105804740"></p>
+<ul>
+<li>在publisher中编写测试方法，向itcast.fanout发送消息</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103105827347.png" alt="image-20240103105827347"></p>
+</li>
+</ul>
+</li>
+<li><p>Direct</p>
+<ul>
+<li><p>Direct Exchange 会将接收到的消息根据规则路由到指定的Queue，因此称为路由模式（routes）。</p>
+<ul>
+<li>每一个Queue都与Exchange设置一个BindingKey</li>
+<li>发布者发送消息时，指定消息的RoutingKey</li>
+<li>Exchange将消息路由到BindingKey与消息RoutingKey一致的队列</li>
+<li>如果多个队列具有相同的RoutingKey，则与Fanout功能类似</li>
+</ul>
+</li>
+<li><p>demo</p>
+<ul>
+<li><p>在consumer服务中，编写两个消费者方法，分别监听direct.queue1和direct.queue2</p>
+</li>
+<li><p>并利用@RabbitListener声明Exchange、Queue、RoutingKey（<strong>基于注解声明</strong>）</p>
+<p><code>@Queue</code> <code>@Exchange</code></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103110525148.png" alt="image-20240103110525148"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Topic</p>
+<ul>
+<li><p>TopicExchange与DirectExchange类似，区别在于routingKey必须是多个单词的列表，并且以 <strong>.</strong> 分割。</p>
+<p>Queue与Exchange指定BindingKey时可以使用通配符：</p>
+<p>#：代指0个或多个单词</p>
+<p>*：代指一个单词</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103111137943.png" alt="image-20240103111137943"></p>
+</li>
+<li><p>demo</p>
+<ul>
+<li><p>在consumer服务中，编写两个消费者方法，分别监听topic.queue1和topic.queue2，</p>
+</li>
+<li><p>并利用@RabbitListener声明Exchange、Queue、RoutingKey</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103111219907.png" alt="image-20240103111219907"></p>
+</li>
+<li><p>测试</p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103111413444.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/微服务.assets/image-20240103111413444.png</a>“ alt&#x3D;”image-20240103111413444” style&#x3D;”zoom:200%;” &#x2F;&gt;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.3.4 消息转换器</strong></p>
+<ul>
+<li><p>说明：在SpringAMQP的发送方法中，接收消息的类型是Object，也就是说我们可以发送任意对象类型的消息，SpringAMQP会帮我们序列化为字节后发送。</p>
+</li>
+<li><p>Spring的对消息对象的处理是由org.springframework.amqp.support.converter.MessageConverter来处理的。而默认实现是SimpleMessageConverter，<strong>基于JDK的ObjectOutputStream完成序列化</strong></p>
+</li>
+<li><p>注意发送方与接收方<strong>必须</strong>使用相同的MessageConverter</p>
+</li>
+<li><p>JSON方式序列化demo</p>
+<ul>
+<li><p>publisher服务</p>
+<ul>
+<li><p>引入依赖</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103112044867.png" alt="image-20240103112044867"></p>
+</li>
+<li><p>声明MessageConverter</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103112053478.png" alt="image-20240103112053478"></p>
+</li>
+</ul>
+</li>
+<li><p>consumer服务</p>
+<ul>
+<li><p>引入依赖</p>
+<p>同上</p>
+</li>
+<li><p>定义MessageConverter</p>
+<p>同上</p>
+</li>
+<li><p>定义一个消费者，监听object.queue队列并消费消息：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103112140182.png" alt="image-20240103112140182"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="四-分布式搜索引擎-ES基础"><a href="#四-分布式搜索引擎-ES基础" class="headerlink" title="四 分布式搜索引擎-ES基础"></a>四 分布式搜索引擎-ES基础</h2><h3 id="4-1-elasticsearch"><a href="#4-1-elasticsearch" class="headerlink" title="4.1 elasticsearch"></a>4.1 elasticsearch</h3><p><strong>4.1.1 ES</strong></p>
+<ul>
+<li><p>elasticsearch是一款非常强大的开源搜索引擎，可以帮助我们从海量数据中快速找到需要的内容。</p>
+</li>
+<li><p>elasticsearch结合kibana、Logstash、Beats，也就是elastic stack（ELK）。被广泛应用在日志数据分析、实时监控等领域。</p>
+</li>
+<li><p>elasticsearch是elastic stack的核心，负责存储、搜索、分析数据。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103112433668.png" alt="image-20240103112433668"></p>
+</li>
+<li><p>发展</p>
+<ul>
+<li>Lucene是一个Java语言的搜索引擎类库，是Apache公司的顶级项目，由DougCutting于1999年研发。官网地址：<a target="_blank" rel="noopener" href="https://lucene.apache.org/">https://lucene.apache.org/</a> 。<ul>
+<li>优势：易扩展、高性能（基于倒排索引）</li>
+<li>缺点：只限于java、学习曲线陡峭、不支持水平扩展</li>
+</ul>
+</li>
+<li>2004年Shay Banon基于Lucene开发了Compass</li>
+<li>2010年Shay Banon 重写了Compass，取名为Elasticsearch。<ul>
+<li>相比与lucene，elasticsearch具备优势：<ul>
+<li>支持分布式，可水平扩展</li>
+<li>提供Restful接口，可被任何语言调用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>搜索引擎技术排名：<ul>
+<li>Elasticsearch：开源的分布式搜索引擎</li>
+<li>Splunk：商业项目</li>
+<li>Solr：Apache的开源搜索引擎</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>4.1.2 倒排索引</strong></p>
+<ul>
+<li><p>传统数据库（如MySQL）采用正向索引，例如给下表（tb_goods）中的id创建索引：</p>
+</li>
+<li><p>elasticsearch采用倒排索引：</p>
+<ul>
+<li>文档（document）：每条数据就是一个文档</li>
+<li>词条（term）：文档按照语义分成的词语</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103113255736.png" alt="image-20240103113255736"></p>
+</li>
+<li><p>索引</p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103113341607.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/微服务.assets/image-20240103113341607.png</a>“ alt&#x3D;”image-20240103113341607” style&#x3D;”zoom: 50%;” &#x2F;&gt;</p>
+</li>
+<li><p>倒排索引中包含两部分内容：</p>
+<ul>
+<li>词条词典（Term Dictionary）：记录所有词条，以及词条与倒排列表（Posting List）之间的关系，会给词条创建索引，提高查询和插入效率</li>
+<li>倒排列表（Posting List）：记录词条所在的文档id、词条出现频率 、词条在文档中的位置等信息<ul>
+<li>文档id：用于快速获取文档</li>
+<li>词条频率（TF）：文档在词条出现的次数，用于评分</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>4.1.3 es概念</strong></p>
+<ul>
+<li><p>文档：elasticsearch是面向文档存储的，可以是数据库中的一条商品数据，一个订单信息。</p>
+<p>文档数据会被序列化为json格式后存储在elasticsearch中。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103113558677.png" alt="image-20240103113558677"></p>
+</li>
+<li><p>索引（index）：相同类型的文档的集合</p>
+</li>
+<li><p>映射（mapping）：索引中文档的字段约束信息，类似表的结构约束</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103113645260.png" alt="image-20240103113645260"></p>
+</li>
+<li><p>与mysql概念对比</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103113710813.png" alt="image-20240103113710813"></p>
+<ul>
+<li>架构<ul>
+<li>Mysql：擅长事务类型操作，可以确保数据的安全和一致性</li>
+<li>Elasticsearch：擅长海量数据的搜索、分析、计算</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>4.1.4 安装es</strong></p>
+<ul>
+<li><p>创建网络（因为还需要部署kibana容器，因此需要让es和kibana容器互联）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create es-net</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载镜像</p>
+</li>
+<li><p>运行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run -d /</span><br><span class="line">	--name es /</span><br><span class="line">    -e <span class="string">&quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;</span> /</span><br><span class="line">    -e <span class="string">&quot;discovery.type=single-node&quot;</span> /</span><br><span class="line">    -v es-data:/usr/share/elasticsearch/data /</span><br><span class="line">    -v es-plugins:/usr/share/elasticsearch/plugins /</span><br><span class="line">    --privileged /</span><br><span class="line">    --network es-net /</span><br><span class="line">    -p 9200:9200 /</span><br><span class="line">    -p 9300:9300 /</span><br><span class="line">elasticsearch:7.12.1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-e &quot;cluster.name=es-docker-cluster&quot;</code>：设置集群名称</li>
+<li><code>-e &quot;http.host=0.0.0.0&quot;</code>：监听的地址，可以外网访问</li>
+<li><code>-e &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;</code>：内存大小</li>
+<li><code>-e &quot;discovery.type=single-node&quot;</code>：非集群模式</li>
+<li><code>-v es-data:/usr/share/elasticsearch/data</code>：挂载逻辑卷，绑定es的数据目录</li>
+<li><code>-v es-logs:/usr/share/elasticsearch/logs</code>：挂载逻辑卷，绑定es的日志目录</li>
+<li><code>-v es-plugins:/usr/share/elasticsearch/plugins</code>：挂载逻辑卷，绑定es的插件目录</li>
+<li><code>--privileged</code>：授予逻辑卷访问权</li>
+<li><code>--network es-net</code> ：加入一个名为es-net的网络中</li>
+<li><code>-p 9200:9200</code>：端口映射配置</li>
+</ul>
+</li>
+<li><p>在浏览器中输入：<a target="_blank" rel="noopener" href="http://192.168.71.22:9200/">http://192.168.71.22:9200</a> 即可看到elasticsearch的响应结果（虚拟机地址）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103140928420.png" alt="image-20240103140928420"></p>
+</li>
+</ul>
+<p><strong>4.1.5 安装kibana</strong></p>
+<ul>
+<li><p>kibana可以给我们提供一个elasticsearch的可视化界面，便于我们学习。</p>
+</li>
+<li><p>运行docker命令，部署kibana</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d /</span><br><span class="line">--name kibana /</span><br><span class="line">-e ELASTICSEARCH_HOSTS=http://es:9200 /</span><br><span class="line">--network=es-net /</span><br><span class="line">-p 5601:5601  /</span><br><span class="line">kibana:7.12.1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>--network es-net</code> ：加入一个名为es-net的网络中，<strong>与elasticsearch在同一个网络中</strong></li>
+<li><code>-e ELASTICSEARCH_HOSTS=http://es:9200&quot;</code>：设置elasticsearch的地址，因为kibana已经与elasticsearch在一个网络，因此可以用容器名直接访问elasticsearch</li>
+<li><code>-p 5601:5601</code>：端口映射配置</li>
+</ul>
+<p>kibana启动一般比较慢，需要多等待一会，可以通过命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f kibana</span><br></pre></td></tr></table></figure>
+
+<p>此时，在浏览器输入地址访问：<a href="http://192.168.71.22:5601，即可看到结果">http://192.168.71.22:5601，即可看到结果</a></p>
+</li>
+</ul>
+<p><strong>4.1.6 分词器</strong></p>
+<ul>
+<li><p>es在创建倒排索引时需要对文档分词；在搜索时，需要对用户输入内容分词。但默认的分词规则对中文处理并不友好</p>
+</li>
+<li><p>处理中文分词，一般会使用IK分词器。<a target="_blank" rel="noopener" href="https://github.com/medcl/elasticsearch-analysis-ik">https://github.com/medcl/elasticsearch-analysis-ik</a></p>
+</li>
+<li><p>安装IK分词器</p>
+<ul>
+<li><p>查看elasticsearch的数据卷目录，通过下面命令查看:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume inspect es-plugins</span><br></pre></td></tr></table></figure>
+
+<p>显示结果：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;CreatedAt&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2022-05-06T10:06:34+08:00&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Driver&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Labels&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Mountpoint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/var/lib/docker/volumes/es-plugins/_data&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;es-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Options&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Scope&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<p>说明plugins目录被挂载到了：<code>/var/lib/docker/volumes/es-plugins/_data </code>这个目录中。</p>
+</li>
+</ul>
+</li>
+<li><p>ik分词器包含两种模式：</p>
+<ul>
+<li>ik_smart：最少切分，粗粒度</li>
+<li>ik_max_word：最细切分，细粒度</li>
+</ul>
+</li>
+<li><p>扩展ik分词器</p>
+<ul>
+<li><p>需要修改一个ik分词器目录中的config目录中的IkAnalyzer.cfg.xml文件：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103144534741.png" alt="image-20240103144534741"></p>
+</li>
+<li><p>然后在名为ext.dic的文件中，添加想要拓展的词语即可：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103144548866.png" alt="image-20240103144548866"></p>
+</li>
+<li><p>要禁用某些敏感词条，只需要修改一个ik分词器目录中的config目录中的IkAnalyzer.cfg.xml文件：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103144612795.png" alt="image-20240103144612795"></p>
+</li>
+<li><p>然后在名为stopword.dic的文件中，添加想要拓展的词语即可：</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-索引库操作（数据列）"><a href="#4-2-索引库操作（数据列）" class="headerlink" title="4.2 索引库操作（数据列）"></a>4.2 索引库操作（数据列）</h3><p><strong>4.2.1 mapping映射属性</strong></p>
+<ul>
+<li>mapping是对索引库中文档的约束，常见的mapping属性包括：<ul>
+<li>type：字段数据类型，常见的简单类型有：<ul>
+<li>字符串：text（可分词的文本）、keyword（精确值，例如：品牌、国家、ip地址）</li>
+<li>数值：long、integer、short、byte、double、float、</li>
+<li>布尔：boolean</li>
+<li>日期：date</li>
+<li>对象：object</li>
+</ul>
+</li>
+<li>index：是否创建索引，默认为true</li>
+<li>analyzer：使用哪种分词器</li>
+<li>properties：该字段的子字段</li>
+</ul>
+</li>
+<li>注意：<strong>没有数组类型！</strong>一个数组的类型就是里面的元素的类型</li>
+</ul>
+<p><strong>4.2.2 索引库的CRUD</strong></p>
+<ul>
+<li><p>ES中通过Restful请求操作索引库、文档。请求内容用DSL语句来表示。</p>
+</li>
+<li><p>创建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT/索引名</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103145350802.png" alt="image-20240103145350802"></p>
+</li>
+<li><p>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET/索引名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET/heima</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE/索引名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE/heima</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改</p>
+<p>索引库和mapping一旦创建无法修改，但是可以添加新的字段，语法如下：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103145726938.png" alt="image-20240103145726938"></p>
+</li>
+</ul>
+<h3 id="4-3-文档操作（数据行）"><a href="#4-3-文档操作（数据行）" class="headerlink" title="4.3 文档操作（数据行）"></a>4.3 文档操作（数据行）</h3><ul>
+<li><p>新增DSL语法：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103150027876.png" alt="image-20240103150027876"></p>
+</li>
+<li><p>查看</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103150041337.png" alt="image-20240103150041337"></p>
+</li>
+<li><p>删除</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103150046451.png" alt="image-20240103150046451"></p>
+</li>
+<li><p>修改</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103150055547.png" alt="image-20240103150055547"></p>
+</li>
+</ul>
+<h3 id="4-4-RestAPI"><a href="#4-4-RestAPI" class="headerlink" title="4.4 RestAPI"></a>4.4 RestAPI</h3><ul>
+<li><p>本质：组装DSL语句，通过http请求发送给ES。</p>
+</li>
+<li><p>官方文档地址：<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/client/index.html">https://www.elastic.co/guide/en/elasticsearch/client/index.html</a></p>
+</li>
+<li><p>mapping要考虑的问题：</p>
+<ul>
+<li>字段名、数据类型、是否参与搜索、是否分词、如果分词，分词器是什么？</li>
+</ul>
+</li>
+<li><p>demo</p>
+<ul>
+<li><p>引入依赖</p>
+</li>
+<li><p>覆盖默认的版本（SpringBoot默认的ES版本是7.6.2）</p>
+</li>
+<li><p>初始化<code>RestHighLevelClient</code></p>
+</li>
+<li><p>创建索引库</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103152832560.png" alt="image-20240103152832560"></p>
+</li>
+<li><p>删除索引库</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103153003864.png" alt="image-20240103153003864"></p>
+</li>
+<li><p>判断索引库是否存在</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103153016572.png" alt="image-20240103153016572"></p>
+</li>
+</ul>
+</li>
+<li><p>总结索引库基本操作</p>
+<ul>
+<li>初始化RestHighLevelClient</li>
+<li>创建XxxIndexRequest。XXX是Create、Get、Delete</li>
+<li>准备DSL（ Create时需要）</li>
+<li>发送请求。调用RestHighLevelClient#indices().xxx()方法，xxx是create、exists、delete</li>
+</ul>
+</li>
+<li><p>操作文档demo</p>
+<ul>
+<li><p>初始化<code>JavaRestClient</code></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103153657357.png" alt="image-20240103153657357"></p>
+</li>
+<li><p>添加数据到索引库</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103153720102.png" alt="image-20240103153720102"></p>
+</li>
+<li><p>查询</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103153738121.png" alt="image-20240103153738121"></p>
+</li>
+<li><p>修改</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103153806395.png" alt="image-20240103153806395"></p>
+</li>
+<li><p>删除</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103153819637.png" alt="image-20240103153819637"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-5-批量导入数据到ES"><a href="#4-5-批量导入数据到ES" class="headerlink" title="4.5 批量导入数据到ES"></a>4.5 批量导入数据到ES</h3><ul>
+<li>利用mp查询数据库中所以数据</li>
+<li>将查询到的数据转换为文档类型数据</li>
+<li>利用JavaRestClient中的Bulk批量处理，实现批量新增文档</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103154713082.png" alt="image-20240103154713082"></p>
+<h2 id="五-分布式搜索引擎-ES功能"><a href="#五-分布式搜索引擎-ES功能" class="headerlink" title="五 分布式搜索引擎-ES功能"></a>五 分布式搜索引擎-ES功能</h2><h3 id="5-1-DSL查询文档"><a href="#5-1-DSL查询文档" class="headerlink" title="5.1 DSL查询文档"></a>5.1 DSL查询文档</h3><p><strong>5.1.1 DSL查询分类</strong></p>
+<ul>
+<li><p>Elasticsearch提供了基于JSON的DSL（<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html">Domain Specific Language</a>）来定义查询。常见的查询类型包括：</p>
+<ul>
+<li>查询所有：查询出所有数据，一般测试用。例如：<ul>
+<li>match_all</li>
+</ul>
+</li>
+<li>全文检索（full text）查询：利用分词器对用户输入内容分词，然后去倒排索引库中匹配。例如：<ul>
+<li>match_query</li>
+<li>multi_match_query</li>
+</ul>
+<p>	</p>
+</li>
+<li>精确查询：根据精确词条值查找数据，一般是查找keyword、数值、日期、boolean等类型字段。例如：<ul>
+<li>ids</li>
+<li>range</li>
+<li>term</li>
+</ul>
+</li>
+<li>地理（geo）查询：根据经纬度查询。例如：<ul>
+<li>geo_distance</li>
+<li>geo_bounding_box</li>
+</ul>
+</li>
+<li>复合（compound）查询：复合查询可以将上述各种查询条件组合起来，合并查询条件。例如：<ul>
+<li>bool</li>
+<li>function_score</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>基本语法</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103155740961.png" alt="image-20240103155740961"></p>
+</li>
+</ul>
+<p><strong>5.1.2 全文检索查询</strong></p>
+<ul>
+<li><p>match查询：全文检索查询的一种，会对用户输入内容分词，然后去倒排索引库检索</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103160140156.png" alt="image-20240103160140156"></p>
+</li>
+<li><p>multi_match查询：与match查询类似，只不过允许同时查询多个字段</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103160148178.png" alt="image-20240103160148178"></p>
+<ul>
+<li>注意：参与查询字段越多，查询性能越差</li>
+</ul>
+<p><strong>5.1.3 精确查询</strong></p>
+<ul>
+<li>精确查询一般是查找keyword、数值、日期、boolean等类型字段。所以不会对搜索条件分词。常见的<ul>
+<li>term：根据词条精确值查询</li>
+<li>range：根据值的范围查询</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103160316148.png" alt="image-20240103160316148"></p>
+<p><strong>5.1.4 地理坐标查询</strong></p>
+<ul>
+<li><p>geo_bounding_box：查询geo_point值落在某个矩形范围的所有文档</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103160638139.png" alt="image-20240103160638139"></p>
+</li>
+<li><p>geo_distance：查询到指定中心点小于某个距离值的所有文档</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103160643510.png" alt="image-20240103160643510"></p>
+<p><strong>5.1.5 组合查询</strong></p>
+<ul>
+<li><p>复合查询可以将其它简单查询组合起来，实现更复杂的搜索逻辑</p>
+<ul>
+<li>算法查询</li>
+<li>布尔查询</li>
+</ul>
+</li>
+<li><p>fuction score：算分函数查询，可以控制文档相关性算分，控制文档排名。例如百度竞价</p>
+<ul>
+<li>使用 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-function-score-query.html">function score query</a>，可以修改文档的相关性算分（query score），根据新得到的算分排序。</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103161413262.png" alt="image-20240103161413262"></p>
+</li>
+<li><p>算分demo：让”如家“这个酒店的排名靠前一点</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103161818213.png" alt="image-20240103161818213"></p>
+</li>
+<li><p>布尔查询 Boolean Query：是一个或多个查询子句的组合。子查询的组合方式有：</p>
+<ul>
+<li>must：必须匹配每个子查询，类似“与”</li>
+<li>should：选择性匹配子查询，类似“或”</li>
+<li>must_not：必须不匹配，不参与算分，类似“非”</li>
+<li>filter：必须匹配，不参与算分</li>
+</ul>
+</li>
+<li><p>布尔查询demo</p>
+<ul>
+<li><p>搜索名字包含“如家”，价格不高于400，在坐标31.21,121.5周围10km范围内的酒店。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103161955639.png" alt="image-20240103161955639"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-搜索结果处理"><a href="#5-2-搜索结果处理" class="headerlink" title="5.2 搜索结果处理"></a>5.2 搜索结果处理</h3><p><strong>5.2.1排序</strong> </p>
+<ul>
+<li><p>elasticsearch支持对搜索<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html">结果排序</a>，默认是根据相关度算分（_score）来排序。可以排序字段类型有：keyword类型、数值类型、地理坐标类型、日期类型等。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103195008278.png" alt="image-20240103195008278"></p>
+</li>
+</ul>
+<p><strong>5.2.2 分页</strong></p>
+<ul>
+<li><p>elasticsearch 默认情况下只返回top10的数据。而如果要查询更多数据就需要修改分页参数了。</p>
+<ul>
+<li><p>elasticsearch中通过修改from、size参数来控制要返回的分页结果：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103195101351.png" alt="image-20240103195101351"></p>
+</li>
+</ul>
+</li>
+<li><p>深度分页问题：ES是分布式的，所以会面临深度分页问题。例如按price排序后，获取from &#x3D; 990，size &#x3D;10的数据。</p>
+<ul>
+<li><p>首先在每个数据分片上都排序并查询前1000条文档。</p>
+</li>
+<li><p>然后将所有节点的结果聚合，在内存中重新排序选出前1000条文档</p>
+</li>
+<li><p>最后从这1000条中，选取从990开始的10条文档</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103195521711.png" alt="image-20240103195521711"></p>
+</li>
+<li><p>问题：如果搜索页数过深，或者结果集（from + size）越大，对内存和CPU的消耗也越高。因此ES设定结果集查询的上限是10000</p>
+</li>
+</ul>
+</li>
+<li><p>深度分页问题解决方案</p>
+<ul>
+<li>方案一：search after：分页时需要排序，原理是从上一次的排序值开始，查询下一页数据。官方推荐使用的方式。<ul>
+<li>优点：没有查询上限（单次查询的size不超过10000）</li>
+<li>缺点：只能向后逐页查询，不支持随机翻页</li>
+<li>场景：没有随机翻页需求的搜索，例如手机向下滚动翻页</li>
+</ul>
+</li>
+<li>方案二：scroll：原理将排序数据形成快照，保存在内存。官方已经<strong>不推荐使用</strong>。<ul>
+<li>优点：没有查询上限（单次查询的size不超过10000）</li>
+<li>缺点：会有额外内存消耗，并且搜索结果是非实时的</li>
+<li>场景：海量数据的获取和迁移。从ES7.1开始不推荐，建议用 after search方案。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>5.2.3 高亮</strong></p>
+<ul>
+<li><p>就是在搜索结果中把搜索关键字突出显示</p>
+</li>
+<li><p>原理</p>
+<ul>
+<li>将搜索结果中的关键字用标签标记出来</li>
+<li>在页面中给标签添加css样式</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103195936333.png" alt="image-20240103195936333"></p>
+</li>
+</ul>
+<p><strong>5.2.4 搜索结果处理整体语法</strong></p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103200025546.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/微服务.assets/image-20240103200025546.png</a>“ alt&#x3D;”image-20240103200025546” style&#x3D;”zoom: 50%;” &#x2F;&gt;</p>
+<h3 id="5-3-RestClient查询文档及结果处理"><a href="#5-3-RestClient查询文档及结果处理" class="headerlink" title="5.3 RestClient查询文档及结果处理"></a>5.3 RestClient查询文档及结果处理</h3><p><strong>5.3.1 demo</strong></p>
+<ul>
+<li><p>查询</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103200555989.png" alt="image-20240103200555989"></p>
+<ul>
+<li>RestAPI中其中构建DSL是通过HighLevelRestClient中的<code>source()</code>来实现的，其中包含了查询、排序、分页、高亮</li>
+<li>RestAPI中其中构建查询条件的核心部分是由一个名为<code>QueryBuilders</code>的工具类提供的，其中包含了各种查询方法</li>
+</ul>
+</li>
+<li><p>解析结果</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103200715615.png" alt="image-20240103200715615"></p>
+</li>
+</ul>
+<p><strong>5.3.2 match查询</strong></p>
+<ul>
+<li><p>全文检索的match和multi_match查询与match_all的API基本一致。差别是查询条件，也就是query的部分。</p>
+<p>同样是利用QueryBuilders提供的方法：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103201338183.png" alt="image-20240103201338183"></p>
+</li>
+</ul>
+<p><strong>5.3.3 精确查询</strong></p>
+<ul>
+<li><p>精确查询常见的有term查询和range查询，同样利用QueryBuilders实现：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103201405792.png" alt="image-20240103201405792"></p>
+</li>
+</ul>
+<p><strong>5.3.4 复合查询</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103201429642.png" alt="image-20240103201429642"></p>
+<p><strong>5.3.5 排序、分页、高亮</strong></p>
+<ul>
+<li><p>排序和分页</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103201551392.png" alt="image-20240103201551392"></p>
+</li>
+<li><p>高亮</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103201614192.png" alt="image-20240103201614192"></p>
+</li>
+<li><p>高亮结果解析</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240103201719261.png" alt="image-20240103201719261"></p>
+</li>
+</ul>
+<p><strong>5.3.6 总结</strong></p>
+<ul>
+<li>要构建查询条件，只要记住一个类：<strong>QueryBuilders</strong></li>
+</ul>
+<h3 id="5-4-黑马旅游案例"><a href="#5-4-黑马旅游案例" class="headerlink" title="5.4 黑马旅游案例"></a>5.4 黑马旅游案例</h3><p><strong>5.4.1 关键字搜索功能</strong></p>
+<ul>
+<li><p>定义实体类</p>
+</li>
+<li><p>定义<code>Controller</code>，接收页面请求，调用<code>Service</code>对象的<code>search()</code>方法</p>
+</li>
+<li><p>在<code>Service</code>中的<code>search()</code>方法中实现查询，利用<code>match</code>查询实现根据关键字搜索酒店信息</p>
+</li>
+</ul>
+<p><strong>5.4.2 添加品牌、城市、星级、价格等过滤功能</strong></p>
+<ul>
+<li>修改RequestParams类，添加brand、city、starName、minPrice、maxPrice等参数</li>
+<li>修改search方法的实现，在关键字搜索时，如果brand等参数存在，对其做过滤</li>
+</ul>
+<p><strong>5.4.3 附近的酒店功能</strong></p>
+<ul>
+<li>前端发送位置，返回一个List</li>
+<li>修改RequestParams参数，接收location字段</li>
+<li>修改search方法业务逻辑，如果location有值，添加根据geo_distance排序的功能</li>
+</ul>
+<p><strong>5.4.4 让指定的酒店在搜索结果中排名置顶</strong></p>
+<ul>
+<li>给HotelDoc类添加isAD字段，Boolean类型</li>
+<li>挑选几个你喜欢的酒店，给它的文档数据添加isAD字段，值为true</li>
+<li>修改search方法，添加function score功能，给isAD值为true的酒店增加权重</li>
+</ul>
+<h2 id="六-分布式搜索引擎-ES深入"><a href="#六-分布式搜索引擎-ES深入" class="headerlink" title="六 分布式搜索引擎-ES深入"></a>六 分布式搜索引擎-ES深入</h2><h3 id="6-1-数据聚合"><a href="#6-1-数据聚合" class="headerlink" title="6.1 数据聚合"></a>6.1 数据聚合</h3><p><strong>6.1.1 聚合的种类</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">聚合（</a><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">aggregations</a><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html">）</a>可以实现对文档数据的统计、分析、运算。聚合常见的有三类：<ul>
+<li>桶（Bucket）聚合：用来对文档做分组<ul>
+<li>TermAggregation：按照文档字段值分组</li>
+<li>Date Histogram：按照日期阶梯分组，例如一周为一组，或者一月为一组</li>
+</ul>
+</li>
+<li>度量（Metric）聚合：用以计算一些值，比如：最大值、最小值、平均值等</li>
+<li>管道（pipeline）聚合：其它聚合的结果为基础做聚合</li>
+</ul>
+</li>
+<li>参与聚合的字段类型必须是<ul>
+<li>keyword</li>
+<li>数值</li>
+<li>日期</li>
+<li>布尔</li>
+</ul>
+</li>
+</ul>
+<p><strong>6.1.2 DSL实现聚合</strong></p>
+<ul>
+<li><p>DSL实现Bucket聚合</p>
+<ul>
+<li><p>要统计所有数据中的酒店品牌有几种，此时可以根据酒店品牌的名称做聚合。</p>
+<p>类型为term类型，DSL示例：</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104100925547.png" alt="image-20240104100925547"></p>
+<ul>
+<li><p>默认情况下，Bucket聚合会统计Bucket内的文档数量，记为_count，并且按照_count降序排序。</p>
+<p>我们可以修改结果排序方式：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104101351875.png" alt="image-20240104101351875"></p>
+</li>
+<li><p>默认情况下，Bucket聚合是对索引库的所有文档做聚合，我们可以限定要聚合的文档范围，只要添加query条件即可</p>
+<ul>
+<li>aggs代表聚合，与query同级，此时query的作用是：限定聚合的的文档范围</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104101408268.png" alt="image-20240104101408268"></p>
+</li>
+</ul>
+</li>
+<li><p>DSL实现Metrics聚合</p>
+<ul>
+<li><p>例如，我们要求获取每个品牌的用户评分的min、max、avg等值.</p>
+<p>我们可以利用stats聚合</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104101528768.png" alt="image-20240104101528768"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>6.1.3 Rest API实现聚合</strong></p>
+<ul>
+<li><p>请求组装</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104101950558.png" alt="image-20240104101950558"></p>
+</li>
+<li><p>结果解析 </p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104102038015.png" alt="image-20240104102038015"></p>
+</li>
+</ul>
+<h3 id="6-2-自动补全"><a href="#6-2-自动补全" class="headerlink" title="6.2 自动补全"></a>6.2 自动补全</h3><p><strong>6.2.1 拼音分词器</strong></p>
+<ul>
+<li>安装与IK分词器一样<ul>
+<li>下载pinyin分词器</li>
+<li>解压放到es的plugin目录</li>
+<li>重启</li>
+</ul>
+</li>
+</ul>
+<p><strong>6.2.2 自定义分词器</strong></p>
+<ul>
+<li><p>elasticsearch中分词器（analyzer）的组成包含三部分：</p>
+<ul>
+<li>character filters：在tokenizer之前对文本进行处理。例如删除字符、替换字符</li>
+<li>tokenizer：将文本按照一定的规则切割成词条（term）。例如keyword，就是不分词；还有ik_smart</li>
+<li>tokenizer filter：将tokenizer输出的词条做进一步处理。例如大小写转换、同义词处理、拼音处理等</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104104009496.png" alt="image-20240104104009496"></p>
+</li>
+<li><p>在创建索引库的时候，通过settings来配置自定义的analyzer（分词器）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104104148463.png" alt="image-20240104104148463"></p>
+</li>
+<li><p>自定义分词器步骤</p>
+<ul>
+<li>创建索引库的时候，在settings中配置，可以包含三部分</li>
+<li>character filter</li>
+<li>tokenizer</li>
+<li>filter</li>
+</ul>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li>为避免搜索到同音字，搜索时不要使用拼音分词器</li>
+</ul>
+</li>
+</ul>
+<p><strong>6.2.3 自动补全查询</strong></p>
+<ul>
+<li><p>elasticsearch提供了<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.6/search-suggesters.html">Completion Suggester</a>查询来实现自动补全功能。这个查询会匹配以用户输入内容开头的词条并返回。为了提高补全查询的效率，对于文档中字段的类型有一些约束：</p>
+<ul>
+<li><p>参与补全查询的字段必须是completion类型。</p>
+</li>
+<li><p>字段的内容一般是用来补全的多个词条形成的数组。</p>
+</li>
+</ul>
+<p>  <img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104105159950.png" alt="image-20240104105159950"></p>
+</li>
+<li><p>查询语法</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104105214066.png" alt="image-20240104105214066"></p>
+</li>
+</ul>
+<p><strong>6.2.4 实现搜索框自动补全</strong></p>
+<ul>
+<li>思路<ul>
+<li>修改hotel索引库结构，设置自定义拼音分词器</li>
+<li>修改索引库的name、all字段，使用自定义分词器</li>
+<li>索引库添加一个新字段suggestion，类型为completion类型，使用自定义的分词器</li>
+<li>给HotelDoc类添加suggestion字段，内容包含brand、business</li>
+<li>重新导入数据到hotel库</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-3-数据同步"><a href="#6-3-数据同步" class="headerlink" title="6.3 数据同步"></a>6.3 数据同步</h3><ul>
+<li>elasticsearch中的酒店数据来自于mysql数据库，因此mysql数据发生改变时，elasticsearch也必须跟着改变，这个就是elasticsearch与mysql之间的<strong>数据同步</strong>。</li>
+</ul>
+<p><strong>6.3.1 思路分析</strong></p>
+<ul>
+<li><p>方案一：同步调用</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104141643452.png" alt="image-20240104141643452"></p>
+<ul>
+<li>简单粗暴。但是业务耦合，影响性能</li>
+</ul>
+</li>
+<li><p>方案二：异步通知</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104141758549.png" alt="image-20240104141758549"></p>
+<ul>
+<li>解决了业务耦合问题（推荐），但是依赖于MQ的可靠性</li>
+</ul>
+</li>
+<li><p>方案三：监听binlog</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104141844829.png" alt="image-20240104141844829"></p>
+<ul>
+<li>完全解除服务间耦合，但是开启binlog增加数据库负担，实现复杂度高</li>
+</ul>
+</li>
+</ul>
+<p><strong>6.3.2 利用MQ实现ES与数据库的数据同步</strong></p>
+<ul>
+<li>目标：当酒店数据发生增、删、改时，要求对elasticsearch中数据也要完成相同操作。</li>
+<li>步骤<ul>
+<li>导入工程完成数据的CRUD</li>
+<li>声明exchange、queue、RoutingKey<ul>
+<li>配置文件中定义好rabbitmq的配置（host、port、username、password、virtual-host）</li>
+<li>声明一个配置类，在里面定义交换机(1个)、队列(2个)及他们的绑定关系(2个)的bean</li>
+</ul>
+</li>
+<li>在hotel-admin中的增、删、改业务中完成消息发送<ul>
+<li>在service中修改or Controller中</li>
+<li>调用RabbieTemplate中发送消息，消息内容是对象的id(不发送整个对象，耗内存)</li>
+</ul>
+</li>
+<li>在hotel-demo中完成消息监听，并更新elasticsearch中数据<ul>
+<li>在新建一个类，单独完成mq的消息监听</li>
+<li>在方法上使用<code>@RabbitListener</code>定义好监听的队列</li>
+<li>完成方法内容：根据id查询内容、准备Request、准备DSL、准备发送请求…</li>
+</ul>
+</li>
+<li>启动并测试数据同步功能</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104142241296.png" alt="image-20240104142241296"></p>
+<h3 id="6-4-集群"><a href="#6-4-集群" class="headerlink" title="6.4 集群"></a>6.4 集群</h3><p><strong>6.4.1 搭建ES集群</strong></p>
+<ul>
+<li><p>单机的elasticsearch做数据存储，必然面临两个问题：海量数据存储问题、单点故障问题。</p>
+<ul>
+<li>海量数据存储问题：将索引库从逻辑上拆分为N个分片（shard），存储到多个节点</li>
+<li>单点故障问题：将分片数据在不同节点备份（replica）</li>
+</ul>
+</li>
+<li><p>计划使用3个docker容器模拟3个es节点</p>
+</li>
+<li><p>集群节点不同的职责划分</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104152132396.png" alt="image-20240104152132396"></p>
+</li>
+</ul>
+<p><strong>6.4.2 集群脑裂问题</strong></p>
+<ul>
+<li>默认情况下，每个节点都是master eligible节点，因此一旦master节点宕机，其它候选节点会选举一个成为主节点。当主节点与其他节点网络故障时，可能发生脑裂问题。</li>
+<li>为了避免脑裂，需要要求选票超过 ( eligible节点数量 + 1 ）&#x2F; 2 才能当选为主，因此eligible节点数量最好是奇数。对应配置项是discovery.zen.minimum_master_nodes，在es7.0以后，已经成为默认配置，因此一般不会发生脑裂问题</li>
+</ul>
+<p><strong>6.4.3 集群分布式存储</strong></p>
+<ul>
+<li><p>当新增文档时，应该保存到不同分片，保证数据均衡，那么coordinating node如何确定数据该存储到哪个分片呢？</p>
+</li>
+<li><p>elasticsearch会通过hash算法来计算文档应该存储到哪个分片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shard = hash(_routing) % number_of_shards</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>_routing默认是文档的id</li>
+<li>算法与分片数量有关，因此索引库一旦创建，分片数量不能修改！</li>
+</ul>
+</li>
+<li><p>新增文档流程</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104152927610.png" alt="image-20240104152927610"></p>
+</li>
+</ul>
+<p><strong>6.4.4 集群分布式查询</strong></p>
+<ul>
+<li><p>elasticsearch的查询分成两个阶段：</p>
+<ul>
+<li><p>scatter phase：分散阶段，coordinating node会把请求分发到每一个分片</p>
+</li>
+<li><p>gather phase：聚集阶段，coordinating node汇总data node的搜索结果，并处理为最终结果集返回给用户</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104153007367.png" alt="image-20240104153007367"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>6.4.5 集群故障转移</strong></p>
+<ul>
+<li><p>集群的master节点会监控集群中的节点状态，如果发现有节点宕机，会立即将宕机节点的分片数据迁移到其它节点，确保数据安全，这个叫做故障转移。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104152830283.png" alt="image-20240104152830283"></p>
+</li>
+</ul>
+<h1 id="Ⅱ-高级"><a href="#Ⅱ-高级" class="headerlink" title="Ⅱ 高级"></a>Ⅱ 高级</h1><h2 id="一-微服务保护"><a href="#一-微服务保护" class="headerlink" title="一 微服务保护"></a>一 微服务保护</h2><h3 id="1-1-Sentinel"><a href="#1-1-Sentinel" class="headerlink" title="1.1 Sentinel"></a>1.1 Sentinel</h3><p><strong>1.1.1 雪崩问题及解决方案</strong></p>
+<ul>
+<li><p>微服务调用链路中的某个服务故障，引起整个链路中的所有微服务都不可用，这就是<strong>雪崩</strong>。</p>
+</li>
+<li><p>解决雪崩问题的常见方式</p>
+<ul>
+<li>超时处理：设定超时时间，请求超过一定时间没有响应就返回错误信息，不会无休止等待</li>
+<li>舱壁模式：限定每个业务能使用的线程数，避免耗尽整个tomcat的资源，因此也叫线程隔离。</li>
+<li>熔断降级：由<strong>断路器</strong>统计业务执行的异常比例，如果超出阈值则会<strong>熔断</strong>该业务，拦截访问该业务的一切请求。</li>
+<li>流量控制：限制业务访问的QPS，避免服务因流量的突增而故障。</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.1.2 服务保护技术对比</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104154746183.png" alt="image-20240104154746183"></p>
+<p><strong>1.1.3 Sentinel简介</strong></p>
+<ul>
+<li><p>Sentinel是阿里巴巴开源的一款微服务流量控制组件。</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li><p><strong>丰富的应用场景</strong>：Sentinel 承接了阿里巴巴近 10 年的双十一大促流量的核心场景，例如秒杀（即突发流量控制在系统容量可以承受的范围）、消息削峰填谷、集群流量控制、实时熔断下游不可用应用等。</p>
+</li>
+<li><p><strong>完备的实时监控</strong>：Sentinel 同时提供实时的监控功能。您可以在控制台中看到接入应用的单台机器秒级数据，甚至 500 台以下规模的集群的汇总运行情况。</p>
+</li>
+<li><p><strong>广泛的开源生态</strong>：Sentinel 提供开箱即用的与其它开源框架&#x2F;库的整合模块，例如与 Spring Cloud、Dubbo、gRPC 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。</p>
+</li>
+<li><p><strong>完善的</strong> <strong>SPI</strong> <strong>扩展点</strong>：Sentinel 提供简单易用、完善的 SPI 扩展接口。您可以通过实现扩展接口来快速地定制逻辑。例如定制规则管理、适配动态数据源等。</p>
+</li>
+</ul>
+</li>
+<li><p>安装sentinel控制台</p>
+<ul>
+<li><p>github下载jar包</p>
+</li>
+<li><p>运行jar包，访问localhost:8080</p>
+</li>
+<li><p>默认的账号密码为：sentinel</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104160300047.png" alt="image-20240104160300047"></p>
+</li>
+<li><p>修改配置项</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104160330932.png" alt="image-20240104160330932"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar sentinel-dashboard-1.8.1.jar -Dserver.port=8090</span><br></pre></td></tr></table></figure>
+
+<p>修改端口</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.1.4 微服务整合Sentinel</strong></p>
+<ul>
+<li><p>引入demo工程</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104160450077.png" alt="image-20240104160450077"></p>
+</li>
+<li><p>在order-service中整合sentinel，并连接控制台</p>
+<ul>
+<li><p>引入sentinel依赖</p>
+</li>
+<li><p>配置控制台地址</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104160713177.png" alt="image-20240104160713177"></p>
+</li>
+<li><p>访问微服务的任意端点，触发sentinel监控</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-流量控制"><a href="#1-2-流量控制" class="headerlink" title="1.2 流量控制"></a>1.2 流量控制</h3><ul>
+<li><p>簇点链路：就是项目内的调用链路，链路中被监控的每个接口就是一个资源。默认情况下sentinel会监控SpringMVC的每一个端点（Endpoint），因此SpringMVC的每一个端点（Endpoint）就是调用链路中的一个资源。</p>
+<p>流控、熔断等都是针对簇点链路中的资源来设置的，因此我们可以点击对应资源后面的按钮来设置规则：</p>
+</li>
+</ul>
+<p><strong>1.2.1 demo</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104161257305.png" alt="image-20240104161257305"></p>
+<ul>
+<li>可以使用jemeter测试：</li>
+</ul>
+<p><strong>1.2.2 流控模式</strong></p>
+<ul>
+<li><p>在添加限流规则时，点击高级选项，可以选择三种流控模式：</p>
+<ul>
+<li><strong>直接</strong>：统计当前资源的请求，触发阈值时对当前资源直接限流，也是默认的模式</li>
+<li><strong>关联</strong>：统计与当前资源相关的另一个资源，触发阈值时，对当前资源限流<ul>
+<li>比如用户支付时需要修改订单状态，同时用户要查询订单。查询和修改操作会争抢数据库锁，产生竞争。业务需求是有限支付和更新订单的业务，因此当修改订单业务触发阈值时，需要对查询订单业务限流。</li>
+</ul>
+</li>
+<li><strong>链路</strong>：统计从指定链路访问到本资源的请求，触发阈值时，对指定链路限流</li>
+</ul>
+</li>
+<li><p>Sentinel默认只标记Controller中的方法为资源，如果要标记其它方法，需要利用@SentinelResource注解，示例：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104161939675.png" alt="image-20240104161939675"></p>
+</li>
+<li><p>Sentinel默认会将Controller方法做context整合，导致链路模式的流控失效，需要修改application.yml，添加配置：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104161958558.png" alt="image-20240104161958558"></p>
+</li>
+</ul>
+<p><strong>1.2.3 流控效果</strong></p>
+<ul>
+<li>流控效果是指请求达到流控阈值时应该采取的措施，包括三种：<ul>
+<li>快速失败：达到阈值后，新的请求会被立即拒绝并抛出FlowException异常。是默认的处理方式。</li>
+<li>warm up：预热模式，对超出阈值的请求同样是拒绝并抛出异常。但这种模式阈值会动态变化，从一个较小值逐渐增加到最大阈值。<ul>
+<li>例如，我设置QPS的threshold为10，预热时间为5秒，那么初始阈值就是 10 &#x2F; 3 ，也就是3，然后在5秒后逐渐增长到10.</li>
+</ul>
+</li>
+<li>排队等待：让所有的请求按照先后次序排队执行，两个请求的间隔不能小于指定时长</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.2.4 热点参数限流</strong></p>
+<ul>
+<li><p>之前的限流是统计访问某个资源的所有请求，判断是否超过QPS阈值。而热点参数限流是分别统计参数值相同的请求，判断是否超过QPS阈值。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104163235566.png" alt="image-20240104163235566"></p>
+</li>
+<li><p>配置示例</p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104163329088.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/微服务.assets/image-20240104163329088.png</a>“ alt&#x3D;”image-20240104163329088” style&#x3D;”zoom:50%;” &#x2F;&gt;</p>
+</li>
+<li><p>注意：热点参数限流对默认的springMVC资源无效</p>
+<p>在Controller上添加注解 <code>@SentinelResource(&quot;hot&quot;)</code> ，其中hot是自定义名称</p>
+</li>
+</ul>
+<h3 id="1-3-隔离和降级"><a href="#1-3-隔离和降级" class="headerlink" title="1.3 隔离和降级"></a>1.3 隔离和降级</h3><ul>
+<li>虽然限流可以尽量避免因高并发而引起的服务故障，但服务还会因为其它原因而故障。而要将这些故障控制在一定范围，避免雪崩，就要靠线程隔离（舱壁模式）和熔断降级手段了。</li>
+<li>不管是线程隔离还是熔断降级，都是对客户端（调用方）的保护。</li>
+</ul>
+<p><strong>1.3.1 FeignClient整合Sentinel</strong></p>
+<ul>
+<li><p>SpringCloud中，微服务调用都是通过Feign来实现的，因此做客户端保护必须整合Feign和Sentinel。</p>
+<ul>
+<li><p>修改OrderService的application.yml文件，开启Feign的Sentinel功能</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104164055977.png" alt="image-20240104164055977"></p>
+</li>
+</ul>
+</li>
+<li><p>给FeignClient编写失败后的降级逻辑</p>
+<ul>
+<li>方式一：FallbackClass，无法对远程调用的异常做处理</li>
+<li>方式二：FallbackFactory，可以对远程调用的异常做处理，我们选择这种</li>
+</ul>
+</li>
+<li><p>FallbackFactory步骤</p>
+<ul>
+<li><p>在feing-api项目中定义类，实现FallbackFactory</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104164142507.png" alt="image-20240104164142507"></p>
+</li>
+<li><p>在feing-api项目中的DefaultFeignConfiguration类中将UserClientFallbackFactory注册为一个Bean：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104164219539.png" alt="image-20240104164219539"></p>
+</li>
+<li><p>在feing-api项目中的UserClient接口中使用UserClientFallbackFactory：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104164233596.png" alt="image-20240104164233596"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.3.2 线程隔离（舱壁模式）</strong></p>
+<ul>
+<li><p>线程隔离有两种方式实现：</p>
+<ul>
+<li>线程池隔离<ul>
+<li>优点：支持主动超时、支持异步调用</li>
+<li>缺点：额外开销大</li>
+<li>场景：低扇出</li>
+</ul>
+</li>
+<li>信号量隔离（Sentinel默认采用）<ul>
+<li>优点：轻量、无额外开销</li>
+<li>缺点：不支持主动超时、不支持异步调用</li>
+<li>场景：高频调用、高扇出</li>
+</ul>
+</li>
+<li>注意：扇出是指这个请求后续依赖的服务数量，后续服务多就是高扇出<ul>
+<li>网关服务就是高扇出</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104164633753.png" alt="image-20240104164633753"></p>
+</li>
+<li><p>在添加限流规则时，可以选择两种阈值类型：</p>
+<ul>
+<li>QPS：就是每秒的请求数，在快速入门中已经演示过</li>
+<li>线程数：是该资源能使用用的tomcat线程数的最大值。也就是通过限制线程数量，实现<strong>舱壁模式。</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>1.3.3 熔断降级</strong></p>
+<ul>
+<li><p>熔断降级是解决雪崩问题的重要手段。其思路是由<strong>断路器</strong>统计服务调用的异常比例、慢请求比例，如果超出阈值则会<strong>熔断</strong>该服务。即拦截访问该服务的一切请求；而当服务恢复时，断路器会放行访问该服务的请求。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104165129425.png" alt="image-20240104165129425"></p>
+</li>
+<li><p>断路器熔断策略：</p>
+<ul>
+<li>慢调用</li>
+<li>异常比例</li>
+<li>异常数</li>
+</ul>
+</li>
+<li><p>慢调用：业务的响应时长（RT）大于指定时长的请求认定为慢调用请求。在指定时间内，如果请求数量超过设定的最小数量，慢调用比例大于设定的阈值，则触发熔断。例如：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104165407747.png" alt="image-20240104165407747"></p>
+</li>
+<li><p>异常比例或异常系数：统计指定时间内的调用，如果调用次数超过指定请求数，并且出现异常的比例达到设定的比例阈值（或超过指定异常数），则触发熔断。例如：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104165609296.png" alt="image-20240104165609296"></p>
+</li>
+</ul>
+<h3 id="1-4-授权规则"><a href="#1-4-授权规则" class="headerlink" title="1.4 授权规则"></a>1.4 授权规则</h3><p><strong>1.4.1 授权规则</strong></p>
+<ul>
+<li><p>授权规则可以对调用方的来源做控制，有白名单和黑名单两种方式。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104165858666.png" alt="image-20240104165858666"></p>
+<ul>
+<li>然而这个名称不是gateway</li>
+</ul>
+</li>
+<li><p>具体做法：</p>
+<p>Sentinel是通过RequestOriginParser这个接口的parseOrigin来获取请求的来源的。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170138629.png" alt="image-20240104170138629"></p>
+<p>例如，我们尝试从request中获取一个名为origin的请求头，作为origin的值：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170159880.png" alt="image-20240104170159880"></p>
+<p>我们还需要在gateway服务中，利用网关的过滤器添加名为gateway的origin头：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170213962.png" alt="image-20240104170213962"></p>
+<p>给&#x2F;order&#x2F;{orderId} 配置授权规则：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170221805.png" alt="image-20240104170221805"></p>
+</li>
+</ul>
+<p><strong>1.4.2 自定义异常结果</strong></p>
+<ul>
+<li><p>默认情况下，发生限流、降级、授权拦截时，都会抛出异常到调用方。如果要自定义异常时的返回结果，需要实现<code>BlockExceptionHandler</code>接口：</p>
+</li>
+<li><p>而<code>BlockException</code>包含很多个子类，分别对应不同的场景：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170505340.png" alt="image-20240104170505340"></p>
+</li>
+<li><p>实现</p>
+<ul>
+<li><p>在order-service中定义类，实现<code>BlockExceptionHandler</code>接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170629318.png" alt="image-20240104170629318"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5-规则持久化"><a href="#1-5-规则持久化" class="headerlink" title="1.5 规则持久化"></a>1.5 规则持久化</h3><p><strong>1.5.1 规则管理模式</strong> </p>
+<ul>
+<li><p>Sentinel的控制台规则管理有三种模式：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170754303.png" alt="image-20240104170754303"></p>
+</li>
+<li><p>原始模式：控制台配置的规则直接推送到Sentinel客户端，也就是我们的应用。然后保存在内存中，服务重启则丢失（<strong>保存在内存</strong>）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170930593.png" alt="image-20240104170930593"></p>
+</li>
+<li><p>pull模式：控制台将配置的规则推送到Sentinel客户端，而客户端会将配置规则保存在本地文件或数据库中。以后会定时去本地文件或数据库中查询，更新本地规则。（<strong>保存在本地文件或数据库，定时读取</strong>）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170935198.png" alt="image-20240104170935198"></p>
+</li>
+<li><p>push模式：控制台将配置规则推送到远程配置中心，例如Nacos。Sentinel客户端监听Nacos，获取配置变更的推送消息，完成本地配置更新。（<strong>保存在nasco，监听变更实时更新</strong>）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104170940624.png" alt="image-20240104170940624"></p>
+</li>
+</ul>
+<p><strong>1.5.2 实现push模式</strong></p>
+<ul>
+<li><p>push模式实现最为复杂，依赖于nacos，并且需要改在Sentinel控制台。整体步骤如下：</p>
+<ul>
+<li><p>修改order-service服务，使其监听Nacos配置中心</p>
+<ul>
+<li><p>引入nacos依赖</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104171156642.png" alt="image-20240104171156642"></p>
+</li>
+<li><p>配置nacos地址</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104171150059.png" alt="image-20240104171150059"></p>
+</li>
+</ul>
+</li>
+<li><p>修改Sentinel-dashboard源码，配置nacos数据源</p>
+<ul>
+<li>复杂</li>
+</ul>
+</li>
+<li><p>修改Sentinel-dashboard源码，修改前端页面</p>
+<ul>
+<li>复杂</li>
+</ul>
+</li>
+<li><p>重新编译、打包-dashboard源码</p>
+</li>
+</ul>
+</li>
+<li><p>也可以花钱用阿里的云服务器</p>
+</li>
+</ul>
+<h2 id="二-分布式事务"><a href="#二-分布式事务" class="headerlink" title="二 分布式事务"></a>二 分布式事务</h2><ul>
+<li><p>事务的ACID原则</p>
+<ul>
+<li>原子性：事务中的所有操作，要么全部成功，要么全部失败</li>
+<li>一致性：要保证数据库内部完整性约束、声明性约束</li>
+<li>隔离性：对同一资源操作的事务不能同时发生</li>
+<li>持久性：对数据库做的一切修改将永久保存，不管是否出现故障</li>
+</ul>
+</li>
+<li><p>在分布式系统下，一个业务跨越多个服务或数据源，每个服务都是一个分支事务，要保证所有分支事务最终状态一致，这样的事务就是分布式事务。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104185109103.png" alt="image-20240104185109103"></p>
+</li>
+</ul>
+<h3 id="2-1-理论基础"><a href="#2-1-理论基础" class="headerlink" title="2.1 理论基础"></a>2.1 理论基础</h3><p><strong>2.1.1 CAP定理</strong></p>
+<ul>
+<li><p>1998年，加州大学的计算机科学家 Eric Brewer 提出，分布式系统有三个指标：</p>
+<ul>
+<li>Consistency（一致性）</li>
+<li>Availability（可用性）</li>
+<li>Partition tolerance （分区容错性）</li>
+</ul>
+</li>
+<li><p>Eric Brewer 说，分布式系统无法同时满足这三个指标。这个结论就叫做 CAP 定理。</p>
+</li>
+<li><p>Consistency（一致性）：用户访问分布式系统中的任意节点，得到的数据必须一致</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104191119433.png" alt="image-20240104191119433"></p>
+</li>
+<li><p>Availability（可用性）：用户访问集群中的任意健康节点，必须能得到响应，而不是超时或拒绝</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104191114140.png" alt="image-20240104191114140"></p>
+</li>
+<li><p>Partition（分区）：因为网络故障或其它原因导致分布式系统中的部分节点与其它节点失去连接，形成独立分区。</p>
+</li>
+<li><p>Tolerance （容错）：在集群出现分区时，整个系统也要持续对外提供服务</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104191126912.png" alt="image-20240104191126912"></p>
+</li>
+<li><p>CP和CA只能满足其中一种</p>
+<ul>
+<li>ES集群出现分区时，故障节点会被剔除集群，数据分片会重新分配到其它节点，保证数据一致。因此是低可用性，高一致性，属于CP</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.1.2 BASE理论</strong></p>
+<ul>
+<li>BASE理论是对CAP的一种解决思路，包含三个思想：<ul>
+<li><strong>Basically Available</strong> <strong>（基本可用）</strong>：分布式系统在出现故障时，允许损失部分可用性，即保证核心可用。</li>
+<li><strong>Soft State（软状态）</strong>：在一定时间内，允许出现中间状态，比如临时的不一致状态。</li>
+<li><strong>Eventually Consistent（最终一致性）</strong>：虽然无法保证强一致性，但是在软状态结束后，最终达到数据一致。</li>
+</ul>
+</li>
+<li>而分布式事务最大的问题是各个子事务的一致性问题，因此可以借鉴CAP定理和BASE理论：<ul>
+<li>AP模式：各子事务分别执行和提交，允许出现结果不一致，然后采用弥补措施恢复数据即可，实现最终一致。</li>
+<li>CP模式：各个子事务执行后互相等待，同时提交，同时回滚，达成强一致。但事务等待过程中，处于弱可用状态。</li>
+</ul>
+</li>
+<li>解决分布式事务，各个子系统之间必须能感知到彼此的事务状态，才能保证状态一致，因此需要一个事务协调者来协调每一个事务的参与者（子系统事务）。<ul>
+<li>这里的子系统事务，称为<strong>分支事务</strong>；有关联的各个分支事务在一起称为<strong>全局事务</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-Seata"><a href="#2-2-Seata" class="headerlink" title="2.2 Seata"></a>2.2 Seata</h3><p><strong>2.2.1 简介、架构</strong></p>
+<ul>
+<li><p>Seata是 2019 年 1 月份蚂蚁金服和阿里巴巴共同开源的分布式事务解决方案。致力于提供高性能和简单易用的分布式事务服务，为用户打造一站式的分布式解决方案。</p>
+</li>
+<li><p>官网地址：<a target="_blank" rel="noopener" href="http://seata.io/">http://seata.io/</a></p>
+</li>
+<li><p>Seata事务管理中有三个重要的角色：</p>
+<ul>
+<li><p><strong>TC (Transaction Coordinator) -</strong> <strong>事务协调者：</strong>维护全局和分支事务的状态，协调全局事务提交或回滚。</p>
+</li>
+<li><p><strong>TM (Transaction Manager) -</strong> <strong>事务管理器：</strong>定义全局事务的范围、开始全局事务、提交或回滚全局事务。</p>
+</li>
+<li><p><strong>RM (Resource Manager) -</strong> <strong>资源管理器：</strong>管理分支事务处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104191710280.png" alt="image-20240104191710280"></p>
+</li>
+</ul>
+</li>
+<li><p>Seata提供了四种不同的分布式事务解决方案：</p>
+<ul>
+<li>XA模式：强一致性分阶段事务模式，牺牲了一定的可用性，无业务侵入</li>
+<li>TCC模式：最终一致的分阶段事务模式，有业务侵入</li>
+<li>AT模式：最终一致的分阶段事务模式，无业务侵入，也是Seata的默认模式</li>
+<li>SAGA模式：长事务模式，有业务侵入</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.2.2 部署TC服务</strong></p>
+<p>略</p>
+<p><strong>2.2.3 微服务集成Seata</strong></p>
+<ul>
+<li>引入seata依赖</li>
+<li>配置application.yml，让微服务通过注册中心找到seata-tc-server</li>
+</ul>
+<h3 id="2-3-实践"><a href="#2-3-实践" class="headerlink" title="2.3 实践"></a>2.3 实践</h3><p><strong>2.3.1 XA模式</strong></p>
+<ul>
+<li><p>XA 规范 是 X&#x2F;Open 组织定义的分布式事务处理（DTP，Distributed Transaction Processing）标准，XA 规范 描述了全局的TM与局部的RM之间的接口，几乎所有主流的数据库都对 XA 规范 提供了支持。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104193046683.png" alt="image-20240104193046683"></p>
+</li>
+<li><p>seata的XA模式做了一些调整，但大体相似：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104193116198.png" alt="image-20240104193116198"></p>
+<ul>
+<li><p>RM一阶段的工作：</p>
+<ul>
+<li>注册分支事务到TC</li>
+<li>执行分支业务sql但不提交</li>
+<li>报告执行状态到TC</li>
+</ul>
+</li>
+<li><p>TC二阶段的工作：</p>
+<ul>
+<li><p>TC检测各分支事务执行状态</p>
+<p>a.如果都成功，通知所有RM提交事务</p>
+<p>b.如果有失败，通知所有RM回滚事务</p>
+</li>
+</ul>
+</li>
+<li><p>RM二阶段的工作：接收TC指令，提交或回滚事务</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.3.2 AT模式</strong></p>
+<ul>
+<li><p>AT模式同样是分阶段提交的事务模型，不过缺弥补了XA模型中资源锁定周期过长的缺陷。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104193215113.png" alt="image-20240104193215113"></p>
+<ul>
+<li><p>阶段一RM的工作：</p>
+<ul>
+<li>注册分支事务</li>
+<li>记录undo-log（数据快照）</li>
+<li>执行业务sql并提交</li>
+<li>报告事务状态</li>
+</ul>
+</li>
+<li><p>阶段二提交时RM的工作：</p>
+<ul>
+<li>删除undo-log即可</li>
+</ul>
+</li>
+<li><p>阶段二回滚时RM的工作：</p>
+<ul>
+<li>根据undo-log恢复数据到更新前</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.3.3 TCC模式</strong></p>
+<ul>
+<li><p>TCC模式与AT模式非常相似，每阶段都是独立事务，不同的是TCC通过人工编码来实现数据恢复。需要实现三个方法：</p>
+<ul>
+<li>Try：资源的检测和预留； </li>
+<li>Confirm：完成资源操作业务；要求 Try 成功 Confirm 一定要能成功。</li>
+<li>Cancel：预留资源释放，可以理解为try的反向操作。</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104193618583.png" alt="image-20240104193618583"></p>
+</li>
+</ul>
+<p><strong>2.3.4 SAGA模式</strong></p>
+<ul>
+<li>Saga模式是SEATA提供的长事务解决方案。也分为两个阶段：<ul>
+<li>一阶段：直接提交本地事务</li>
+<li>二阶段：成功则什么都不做；失败则通过编写补偿业务来回滚</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.3.5 四种模式对比</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104193714481.png" alt="image-20240104193714481"></p>
+<h3 id="2-4-高可用"><a href="#2-4-高可用" class="headerlink" title="2.4 高可用"></a>2.4 高可用</h3><h2 id="三-分布式缓存"><a href="#三-分布式缓存" class="headerlink" title="三 分布式缓存"></a>三 分布式缓存</h2><ul>
+<li>单点redis问题<ul>
+<li>数据丢失</li>
+<li>并发能力：单点redis并发能力虽然不错，但无法满足如618这样的高并发场景</li>
+<li>故障恢复问题</li>
+<li>存储能力问题：难以满足海量级的数据需求</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-1-redis持久化"><a href="#3-1-redis持久化" class="headerlink" title="3.1 redis持久化"></a>3.1 redis持久化</h3><p><strong>3.1.1 RDB持久化</strong></p>
+<ul>
+<li><p>RDB全称Redis Database Backup file（Redis数据备份文件），也被叫做Redis数据快照。简单来说就是把内存中的所有数据都记录到磁盘中。当Redis实例故障重启后，从磁盘读取快照文件，恢复数据。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save <span class="comment">#由redis主进程来执行RDB，会阻塞所有命令</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bgsave <span class="comment">#开启子进程执行，避免主进程受影响</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>redis停机的时候会执行一次RDB，默认保存在当前运行目录</p>
+</li>
+<li><p>redis内部有触发RDB的机制，在redis.conf文件中找到</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194236609.png" alt="image-20240104194236609"></p>
+</li>
+<li><p>bgsave开始时会fork主进程得到子进程，子进程共享主进程的内存数据。完成fork后读取内存数据并写入 RDB 文件。</p>
+</li>
+<li><p>fork采用的是copy-on-write技术：</p>
+<ul>
+<li>当主进程执行读操作时，访问共享内存；</li>
+<li>当主进程执行写操作时，则会拷贝一份数据，执行写操作。</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194527389.png" alt="image-20240104194527389"></p>
+</li>
+<li><p>RDB缺点：</p>
+<ul>
+<li>RDB执行间隔时间长，两次RDB之间写入数据有丢失的风险</li>
+<li>fork子进程、压缩、写出RDB文件都比较耗时</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.1.2 AOF持久化</strong></p>
+<ul>
+<li><p>AOF全称为Append Only File（追加文件）。Redis处理的每一个写命令都会记录在AOF文件，可以看做是命令日志文件。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194622739.png" alt="image-20240104194622739"></p>
+</li>
+<li><p>AOF默认是关闭的，需要修改redis.conf配置文件来开启AOF：</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194635856.png" alt="image-20240104194635856"></p>
+<ul>
+<li><p>AOF的命令记录的频率也可以通过redis.conf文件来配：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194649688.png" alt="image-20240104194649688"></p>
+</li>
+<li><p>因为是记录命令，AOF文件会比RDB文件大的多。而且AOF会记录对同一个key的多次写操作，但只有最后一次写操作才有意义。通过执行bgrewriteaof命令，可以让AOF文件执行重写功能，用最少的命令达到相同效果。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194739202.png" alt="image-20240104194739202"></p>
+</li>
+<li><p>Redis也会在触发阈值时自动去重写AOF文件。阈值也可以在redis.conf中配置：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194804131.png" alt="image-20240104194804131"></p>
+</li>
+</ul>
+<p><strong>3.1.3 对比</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194827628.png" alt="image-20240104194827628"></p>
+<h3 id="3-2-redis主从"><a href="#3-2-redis主从" class="headerlink" title="3.2 redis主从"></a>3.2 redis主从</h3><p><strong>3.2.1 搭建主从架构</strong></p>
+<ul>
+<li>单节点Redis的并发能力是有上限的，要进一步提高Redis的并发能力，就需要搭建主从集群，实现读写分离。<ul>
+<li>redis读操作多一些，所以留一个master负责写其他从节点负责读</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104194948377.png" alt="image-20240104194948377"></p>
+<ul>
+<li><p>比如有7001 7002 7003 三个端口的redis，现在要把7001作为主节点</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 连接 7002</span></span><br><span class="line">redis-cli -p 7002</span><br><span class="line"><span class="comment"># 执行slaveof</span></span><br><span class="line">slaveof 192.168.150.101 7001</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 连接 7003</span></span><br><span class="line">redis-cli -p 7003</span><br><span class="line"><span class="comment"># 执行slaveof</span></span><br><span class="line">slaveof 192.168.150.101 7001</span><br></pre></td></tr></table></figure>
+
+<p>然后可以查看集群状态</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 连接 7001</span></span><br><span class="line">redis-cli -p 7001</span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">info replication</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105100315821.png" alt="image-20240105100315821"></p>
+</li>
+</ul>
+<p><strong>3.2.2 主从数据同步原理</strong></p>
+<ul>
+<li>主从第一次同步是全量同步</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240104195158147.png" alt="image-20240104195158147"></p>
+<ul>
+<li><p>过程</p>
+<ul>
+<li>slave节点请求增量同步</li>
+<li>master节点判断replid，发现不一致，拒绝增量同步</li>
+<li>master将完整内存数据生成RDB，发送RDB到slave</li>
+<li>slave清空本地数据，加载master的RDB</li>
+<li>master将RDB期间的命令记录在repl_baklog，并持续将log中的命令发送给slave、</li>
+<li>slave执行接收到的命令，保持与master之间的同步</li>
+</ul>
+</li>
+<li><p>master如何判断slave是不是第一次来同步数据？这里会用到两个很重要的概念：</p>
+<ul>
+<li>Replication Id：简称replid，是数据集的标记，id一致则说明是同一数据集。每一个master都有唯一的replid，slave则会继承master节点的replid&#x2F;</li>
+<li>offset：偏移量，随着记录在repl_baklog中的数据增多而逐渐增大。slave完成同步时也会记录当前同步的offset。如果slave的offset小于master的offset，说明slave数据落后于master，需要更新。</li>
+</ul>
+<p>因此slave做数据同步，必须向master声明自己的replication id 和offset，master才可以判断到底需要同步哪些数据</p>
+</li>
+<li><p>增量同步</p>
+<ul>
+<li>从repl_baklog中获取offset之后的数据，主节点发送命令过去，从节点执行</li>
+<li>注意：repl_baklog大小有上限，写满后会覆盖最早的数据。如果slave断开时间过久，导致尚未备份的数据被覆盖，则无法基于log做增量同步，只能再次全量同步。</li>
+</ul>
+</li>
+<li><p>主从集群优化</p>
+<ul>
+<li>在master中配置repl-diskless-sync yes启用无磁盘复制，避免全量同步时的磁盘IO。</li>
+<li>Redis单节点上的内存占用不要太大，减少RDB导致的过多磁盘IO</li>
+<li>适当提高repl_baklog的大小，发现slave宕机时尽快实现故障恢复，尽可能避免全量同步</li>
+<li>限制一个master上的slave节点数量，如果实在是太多slave，则可以采用主-从-从链式结构，减少master压力</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-redis哨兵"><a href="#3-3-redis哨兵" class="headerlink" title="3.3 redis哨兵"></a>3.3 redis哨兵</h3><p><strong>3.3.1 哨兵作用和原理</strong></p>
+<ul>
+<li><p>Redis提供了哨兵（Sentinel）机制来实现主从集群的自动故障恢复。哨兵的结构和作用如下：</p>
+<ul>
+<li><p><strong>监控</strong>：Sentinel 会不断检查您的master和slave是否按预期工作</p>
+</li>
+<li><p><strong>自动故障恢复</strong>：如果master故障，Sentinel会将一个slave提升为master。当故障实例恢复后也以新的master为主</p>
+</li>
+<li><p><strong>通知</strong>：Sentinel充当Redis客户端的服务发现来源，当集群发生故障转移时，会将最新信息推送给Redis的客户端</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105101335004.png" alt="image-20240105101335004"></p>
+</li>
+</ul>
+</li>
+<li><p>服务状态监控</p>
+<ul>
+<li>Sentinel基于心跳机制监测服务状态，每隔1秒向集群的每个实例发送ping命令：<ul>
+<li>主观下线：如果某sentinel节点发现某实例未在规定时间响应，则认为该实例<strong>主观下线</strong>。、</li>
+<li>客观下线：若超过指定数量（quorum）的sentinel都认为该实例主观下线，则该实例<strong>客观下线</strong>。quorum值最好超过Sentinel实例数量的一半。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>选举新的master</p>
+<ul>
+<li>一旦发现master故障，sentinel需要在salve中选择一个作为新的master，选择依据是这样的：<ul>
+<li>首先会判断slave节点与master节点断开时间长短，如果超过指定值（down-after-milliseconds * 10）则会排除该slave节点</li>
+<li>然后判断slave节点的slave-priority值，越小优先级越高，如果是0则永不参与选举</li>
+<li>如果slave-prority一样，则判断slave节点的offset值，越大说明数据越新，优先级越高</li>
+<li>最后是判断slave节点的运行id大小，越小优先级越高。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如何实现故障转移</p>
+<ul>
+<li>sentinel给备选的slave1节点发送slaveof no one命令，让该节点成为master</li>
+<li>sentinel给所有其它slave发送slaveof 192.168.150.101 7002 命令，让这些slave成为新master的从节点，开始从新的master上同步数据。</li>
+<li>最后，sentinel将故障节点标记为slave，当故障节点恢复后会自动成为新的master的slave节点</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.3.2 搭建哨兵集群</strong></p>
+<p><strong>3.3.3 RedisTemplate的哨兵模式</strong></p>
+<ul>
+<li><p>Spring的RedisTemplate底层利用lettuce实现了节点的感知和自动切换。</p>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>引入redis的starter依赖</p>
+</li>
+<li><p>配置文件application.yml中指定sentinel信息（因为主节点可能会不断的变化）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105102803529.png" alt="image-20240105102803529"></p>
+</li>
+<li><p>配置主从读写分离</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105102825129.png" alt="image-20240105102825129"></p>
+</li>
+<li><p>这里的ReadFrom是配置Redis的读取策略，是一个枚举，包括下面选择：</p>
+<ul>
+<li>MASTER：从主节点读取</li>
+<li>MASTER_PREFERRED：优先从master节点读取，master不可用才读取replica</li>
+<li>REPLICA：从slave（replica）节点读</li>
+<li>REPLICA _PREFERRED：优先从slave（replica）节点读取，所有的slave都不可用才读取master</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-redis分片集群"><a href="#3-4-redis分片集群" class="headerlink" title="3.4 redis分片集群"></a>3.4 redis分片集群</h3><p><strong>3.4.1 搭建分片集群</strong></p>
+<ul>
+<li><p>主从和哨兵可以解决高可用、高并发读的问题。但是依然有两个问题没有解决：</p>
+<ul>
+<li>海量数据存储问题</li>
+<li>高并发写的问题</li>
+</ul>
+</li>
+<li><p>使用分片集群可以解决上述问题，分片集群特征：</p>
+<ul>
+<li>集群中有多个master，每个master保存不同数据</li>
+<li>每个master都可以有多个slave节点</li>
+<li>master之间通过ping监测彼此健康状态</li>
+<li>客户端请求可以访问集群任意节点，最终都会被转发到正确节点</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105103628914.png" alt="image-20240105103628914"></p>
+</li>
+<li><p>搭建</p>
+<ul>
+<li><p>启动六个redis</p>
+</li>
+<li><pre><code class="sh">redis-cli --cluster create --cluster-replicas 1 192.168.150.101:7001 192.168.150.101:7002 192.168.150.101:7003 192.168.150.101:8001 192.168.150.101:8002 192.168.150.101:8003
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - `redis-cli --cluster`或者`./redis-trib.rb`：代表集群操作命令</span><br><span class="line">  - `create`：代表是创建集群</span><br><span class="line">  - `--replicas 1`或者`--cluster-replicas 1` ：指定集群中每个master的副本个数为1，此时`节点总数 ÷ (replicas + 1)` 得到的就是master的数量。因此节点列表中的前n个就是master，其它节点都是slave节点，随机分配到不同master</span><br><span class="line"></span><br><span class="line">- 查看集群状态</span><br><span class="line"></span><br><span class="line">  ```sh</span><br><span class="line">  redis-cli -p 7001 cluster nodes</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.4.2 散列插槽</strong></p>
+<ul>
+<li><p>Redis会把每一个master节点映射到0~16383共16384个插槽（hash slot）上，查看集群信息时就能看到</p>
+</li>
+<li><p>数据key不是与节点绑定，而是与插槽绑定。redis会根据key的有效部分计算插槽值，分两种情况：</p>
+<ul>
+<li>key中包含”{}”，且“{}”中至少包含1个字符，“{}”中的部分是有效部分</li>
+<li>key中不包含“{}”，整个key都是有效部分</li>
+</ul>
+<p>例如：key是num，那么就根据num计算，如果是{itcast}num，则根据itcast计算。计算方式是利用CRC16算法得到一个hash值，然后对16384取余，得到的结果就是slot值。</p>
+</li>
+<li><p>一个节点对应的插槽是很多的</p>
+</li>
+</ul>
+<p><strong>3.4.3 集群伸缩</strong></p>
+<ul>
+<li>添加一个节点到集群<ul>
+<li>启动一个新的redis实例，端口为7004</li>
+<li>添加7004到之前的集群，并作为一个master节点</li>
+<li>给7004节点分配插槽，使得num这个key可以存储到7004实例</li>
+</ul>
+</li>
+<li>删除一个节点</li>
+</ul>
+<p><strong>3.4.4 故障转移</strong></p>
+<ul>
+<li><p>集群中一个master宕机</p>
+<ul>
+<li>首先是该实例与其它实例失去连接</li>
+<li>然后是疑似宕机：</li>
+<li>最后是确定下线，自动提升一个slave为新的master</li>
+</ul>
+</li>
+<li><p>数据迁移</p>
+<ul>
+<li>利用cluster failover命令可以手动让集群中的某个master宕机，切换到执行cluster failover命令的这个slave节点，实现无感知的数据迁移。其流程如下：</li>
+</ul>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105105202163.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/微服务.assets/image-20240105105202163.png</a>“ alt&#x3D;”image-20240105105202163” style&#x3D;”zoom:67%;” &#x2F;&gt;</p>
+<ul>
+<li>场景：老旧机器的更换</li>
+</ul>
+</li>
+<li><p>手动的Failover支持三种不同模式：</p>
+<ul>
+<li>缺省：默认的流程，如图1~6歩</li>
+<li>force：省略了对offset的一致性校验</li>
+<li>takeover：直接执行第5歩，忽略数据一致性、忽略master状态和其它master的意见</li>
+</ul>
+</li>
+</ul>
+<p><strong>3.4.5 RedisTemplate访问分片集群</strong></p>
+<ul>
+<li><p>RedisTemplate底层同样基于lettuce实现了分片集群的支持，而使用的步骤与哨兵模式基本一致：</p>
+<ul>
+<li>引入redis的starter依赖</li>
+<li>配置分片集群地址</li>
+<li>配置读写分离</li>
+</ul>
+</li>
+<li><p>与哨兵模式相比，其中只有分片集群的配置方式略有差异，如下：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105105531251.png" alt="image-20240105105531251"></p>
+</li>
+</ul>
+<h2 id="四-多级缓存"><a href="#四-多级缓存" class="headerlink" title="四 多级缓存"></a>四 多级缓存</h2><ul>
+<li><p>传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，存在下面的问题：</p>
+<ul>
+<li>请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈</li>
+<li>Redis缓存失效时，会对数据库产生冲击</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105105755866.png" alt="image-20240105105755866"></p>
+</li>
+<li><p>多级缓存就是充分利用请求处理的每个环节，分别添加缓存，减轻Tomcat压力，提升服务性能：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105105746987.png" alt="image-20240105105746987"></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105105822419.png" alt="image-20240105105822419"></p>
+</li>
+</ul>
+<h3 id="4-1-JVM进程缓存"><a href="#4-1-JVM进程缓存" class="headerlink" title="4.1 JVM进程缓存"></a>4.1 JVM进程缓存</h3><p><strong>4.1.1 Caffeine</strong></p>
+<ul>
+<li><p>缓存在日常开发中启动至关重要的作用，由于是存储在内存中，数据的读取速度是非常快的，能大量减少对数据库的访问，减少数据库的压力。我们把缓存分为两类：</p>
+<ul>
+<li>分布式缓存，例如Redis：<ul>
+<li>优点：存储容量更大、可靠性更好、可以在集群间共享</li>
+<li>缺点：访问缓存有网络开销</li>
+<li>场景：缓存数据量较大、可靠性要求较高、需要在集群间共享</li>
+</ul>
+</li>
+<li>进程本地缓存，例如HashMap、GuavaCache：<ul>
+<li>优点：读取本地内存，没有网络开销，速度更快</li>
+<li>缺点：存储容量有限、可靠性较低、无法共</li>
+<li>场景：性能要求较高，缓存数据量较小</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Caffeine是一个基于Java8开发的，提供了近乎最佳命中率的高性能的本地缓存库。目前Spring内部的缓存使用的就是Caffeine。GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/ben-manes/caffeine">https://github.com/ben-manes/caffeine</a></p>
+</li>
+<li><p>demo</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105111031515.png" alt="image-20240105111031515"></p>
+</li>
+<li><p>caffeine的三种缓存驱逐策略</p>
+<ul>
+<li><p><strong>基于容量</strong>：设置缓存的数量上限</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105111209468.png" alt="image-20240105111209468"></p>
+</li>
+<li><p><strong>基于时间</strong>：设置缓存的有效时间</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105111215390.png" alt="image-20240105111215390"></p>
+</li>
+<li><p><strong>基于引用</strong>：设置缓存为软引用或弱引用，利用GC来回收缓存数据。性能较差，不建议使用。</p>
+</li>
+</ul>
+<p>在默认情况下，当一个缓存元素过期的时候，Caffeine不会自动立即将其清理和驱逐。而是在一次读或写操作后，或者在空闲时间完成对失效数据的驱逐</p>
+</li>
+</ul>
+<p><strong>4.1.2 实现进程缓存</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105111318932.png" alt="image-20240105111318932"></p>
+<ul>
+<li><p>新建一个配置类，声明多个Cache bean</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105111451417.png" alt="image-20240105111451417"></p>
+</li>
+<li><p>然后在Controller中注入bean并调用</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105111552251.png" alt="image-20240105111552251"></p>
+<p>​	意思是优先查询cache中的“id”，如果没有就调用itemService的query</p>
+</li>
+</ul>
+<h3 id="4-2-Lua语法入门"><a href="#4-2-Lua语法入门" class="headerlink" title="4.2 Lua语法入门"></a>4.2 Lua语法入门</h3><p><strong>4.2.1 初识Lua</strong></p>
+<ul>
+<li>Lua 是一种轻量小巧的<strong>脚本语言</strong>，用标准C语言编写并以源代码形式开放， 其设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。官网：<a target="_blank" rel="noopener" href="https://www.lua.org/">https://www.lua.org/</a></li>
+</ul>
+<p><strong>4.2.2 变量和循环</strong></p>
+<ul>
+<li><p>数据类型</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105133051689.png" alt="image-20240105133051689"></p>
+</li>
+<li><p>变量</p>
+<ul>
+<li><p>Lua声明变量的时候不需要指定数据类型</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105133246810.png" alt="image-20240105133246810"></p>
+</li>
+<li><p>访问table</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105133257354.png" alt="image-20240105133257354"></p>
+</li>
+</ul>
+</li>
+<li><p>循环</p>
+<ul>
+<li><p>数组、table都可以利用for循环来遍历</p>
+</li>
+<li><p>遍历数组</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105133406895.png" alt="image-20240105133406895"></p>
+</li>
+<li><p>遍历table</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105133413164.png" alt="image-20240105133413164"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>4.2.3 条件控制、函数</strong></p>
+<ul>
+<li><p>定义函数的语法</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105133944042.png" alt="image-20240105133944042"></p>
+</li>
+<li><p>举例</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105133955372.png" alt="image-20240105133955372"></p>
+</li>
+<li><p>条件控制</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105134013837.png" alt="image-20240105134013837"></p>
+</li>
+<li><p>其中布尔表达式中的逻辑运算符是基于英文单词的</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105134055822.png" alt="image-20240105134055822"></p>
+</li>
+</ul>
+<h3 id="4-3-多级缓存"><a href="#4-3-多级缓存" class="headerlink" title="4.3 多级缓存"></a>4.3 多级缓存</h3><p><strong>4.3.1 安装OpenResty</strong></p>
+<ul>
+<li>OpenResty® 是一个基于 Nginx的高性能 Web 平台，用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。具备下列特点：<ul>
+<li>具备Nginx的完整功能</li>
+<li>基于Lua语言进行扩展，集成了大量精良的 Lua 库、第三方模块</li>
+<li>允许使用Lua自定义业务逻辑、自定义库</li>
+</ul>
+</li>
+<li>官方网站： <a target="_blank" rel="noopener" href="https://openresty.org/cn/">https://openresty.org/cn/</a></li>
+</ul>
+<p><strong>4.3.2 OpenResty入门</strong></p>
+<ul>
+<li><p>实现商品详情页数据查询</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105135454452.png" alt="image-20240105135454452"></p>
+</li>
+<li><p>1.在nginx.conf的http下面，添加对OpenResty的Lua模块的加载：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105135517832.png" alt="image-20240105135517832"></p>
+</li>
+<li><p>2.在nginx.conf的server下面，添加对&#x2F;api&#x2F;item这个路径的监听：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105135522494.png" alt="image-20240105135522494"></p>
+</li>
+<li><p>3.在nginx目录创建lua&#x2F;item.lua文件</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105135620438.png" alt="image-20240105135620438"></p>
+</li>
+<li><p>4.重新加载配置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>4.3.3 请求参数处理</strong></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105135657452.png" alt="image-20240105135657452"></p>
+<p><strong>4.3.4 查询Tomcat</strong></p>
+<p><strong>4.3.5 redis缓存预热</strong></p>
+<ul>
+<li><strong>冷启动</strong>：服务刚刚启动时，Redis中并没有缓存，如果所有商品数据都在第一次查询时添加缓存，可能会给数据库带来较大压力。</li>
+<li><strong>缓存预热</strong>：在实际开发中，我们可以利用大数据统计用户访问的热点数据，在项目启动时将这些热点数据提前查询并保存到Redis中。</li>
+</ul>
+<p><strong>4.3.6 查询redis缓存</strong></p>
+<ul>
+<li><p>openresty查询redis</p>
+</li>
+<li><p>引入redis模块，并初始化redis对象</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105144404477.png" alt="image-20240105144404477"></p>
+</li>
+<li><p>封装函数，用来释放redis连接，其实是放入连接池</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105144431372.png" alt="image-20240105144431372"></p>
+</li>
+<li><p>封装函数，从Redis读数据并返回</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105144453451.png" alt="image-20240105144453451"></p>
+</li>
+</ul>
+<p><strong>4.3.7 Nginx本地缓存</strong></p>
+<h3 id="4-4-缓存同步策略"><a href="#4-4-缓存同步策略" class="headerlink" title="4.4 缓存同步策略"></a>4.4 缓存同步策略</h3><p><strong>4.4.1 数据同步策略</strong></p>
+<ul>
+<li><p>设置数据同步策略的三种：</p>
+<ul>
+<li><p><strong>设置有效期</strong>：给缓存设置有效期，到期后自动删除。再次查询时更新</p>
+<ul>
+<li>优势：简单、方便</li>
+<li>缺点：时效性差，缓存过期之前可能不一致</li>
+<li>场景：更新频率较低，时效性要求低的业务</li>
+</ul>
+</li>
+<li><p><strong>同步双写</strong>：在修改数据库的同时，直接修改缓存</p>
+<ul>
+<li>优势：时效性强，缓存与数据库强一致</li>
+<li>缺点：有代码侵入，耦合度高；</li>
+<li>场景：对一致性、时效性要求较高的缓存数据</li>
+</ul>
+</li>
+<li><p><strong>异步通知：</strong>修改数据库时发送事件通知，相关服务监听到通知后修改缓存数据</p>
+<ul>
+<li><p>优势：低耦合，可以同时通知多个缓存服务</p>
+</li>
+<li><p>缺点：时效性一般，可能存在中间不一致状态</p>
+</li>
+<li><p>场景：时效性要求一般，有多个服务需要同步</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>基于MQ的异步通知</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105144815167.png" alt="image-20240105144815167"></p>
+</li>
+<li><p>基于Canal的异步通知</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105144832272.png" alt="image-20240105144832272"></p>
+</li>
+</ul>
+<p><strong>4.4.2 安装Canal</strong></p>
+<ul>
+<li>canal是阿里巴巴旗下的一款开源项目，基于Java开发。基于数据库增量日志解析，提供增量数据订阅&amp;消费。GitHub的地址：<a target="_blank" rel="noopener" href="https://github.com/alibaba/canal">https://github.com/alibaba/canal</a></li>
+<li>Canal是基于mysql的主从同步来实现的，MySQL主从同步的原理如下：<ul>
+<li>MySQL master 将数据变更写入二进制日志( binary log），其中记录的数据叫做binary log events</li>
+<li>MySQL slave 将 master 的 binary log events拷贝到它的中继日志(relay log)</li>
+<li>MySQL slave 重放 relay log 中事件，将数据变更反映它自己的数据</li>
+</ul>
+</li>
+</ul>
+<p><strong>4.4.3 监听Canal</strong></p>
+<ul>
+<li><p>引入依赖canal-starter</p>
+</li>
+<li><p>配置</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105145629143.png" alt="image-20240105145629143"></p>
+</li>
+<li><p>编写监听器，监听Canal消息</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105145656038.png" alt="image-20240105145656038"></p>
+</li>
+</ul>
+<h3 id="4-5-多级缓存总结"><a href="#4-5-多级缓存总结" class="headerlink" title="4.5 多级缓存总结"></a>4.5 多级缓存总结</h3><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105145830764.png" alt="image-20240105145830764"></p>
+<h2 id="五-服务异步通讯"><a href="#五-服务异步通讯" class="headerlink" title="五 服务异步通讯"></a>五 服务异步通讯</h2><ul>
+<li>MQ 的一些常见问题<ul>
+<li>消息可靠性：如何确保发送的消息至少被消费一次</li>
+<li>延迟消息问题：如何实现消息的延迟投递</li>
+<li>消息堆积问题：如何解决数百万消息堆积，无法及时消费的问题</li>
+<li>高可用问题：如何避免单点的MQ故障而导致的不可用问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-1-消息可靠性"><a href="#5-1-消息可靠性" class="headerlink" title="5.1 消息可靠性"></a>5.1 消息可靠性</h3><ul>
+<li><p>消息从生产者发送到exchange，再到queue，再到消费者，有哪些导致消息丢失的可能性？</p>
+<ul>
+<li>发送时丢失：<ul>
+<li>生产者发送的消息未送达exchange</li>
+<li>消息到达exchange后未到达queue</li>
+</ul>
+</li>
+<li>MQ宕机，queue将消息丢失</li>
+<li>consumer接收到消息后未消费就宕机</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105150839158.png" alt="image-20240105150839158"></p>
+</li>
+</ul>
+<p><strong>5.1.1 生产者消息确认</strong></p>
+<ul>
+<li><p>RabbitMQ提供了publisher confirm机制来避免消息发送到MQ过程中丢失。消息发送到MQ以后，会返回一个结果给发送者，表示消息是否处理成功。结果有两种请求：</p>
+<ul>
+<li><p>publisher-confirm，发送者确认</p>
+<ul>
+<li>消息成功投递到交换机，返回ack</li>
+<li>消息未投递到交换机，返回nack</li>
+</ul>
+</li>
+<li><p>publisher-return，发送者回执</p>
+<ul>
+<li>消息投递到交换机了，但是没有路由到队列。返回ACK，及路由失败原因。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105151149479.png" alt="image-20240105151149479"></p>
+</li>
+<li><p>注意：确认机制发送消息时，需要给每个消息设置一个全局唯一id，以区分不同消息，避免ack冲突</p>
+</li>
+</ul>
+<p><strong>5.1.2 消息持久化</strong></p>
+<ul>
+<li><p>MQ默认是内存存储消息，开启持久化功能可以确保缓存在MQ中的消息不丢失。</p>
+<ul>
+<li><p>交换机持久化</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105154849235.png" alt="image-20240105154849235"></p>
+</li>
+<li><p>队列持久化</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105154844560.png" alt="image-20240105154844560"></p>
+</li>
+<li><p>消息持久化</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105154858770.png" alt="image-20240105154858770"></p>
+</li>
+</ul>
+<p><strong>5.1.3 消费者消息确认</strong></p>
+<p>RabbitMQ支持消费者确认机制，即：消费者处理消息后可以向MQ发送ack回执，MQ收到ack回执后才会删除该消息。而SpringAMQP则允许配置三种确认模式：</p>
+<ul>
+<li><p>manual：手动ack，需要在业务代码结束后，调用api发送ack。</p>
+</li>
+<li><p>auto：自动ack，由spring监测listener代码是否出现异常，没有异常则返回ack；抛出异常则返回nack</p>
+</li>
+<li><p>none：关闭ack，MQ假定消费者获取消息后会成功处理，因此消息投递后立即被删除</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105155029190.png" alt="image-20240105155029190"></p>
+</li>
+</ul>
+<p><strong>5.1.4 消费失败重试机制</strong></p>
+<ul>
+<li><p>当消费者出现异常后，消息会不断requeue（重新入队）到队列，再重新发送给消费者，然后再次异常，再次requeue，无限循环，导致mq的消息处理飙升，带来不必要的压力：</p>
+</li>
+<li><p>解决：利用Spring的retry机制，在消费者出现异常时利用本地重试，而不是无限制的requeue到mq队列。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105155428537.png" alt="image-20240105155428537"></p>
+</li>
+<li><p>在开启重试模式后，重试次数耗尽，如果消息依然失败，则需要有MessageRecoverer接口来处理，它包含三种不同的实现：</p>
+<ul>
+<li><code>RejectAndDontRequeueRecoverer</code>：重试耗尽后，直接reject，丢弃消息。默认就是这种方式</li>
+<li><code>ImmediateRequeueMessageRecoverer</code>：重试耗尽后，返回nack，消息重新入队</li>
+<li><code>RepublishMessageRecoverer</code>：重试耗尽后，将失败消息投递到指定的交换机</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>首先定义接收失败消息的交换机、队列及其绑定关系：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105160204514.png" alt="image-20240105160204514"></p>
+</li>
+<li><p>然后定义<code>RejectAndDontRequeueRecoverer</code></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105160216734.png" alt="image-20240105160216734"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-死信交换机"><a href="#5-2-死信交换机" class="headerlink" title="5.2 死信交换机"></a>5.2 死信交换机</h3><p><strong>5.2.1 简介</strong></p>
+<ul>
+<li><p>当一个队列中的消息满足下列情况之一时，可以成为死信（dead letter）：</p>
+<ul>
+<li>消费者使用basic.reject或 basic.nack声明消费失败，并且消息的requeue参数设置为false</li>
+<li>消息是一个过期消息，超时无人消费</li>
+<li>要投递的队列消息堆积满了，最早的消息可能成为死信</li>
+</ul>
+</li>
+<li><p>如果该队列配置了dead-letter-exchange属性，指定了一个交换机，那么队列中的死信就会投递到这个交换机中，而这个交换机称为<strong>死信交换机</strong>（Dead Letter Exchange，简称DLX）。</p>
+</li>
+</ul>
+<p><strong>5.2.2 TTL</strong></p>
+<ul>
+<li><p>TTL，也就是Time-To-Live。如果一个队列中的消息TTL结束仍未消费，则会变为死信，ttl超时分为两种情况：</p>
+<ul>
+<li>消息所在的队列设置了存活时间</li>
+<li>消息本身设置了存活时间</li>
+</ul>
+</li>
+<li><p>声明一组死信交换机和队列，基于注解</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105161311264.png" alt="image-20240105161311264"></p>
+</li>
+<li><p>要给队列设置超时时间，需要在声明队列时配置x-message-ttl属性：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105161324736.png" alt="image-20240105161324736"></p>
+</li>
+<li><p>发送消息时，给消息本身设置超时时间</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105161340661.png" alt="image-20240105161340661"></p>
+</li>
+</ul>
+<p><strong>5.2.3 延迟队列</strong></p>
+<ul>
+<li><p>利用TTL结合死信交换机，我们实现了消息发出后，消费者延迟收到消息的效果。这种消息模式就称为延迟队列（Delay Queue）模式。</p>
+</li>
+<li><p>延迟队列的使用场景包括：</p>
+<ul>
+<li>延迟发送短信</li>
+<li>用户下单，如果用户在15 分钟内未支付，则自动取消</li>
+<li>预约工作会议，20分钟后自动通知所有参会人员</li>
+</ul>
+</li>
+<li><p>因为延迟队列的需求非常多，所以RabbitMQ的官方也推出了一个插件，原生支持延迟队列效果。</p>
+</li>
+<li><p>SpringAMQP使用延迟队列插件</p>
+<ul>
+<li><p>基于注解（推荐）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105162354097.png" alt="image-20240105162354097"></p>
+</li>
+<li><p>基于代码</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105162427982.png" alt="image-20240105162427982"></p>
+</li>
+<li><p>然后向这个delay为true的交换机中发送消息，一定要给消息添加一个header：<strong>x-delay</strong>，值为延迟的时间，单位为毫秒：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105162458309.png" alt="image-20240105162458309"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-惰性队列"><a href="#5-3-惰性队列" class="headerlink" title="5.3 惰性队列"></a>5.3 惰性队列</h3><p><strong>5.3.1 消息堆积问题</strong></p>
+<ul>
+<li><p>当生产者发送消息的速度超过了消费者处理消息的速度，就会导致队列中的消息堆积，直到队列存储消息达到上限。最早接收到的消息，可能就会成为死信，会被丢弃，这就是消息堆积问题。</p>
+</li>
+<li><p>解决思路</p>
+<ul>
+<li>增加更多消费者，提高消费速度</li>
+<li>在消费者内开启线程池加快消息处理速度</li>
+<li>扩大队列容积，提高堆积上限</li>
+</ul>
+</li>
+</ul>
+<p><strong>5.3.2 惰性队列</strong></p>
+<ul>
+<li><p>从RabbitMQ的3.6.0版本开始，就增加了Lazy Queues的概念，也就是惰性队列。</p>
+<p>惰性队列的特征如下：</p>
+<ul>
+<li>接收到消息后直接存入磁盘而非内存</li>
+<li>消费者要消费消息时才会从磁盘中读取并加载到内存</li>
+<li>支持数百万条的消息存储</li>
+</ul>
+</li>
+<li><p>如何声明：只需要在声明队列时，指定x-queue-mode属性为lazy即可。可以通过命令行将一个运行中的队列修改为惰性队列：</p>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105163310226-1704443594008-1.png" alt="image-20240105163310226"></p>
+<ul>
+<li><p>用SpringAMQP声明惰性队列的两种方式</p>
+<ul>
+<li><p><code>@Bean</code>（简单一些）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105163346000.png" alt="image-20240105163346000"></p>
+</li>
+<li><p>注解</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105163351421.png" alt="image-20240105163351421"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-4-MQ集群"><a href="#5-4-MQ集群" class="headerlink" title="5.4 MQ集群"></a>5.4 MQ集群</h3><p><strong>5.4.1 集群分类</strong></p>
+<ul>
+<li>RabbitMQ的是基于Erlang语言编写，而Erlang又是一个面向并发的语言，天然支持集群模式。RabbitMQ的集群有两种模式：<ul>
+<li>普通集群：是一种分布式集群，将队列分散到集群的各个节点，从而提高整个集群的并发能力。</li>
+<li>镜像集群：是一种主从集群，普通集群的基础上，添加了主从备份功能，提高集群的数据可用性。</li>
+</ul>
+</li>
+<li>镜像集群虽然支持主从，但主从同步并不是强一致的，某些情况下可能有数据丢失的风险。因此在RabbitMQ的3.8版本以后，推出了新的功能：<strong>仲裁队列</strong>来代替镜像集群，底层采用Raft协议确保主从的数据一致性。</li>
+</ul>
+<p><strong>5.4.2 普通集群</strong></p>
+<ul>
+<li>普通集群，或者叫标准集群（classic cluster），具备下列特征：<ul>
+<li>会在集群的各个节点间共享部分数据，包括：交换机、队列元信息。不包含队列中的消息。</li>
+<li>当访问集群某节点时，如果队列不在该节点，会从数据所在节点传递到当前节点并返回</li>
+<li>队列所在节点宕机，队列中的消息就会丢失</li>
+</ul>
+</li>
+</ul>
+<p><strong>5.4.3 镜像集群</strong></p>
+<ul>
+<li>镜像集群：本质是主从模式，具备下面的特征：<ul>
+<li>交换机、队列、队列中的消息会在各个mq的镜像节点之间同步备份。</li>
+<li>创建队列的节点被称为该队列的<strong>主节点，</strong>备份到的其它节点叫做该队列的<strong>镜像</strong>节点。</li>
+<li>一个队列的主节点可能是另一个队列的镜像节点</li>
+<li>所有操作都是主节点完成，然后同步给镜像节点</li>
+<li>主宕机后，镜像节点会替代成新的主</li>
+</ul>
+</li>
+</ul>
+<p><strong>5.4.4 仲裁队列</strong></p>
+<ul>
+<li><p>3.8之后的新功能，用于替换镜像队列。特征： </p>
+<ul>
+<li>与镜像队列一样，都是主从模式，支持主从数据同步</li>
+<li>使用非常简单，没有复杂的配置</li>
+<li>主从同步基于Raft协议，强一致</li>
+</ul>
+</li>
+<li><p>SpringAMQP创建仲裁队列</p>
+<ul>
+<li><p>定义队列</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105164220451.png" alt="image-20240105164220451"></p>
+</li>
+<li><p>SpringAMQP连接集群，只需要在yaml中配置即可：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E5%BE%AE%E6%9C%8D%E5%8A%A1.assets/image-20240105164238568.png" alt="image-20240105164238568"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Ⅲ-面试"><a href="#Ⅲ-面试" class="headerlink" title="Ⅲ 面试"></a>Ⅲ 面试</h1><h2 id="一-Nacos"><a href="#一-Nacos" class="headerlink" title="一 Nacos"></a>一 Nacos</h2><h2 id="二-Sentinel"><a href="#二-Sentinel" class="headerlink" title="二 Sentinel"></a>二 Sentinel</h2><h2 id="三-Redis-热点问题"><a href="#三-Redis-热点问题" class="headerlink" title="三 Redis 热点问题"></a>三 Redis 热点问题</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://yileman.github.io">myl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://yileman.github.io/posts/65385.html">http://yileman.github.io/posts/65385.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yileman.github.io" target="_blank">myl's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java%E9%AB%98%E7%BA%A7/">java高级</a></div><div class="post_share"><div class="social-share" data-image="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/46256.html" title="力扣刷题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">力扣刷题</div></div></a></div><div class="next-post pull-right"><a href="/posts/62391.html" title="黑马头条"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">黑马头条</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/18155.html" title="Spring"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-29</div><div class="title">Spring</div></div></a></div><div><a href="/posts/33757.html" title="SpringBoot"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-12</div><div class="title">SpringBoot</div></div></a></div><div><a href="/posts/54284.html" title="SSM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-16</div><div class="title">SSM</div></div></a></div><div><a href="/posts/55918.html" title="若依学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-07</div><div class="title">若依学习</div></div></a></div><div><a href="/posts/30720.html" title="Spring高级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-10</div><div class="title">Spring高级</div></div></a></div><div><a href="/posts/17374.html" title="JVM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-12</div><div class="title">JVM</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">myl</div><div class="author-info__description">后端学习</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yileman"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">写写记记</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%85%A0%E5%AE%9E%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">Ⅰ实用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">一 微服务治理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E8%AE%A4%E8%AF%86%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 认识微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E8%B0%83%E7%94%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 微服务拆分调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 eureka注册中心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 Ribbon负载均衡原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-number">1.1.5.</span> <span class="toc-text">1.5 nacos注册中心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-Nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.6.</span> <span class="toc-text">1.6 Nacos配置管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-Feign"><span class="toc-number">1.1.7.</span> <span class="toc-text">1.7 Feign</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-%E7%BB%9F%E4%B8%80%E7%BD%91%E5%85%B3Gateway"><span class="toc-number">1.1.8.</span> <span class="toc-text">1.8 统一网关Gateway</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-Docker"><span class="toc-number">1.2.</span> <span class="toc-text">二 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E4%B8%80%E8%88%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 一般操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 自定义镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-DockerCompose"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 DockerCompose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="toc-number">1.2.6.</span> <span class="toc-text">2.6 镜像仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1"><span class="toc-number">1.3.</span> <span class="toc-text">三 异步通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-MQ"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 MQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-RabbitMQ"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 RabbitMQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-SpringAMQP"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 SpringAMQP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-ES%E5%9F%BA%E7%A1%80"><span class="toc-number">1.4.</span> <span class="toc-text">四 分布式搜索引擎-ES基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-elasticsearch"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 elasticsearch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E7%B4%A2%E5%BC%95%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E6%95%B0%E6%8D%AE%E5%88%97%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 索引库操作（数据列）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%96%87%E6%A1%A3%E6%93%8D%E4%BD%9C%EF%BC%88%E6%95%B0%E6%8D%AE%E8%A1%8C%EF%BC%89"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 文档操作（数据行）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-RestAPI"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.4 RestAPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E5%88%B0ES"><span class="toc-number">1.4.5.</span> <span class="toc-text">4.5 批量导入数据到ES</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-ES%E5%8A%9F%E8%83%BD"><span class="toc-number">1.5.</span> <span class="toc-text">五 分布式搜索引擎-ES功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-DSL%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 DSL查询文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E5%A4%84%E7%90%86"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 搜索结果处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-RestClient%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3%E5%8F%8A%E7%BB%93%E6%9E%9C%E5%A4%84%E7%90%86"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3 RestClient查询文档及结果处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E6%A1%88%E4%BE%8B"><span class="toc-number">1.5.4.</span> <span class="toc-text">5.4 黑马旅游案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-ES%E6%B7%B1%E5%85%A5"><span class="toc-number">1.6.</span> <span class="toc-text">六 分布式搜索引擎-ES深入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1 数据聚合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number">1.6.2.</span> <span class="toc-text">6.2 自动补全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5"><span class="toc-number">1.6.3.</span> <span class="toc-text">6.3 数据同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-%E9%9B%86%E7%BE%A4"><span class="toc-number">1.6.4.</span> <span class="toc-text">6.4 集群</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%85%A1-%E9%AB%98%E7%BA%A7"><span class="toc-number">2.</span> <span class="toc-text">Ⅱ 高级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4"><span class="toc-number">2.1.</span> <span class="toc-text">一 微服务保护</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Sentinel"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 Sentinel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 流量控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%9A%94%E7%A6%BB%E5%92%8C%E9%99%8D%E7%BA%A7"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 隔离和降级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E6%8E%88%E6%9D%83%E8%A7%84%E5%88%99"><span class="toc-number">2.1.4.</span> <span class="toc-text">1.4 授权规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E8%A7%84%E5%88%99%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-number">2.1.5.</span> <span class="toc-text">1.5 规则持久化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="toc-number">2.2.</span> <span class="toc-text">二 分布式事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 理论基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Seata"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 Seata</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%AE%9E%E8%B7%B5"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3 实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4 高可用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98"><span class="toc-number">2.3.</span> <span class="toc-text">三 分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-redis%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 redis持久化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-redis%E4%B8%BB%E4%BB%8E"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 redis主从</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-redis%E5%93%A8%E5%85%B5"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3 redis哨兵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-redis%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4 redis分片集群</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">2.4.</span> <span class="toc-text">四 多级缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-JVM%E8%BF%9B%E7%A8%8B%E7%BC%93%E5%AD%98"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1 JVM进程缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Lua%E8%AF%AD%E6%B3%95%E5%85%A5%E9%97%A8"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.2 Lua语法入门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">2.4.3.</span> <span class="toc-text">4.3 多级缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E7%BC%93%E5%AD%98%E5%90%8C%E6%AD%A5%E7%AD%96%E7%95%A5"><span class="toc-number">2.4.4.</span> <span class="toc-text">4.4 缓存同步策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E6%80%BB%E7%BB%93"><span class="toc-number">2.4.5.</span> <span class="toc-text">4.5 多级缓存总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%9C%8D%E5%8A%A1%E5%BC%82%E6%AD%A5%E9%80%9A%E8%AE%AF"><span class="toc-number">2.5.</span> <span class="toc-text">五 服务异步通讯</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-number">2.5.1.</span> <span class="toc-text">5.1 消息可靠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E6%AD%BB%E4%BF%A1%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.5.2.</span> <span class="toc-text">5.2 死信交换机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E6%83%B0%E6%80%A7%E9%98%9F%E5%88%97"><span class="toc-number">2.5.3.</span> <span class="toc-text">5.3 惰性队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-MQ%E9%9B%86%E7%BE%A4"><span class="toc-number">2.5.4.</span> <span class="toc-text">5.4 MQ集群</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%85%A2-%E9%9D%A2%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">Ⅲ 面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-Nacos"><span class="toc-number">3.1.</span> <span class="toc-text">一 Nacos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-Sentinel"><span class="toc-number">3.2.</span> <span class="toc-text">二 Sentinel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-Redis-%E7%83%AD%E7%82%B9%E9%97%AE%E9%A2%98"><span class="toc-number">3.3.</span> <span class="toc-text">三 Redis 热点问题</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By myl</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,1354 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>苍穹外卖 | myl's blog</title><meta name="author" content="myl"><meta name="copyright" content="myl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="苍穹外卖https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1TP411v7v6&#x2F;?spm_id_from&#x3D;333.788.video.desc.click&amp;vd_source&#x3D;1a39594354c31d775ddc587407a55282 〇 经验总结0 自动装配 主启动类上的注解@SpringbootApplication是一个复合注解，其中比较重要的  @Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="苍穹外卖">
+<meta property="og:url" content="http://yileman.github.io/posts/21962.html">
+<meta property="og:site_name" content="myl&#39;s blog">
+<meta property="og:description" content="苍穹外卖https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1TP411v7v6&#x2F;?spm_id_from&#x3D;333.788.video.desc.click&amp;vd_source&#x3D;1a39594354c31d775ddc587407a55282 〇 经验总结0 自动装配 主启动类上的注解@SpringbootApplication是一个复合注解，其中比较重要的  @Spring">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg">
+<meta property="article:published_time" content="2024-03-05T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-15T13:32:57.939Z">
+<meta property="article:author" content="myl">
+<meta property="article:tag" content="项目">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg"><link rel="shortcut icon" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg"><link rel="canonical" href="http://yileman.github.io/posts/21962.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '苍穹外卖',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-15 21:32:57'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="myl's blog"><span class="site-name">myl's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">苍穹外卖</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-05T00:00:00.000Z" title="发表于 2024-03-05 08:00:00">2024-03-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-15T13:32:57.939Z" title="更新于 2024-03-15 21:32:57">2024-03-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="苍穹外卖"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="苍穹外卖"><a href="#苍穹外卖" class="headerlink" title="苍穹外卖"></a>苍穹外卖</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TP411v7v6/?spm_id_from=333.788.video.desc.click&vd_source=1a39594354c31d775ddc587407a55282">https://www.bilibili.com/video/BV1TP411v7v6/?spm_id_from=333.788.video.desc.click&amp;vd_source=1a39594354c31d775ddc587407a55282</a></p>
+<h2 id="〇-经验总结"><a href="#〇-经验总结" class="headerlink" title="〇 经验总结"></a>〇 经验总结</h2><h3 id="0-自动装配"><a href="#0-自动装配" class="headerlink" title="0 自动装配"></a>0 自动装配</h3><ul>
+<li><p>主启动类上的注解<code>@SpringbootApplication</code>是一个复合注解，其中比较重要的</p>
+<ul>
+<li><code>@SpringbootConfiguration</code>：springboot的相关配置</li>
+<li><code>@EnableAutoConfiguration</code></li>
+<li><code>@ComponentScan</code>：扫描一些包并注入</li>
+</ul>
+</li>
+<li><p>重点<code>@EnableAutoConfiguration</code>，也是一个复合注解</p>
+<ul>
+<li><code>@import(AutoConfigurationImportSelect.class)</code></li>
+</ul>
+</li>
+<li><p><code>AutoConfigurationImportSelect</code>中一个重要的方法：<code>importSelect()</code>作用是选取一些类，注入到IOC容器中</p>
+</li>
+<li><p>配置文件的信息如何加载到bean中：spring.factories文件存储了一些键信息，然后加载的时候配置文件的值就被加载到这个文件中了</p>
+</li>
+<li><p>两种</p>
+<ul>
+<li><code>@Autowired</code>：根据类型自动注入</li>
+<li><code>@Resource</code>：根据bean的名称自动注入</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-Mybatis"><a href="#1-Mybatis" class="headerlink" title="1 Mybatis"></a>1 Mybatis</h3><ul>
+<li><p>分页查询</p>
+<ul>
+<li><p><code>PageHelper</code>：原理是存储分页信息在<code>ThreadLocal</code>中，在执行sql前拦截器会读取到分页信息动态插入到sql中再执行</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20240224180047211.png" alt="image-20240224180047211"></p>
+</li>
+</ul>
+</li>
+<li><p>批量插入</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20240224182755036.png" alt="image-20240224182755036"></p>
+<p>mapper：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20240224182807077.png" alt="image-20240224182807077"></p>
+</li>
+<li><p>参数传递<code>xxxMapper.java</code>中方法的形参名可以不与<code>.xml</code>一致，MyBatis 会按照参数的位置进行匹配而不是参数的名字，若有多个参数，则应该按顺序使用</p>
+<ul>
+<li>也可以使用<code>@Param</code>：<code>List&lt;TeachplanDto&gt; selectTreeNodes(@Param(&quot;courseId&quot;) Long courseId, @Param(&quot;name&quot;) String name);</code>指定mapper中的名字</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-微信登录"><a href="#2-微信登录" class="headerlink" title="2 微信登录"></a>2 微信登录</h3><ul>
+<li><p>过程</p>
+<ul>
+<li><p>前端传入授权码发送至服务端</p>
+</li>
+<li><p>服务端携带授权码code + appid + secret 采用<code>HttpClient</code>发送请求到<a target="_blank" rel="noopener" href="https://api.weixin.qq.com/sns/jscode2session">https://api.weixin.qq.com/sns/jscode2session</a></p>
+</li>
+<li><p>得到微信服务端返回的openid + session_key，其中openid也就是微信用户的唯一标识</p>
+</li>
+<li><p>根据openid查询数据库中是否存在此用户（openid不是主键），若不存在则自动创建，存在则返回该用户信息</p>
+</li>
+<li><p>为该用户生成jwt令牌（密钥+过期时间+信息）</p>
+<ul>
+<li>密钥用于加密解密jwt信息</li>
+<li>信息claims是一个map，在本项目中只存储了userId这一个信息</li>
+</ul>
+</li>
+<li><p>返回VO对象</p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20240224190705160.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/苍穹外卖.assets/image-20240224190705160.png</a>“ alt&#x3D;”image-20240224190705160” style&#x3D;”zoom: 67%;” &#x2F;&gt;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-redis和SpringCache"><a href="#3-redis和SpringCache" class="headerlink" title="3 redis和SpringCache"></a>3 redis和SpringCache</h3><ul>
+<li><p>redis缓存菜品分类</p>
+<ul>
+<li><p>根据分类id查询菜品存储在List中，随后redis的key为dish_id号，value是list的内容 	</p>
+</li>
+<li><p>当新增、修改、删除菜品的时候删除所有的dish_*的缓存（这里可以做的更细一点）</p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20240224195415885.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/苍穹外卖.assets/image-20240224195415885.png</a>“ alt&#x3D;”image-20240224195415885” style&#x3D;”zoom:67%;” &#x2F;&gt;</p>
+</li>
+</ul>
+</li>
+<li><p>SpringCache缓存套餐</p>
+<ul>
+<li><p>本质：SpringCache在JVM中，集群中不可用</p>
+</li>
+<li><p><code>application</code>类上添加<code>@EnableCaching</code></p>
+</li>
+<li><p>在根据分类id查询套餐前判断setmealCache这个缓存管理器中有没有指定的分类id的value，有则直接返回，没有则再执行方法，再将查询结果存储在缓存中</p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20240224201425719.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/苍穹外卖.assets/image-20240224201425719.png</a>“ alt&#x3D;”image-20240224201425719” style&#x3D;”zoom:67%;” &#x2F;&gt;</p>
+</li>
+<li><p>在批量删除套餐的时候清理所有缓存</p>
+<p>&lt;img src&#x3D;(<a target="_blank" rel="noopener" href="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20240224201343039.png">https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/苍穹外卖.assets/image-20240224201343039.png</a>“ alt&#x3D;”image-20240224201343039” style&#x3D;”zoom:67%;” &#x2F;&gt;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-微信支付"><a href="#4-微信支付" class="headerlink" title="4 微信支付"></a>4 微信支付</h3><ul>
+<li>用户点击支付，向接口发送请求，传入订单号及付款方式（微信）</li>
+<li>服务端获取到当前用户的id，采用JSAPI下单，传入appid、mchid（商户号）、description、out_trade_no、notify_url（回调地址）等信息，发送post请求（httpclient）<a target="_blank" rel="noopener" href="https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi">https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi</a></li>
+<li>解析返回结果：<strong>prepay_id</strong>（关键，这个要给前端）： 预支付交易会话标识，根据prepay_id及appid、时间等信息生成二次签名（预支付交易单）</li>
+<li>支付结果异步通知：读取数据、解密数据、业务处理：修改订单状态、给微信响应</li>
+</ul>
+<h3 id="5-百度地图"><a href="#5-百度地图" class="headerlink" title="5 百度地图"></a>5 百度地图</h3><ul>
+<li>申请ak</li>
+<li>请求的时候注意参数的顺序：address、output、ak</li>
+<li>获取经纬度信息：<a target="_blank" rel="noopener" href="https://api.map.baidu.com/geocoding/v3">https://api.map.baidu.com/geocoding/v3</a></li>
+<li>获取路径规划信息：<a target="_blank" rel="noopener" href="https://api.map.baidu.com/directionlite/v1/driving">https://api.map.baidu.com/directionlite/v1/driving</a></li>
+</ul>
+<h3 id="6-来单提醒-用户催单"><a href="#6-来单提醒-用户催单" class="headerlink" title="6 来单提醒&#x2F;用户催单"></a>6 来单提醒&#x2F;用户催单</h3><ul>
+<li><p>客户端通过<code>/ws/&#123;sid&#125;</code>与服务端建立websocket长连接，会话对象<code>Session</code>存储在map中，当需要发送消息的时候调用<code>session.getBasicRemote().sendText(message);</code>方法即可</p>
+</li>
+<li><p>在客户支付成功之后调用</p>
+</li>
+</ul>
+<h2 id="Ⅰ-整体介绍"><a href="#Ⅰ-整体介绍" class="headerlink" title="Ⅰ 整体介绍"></a>Ⅰ 整体介绍</h2><h3 id="一-软件开发整体介绍"><a href="#一-软件开发整体介绍" class="headerlink" title="一 软件开发整体介绍"></a>一 软件开发整体介绍</h3><h4 id="1-1-流程"><a href="#1-1-流程" class="headerlink" title="1.1 流程"></a>1.1 流程</h4><ul>
+<li>需求分析：需求规格说明书、产品原型</li>
+<li>设计：UI设计、数据库设计、接口设计</li>
+<li>编码：项目代码、单元测试</li>
+<li>测试：测试用例、测试报告</li>
+<li>上线运维：软件环境安装、配置</li>
+</ul>
+<h4 id="1-2-角色分工"><a href="#1-2-角色分工" class="headerlink" title="1.2 角色分工"></a>1.2 角色分工</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231112215647568.png" alt="image-20231112215647568"></p>
+<h4 id="1-3-软件环境"><a href="#1-3-软件环境" class="headerlink" title="1.3 软件环境"></a>1.3 软件环境</h4><ul>
+<li>开发环境：开发阶段环境，一般外部用户无法访问</li>
+<li>测试环境：测试人员使用，一般外部用户无法访问</li>
+<li>生产环境：线上环境，正式提供对外服务的环境</li>
+</ul>
+<h3 id="二-苍穹外卖项目介绍"><a href="#二-苍穹外卖项目介绍" class="headerlink" title="二 苍穹外卖项目介绍"></a>二 苍穹外卖项目介绍</h3><h4 id="2-1-项目介绍"><a href="#2-1-项目介绍" class="headerlink" title="2.1 项目介绍"></a>2.1 项目介绍</h4><ul>
+<li><p>定位：专门为餐饮企业（餐厅、饭店）定制的一款软件产品</p>
+</li>
+<li><p>功能架构</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231112215927930.png" alt="image-20231112215927930"></p>
+</li>
+</ul>
+<h4 id="2-2-产品原型"><a href="#2-2-产品原型" class="headerlink" title="2.2 产品原型"></a>2.2 产品原型</h4><ul>
+<li>产品原型：用于展示项目的业务功能，一般由产品经理进行设计</li>
+</ul>
+<h4 id="2-3-技术选型"><a href="#2-3-技术选型" class="headerlink" title="2.3 技术选型"></a>2.3 技术选型</h4><ul>
+<li><p>技术选型：展示项目中使用到的技术框架和中间件等</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231112220002355.png" alt="image-20231112220002355"></p>
+</li>
+</ul>
+<h3 id="三-开发环境搭建"><a href="#三-开发环境搭建" class="headerlink" title="三 开发环境搭建"></a>三 开发环境搭建</h3><ul>
+<li>整体结构<ul>
+<li>前端<ul>
+<li>管理端：Web</li>
+<li>用户端：小程序</li>
+</ul>
+</li>
+<li>后端<ul>
+<li>后端服务：Java</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-1-前端环境搭建"><a href="#3-1-前端环境搭建" class="headerlink" title="3.1 前端环境搭建"></a>3.1 前端环境搭建</h4><ul>
+<li>前端工程基于nginx运行</li>
+<li>双击项目目录下的nginx.exe即可启动服务，端口号为80</li>
+</ul>
+<h4 id="3-2-后端环境搭建"><a href="#3-2-后端环境搭建" class="headerlink" title="3.2 后端环境搭建"></a>3.2 后端环境搭建</h4><ul>
+<li><p>后端工程基于maven进行项目构建，并且进行分模块开发</p>
+</li>
+<li><p>sky-take-out：maven父工程，统一管理依赖版本，聚合其他子模块</p>
+<ul>
+<li>sky-common：子模块，存放公共类，例如：工具类、常量类、异常类等</li>
+<li>sky-pojo：子模块，存放实体类、VO、DTO等<ul>
+<li>entity：实体，通常与数据库的表对应</li>
+<li>DTO：数据传输对象，通常于程序中各层之间传递数据</li>
+<li>VO：视图对象，为前端展示数据提供的对象</li>
+<li>POJO：普通Java对象，只有属性和对应的getter和setter</li>
+</ul>
+</li>
+<li>sky-server：子模块，后端服务，存放配置文件、Controller、Service、Mapper等</li>
+</ul>
+</li>
+<li><p>使用Git进行版本控制</p>
+</li>
+<li><p>数据库环境搭建</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231112220832816.png" alt="image-20231112220832816"></p>
+</li>
+<li><p>前后端联调</p>
+<ul>
+<li>前端请求地址：<a target="_blank" rel="noopener" href="http://localhost/api/employee/login">http://localhost/api/employee/login</a></li>
+<li>后端接口地址：<a target="_blank" rel="noopener" href="http://localhost:8080/admin/employee/login">http://localhost:8080/admin/employee/login</a></li>
+<li>nginx 反向代理，就是将前端发送的动态请求由 nginx 转发到后端服务器<ul>
+<li>提高访问速度</li>
+<li>进行负载均衡</li>
+<li>保证后端服务安全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-完善登录功能"><a href="#3-3-完善登录功能" class="headerlink" title="3.3 完善登录功能"></a>3.3 完善登录功能</h4><ul>
+<li>问题：员工表中的密码是明文存储，安全性低</li>
+<li>思路：将密码加密后存储，提高安全性，使用MD5加密方式对明文密码加密</li>
+</ul>
+<h3 id="四-接入接口文档"><a href="#四-接入接口文档" class="headerlink" title="四 接入接口文档"></a>四 接入接口文档</h3><h4 id="4-1-前后端分离开发流程"><a href="#4-1-前后端分离开发流程" class="headerlink" title="4.1 前后端分离开发流程"></a>4.1 前后端分离开发流程</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231112221529341.png" alt="image-20231112221529341"></p>
+<ul>
+<li>在YApi中管理接口</li>
+</ul>
+<h3 id="五-Swagger"><a href="#五-Swagger" class="headerlink" title="五 Swagger"></a>五 Swagger</h3><ul>
+<li>类似于postman 但是postman一个一个测试比较麻烦</li>
+</ul>
+<h4 id="5-1-介绍"><a href="#5-1-介绍" class="headerlink" title="5.1 介绍"></a>5.1 介绍</h4><ul>
+<li><p>使用Swagger你只需要按照它的规范去定义接口及接口相关的信息，就可以做到生成接口文档，以及在线接口调试页面。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://swagger.io/">https://swagger.io/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://doc.xiaominfo.com/">K</a><a target="_blank" rel="noopener" href="https://doc.xiaominfo.com/">nife4j</a><a target="_blank" rel="noopener" href="https://doc.xiaominfo.com/"> </a>是为Java MVC框架集成Swagger生成Api文档的增强解决方案。</p>
+</li>
+</ul>
+<h4 id="5-2-使用方式"><a href="#5-2-使用方式" class="headerlink" title="5.2 使用方式"></a>5.2 使用方式</h4><ul>
+<li>导入坐标</li>
+<li>配置类中加入配置</li>
+<li>设置静态资源映射，否则接口文档页面无法访问</li>
+</ul>
+<h4 id="5-3-常用注解"><a href="#5-3-常用注解" class="headerlink" title="5.3 常用注解"></a>5.3 常用注解</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231112221816822.png" alt="image-20231112221816822"></p>
+<ul>
+<li><p>在com.sky.config.WebMvcConfiguration.java中定义</p>
+</li>
+<li><p>启动后端项目后：<a target="_blank" rel="noopener" href="http://localhost:8080/doc.html">http://localhost:8080/doc.html</a> 可访问生成的文档</p>
+</li>
+</ul>
+<h2 id="Ⅱ-员工管理、分类管理"><a href="#Ⅱ-员工管理、分类管理" class="headerlink" title="Ⅱ 员工管理、分类管理"></a>Ⅱ 员工管理、分类管理</h2><h3 id="一-新增员工"><a href="#一-新增员工" class="headerlink" title="一 新增员工"></a>一 新增员工</h3><h4 id="1-1-需求分析和设计"><a href="#1-1-需求分析和设计" class="headerlink" title="1.1 需求分析和设计"></a>1.1 需求分析和设计</h4><ul>
+<li><p>产品原型</p>
+<ul>
+<li>账号唯一</li>
+<li>手机号合法的</li>
+<li>身份证合法</li>
+<li>密码默认123456</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<ul>
+<li><p>请求参数</p>
+<ul>
+<li>Path：&#x2F;admin&#x2F;employee</li>
+<li>Method：POST</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113202940688.png" alt="image-20231113202940688"></p>
+</li>
+<li><p>返回数据</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113202956877.png" alt="image-20231113202956877"></p>
+</li>
+<li><p>约定</p>
+<ul>
+<li>管理端的请求，&#x2F;admin作为前缀</li>
+<li>用户端的请求，&#x2F;user作为前缀</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据库设计（employee表）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113203143786.png" alt="image-20231113203143786"></p>
+</li>
+</ul>
+<h4 id="1-2-代码开发"><a href="#1-2-代码开发" class="headerlink" title="1.2 代码开发"></a>1.2 代码开发</h4><ul>
+<li><p>根据新增员工接口设计对应的DTO</p>
+<ul>
+<li><p>注意：当前端提交的数据和实体类中对应的属性差别比较大时，建议使用DTO来封装数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmployeeDTO</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String idNumber;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-功能测试"><a href="#1-3-功能测试" class="headerlink" title="1.3 功能测试"></a>1.3 功能测试</h4><ul>
+<li><p>通过接口文档测试（多用这种）</p>
+</li>
+<li><p>通过前后端联调测试</p>
+</li>
+<li><p>由于开发阶段前端和后端是并行开发的，后端完成某个功能后，此时前端对应的功能可能还没有开发完成，</p>
+<p>导致无法进行前后端联调测试。所以在开发阶段，后端测试主要以接口文档测试为主。</p>
+</li>
+<li><p>注意配置token，在接口文档中定义一个全局变量，key为token(有时效的)</p>
+</li>
+</ul>
+<h4 id="1-3-代码完善"><a href="#1-3-代码完善" class="headerlink" title="1.3 代码完善"></a>1.3 代码完善</h4><ul>
+<li><p>录入的用户名已存在，抛出异常后没有处理</p>
+<ul>
+<li><p>全局异常处理器处理</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113205617529.png" alt="image-20231113205617529"></p>
+</li>
+</ul>
+</li>
+<li><p>新增员工时，创建人id和修改人id设置为了固定值</p>
+<ul>
+<li><p>通过某种方式动态获取当前登录员工的id</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113210316469.png" alt="image-20231113210316469"></p>
+<ul>
+<li>员工登录成功后会生成JWT令牌并响应给前端</li>
+<li>后续请求中，前端会携带JWT令牌，通过JWT令牌可以解析出当前登录员工id</li>
+<li>解析出登录员工id后，如何传递给Service的save方法？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ThreadLocal </p>
+<ul>
+<li>并不是一个Thread，而是Thread的局部变量。</li>
+<li>ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的效果，只有在线程内才能获取到对应的值，线程外则不能访问。<ul>
+<li><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113210620803.png" alt="image-20231113210620803"></li>
+</ul>
+</li>
+<li>客户端发送的每次请求，后端的Tomcat服务器都会分配一个单独的线程来处理请求</li>
+<li>在拦截器中解析出当前登录的员工的id，并放入的线程局部变量中，随后在保存的时候读取这个id</li>
+</ul>
+</li>
+</ul>
+<h3 id="二-员工分页查询"><a href="#二-员工分页查询" class="headerlink" title="二 员工分页查询"></a>二 员工分页查询</h3><h4 id="2-1-需求分析和设计"><a href="#2-1-需求分析和设计" class="headerlink" title="2.1 需求分析和设计"></a>2.1 需求分析和设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>根据页码展示员工信息</li>
+<li>每页10条数据</li>
+<li>分页查询时可以根据需要，输入员工姓名进行查询</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<ul>
+<li><p>请求参数</p>
+<ul>
+<li>Path：&#x2F;admin&#x2F;employee&#x2F;page</li>
+<li>Method:GET</li>
+<li><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113211539458.png" alt="image-20231113211539458"></li>
+</ul>
+</li>
+<li><p>返回数据</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113211520807.png" alt="image-20231113211520807"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-代码开发"><a href="#2-2-代码开发" class="headerlink" title="2.2 代码开发"></a>2.2 代码开发</h4><ul>
+<li><p>根据接口设计对应的DTO</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113211659677.png" alt="image-20231113211659677"></p>
+</li>
+<li><p>后面所有的分页查询，统一都封装成PageResult对象：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113211718332.png" alt="image-20231113211718332"></p>
+</li>
+<li><p>员工信息分页查询后返回的对象类型为：<code>Result&lt;PageResult&gt;</code></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113211815663.png" alt="image-20231113211815663"></p>
+</li>
+</ul>
+<h4 id="2-3-功能测试"><a href="#2-3-功能测试" class="headerlink" title="2.3 功能测试"></a>2.3 功能测试</h4><h4 id="2-4-代码完善"><a href="#2-4-代码完善" class="headerlink" title="2.4 代码完善"></a>2.4 代码完善</h4><ul>
+<li><p>方式一：在属性上加入注解，对日期进行格式化</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113215900420.png" alt="image-20231113215900420"></p>
+</li>
+<li><p>方式二：在 WebMvcConfiguration 中扩展Spring MVC的消息转换器，统一对日期类型进行格式化处理</p>
+</li>
+</ul>
+<h3 id="三-启用禁用员工账号"><a href="#三-启用禁用员工账号" class="headerlink" title="三 启用禁用员工账号"></a>三 启用禁用员工账号</h3><h4 id="3-1-需求分析与设计"><a href="#3-1-需求分析与设计" class="headerlink" title="3.1 需求分析与设计"></a>3.1 需求分析与设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>可以对状态为“启用” 的员工账号进行“禁用”操作</li>
+<li>可以对状态为“禁用”的员工账号进行“启用”操作</li>
+<li>状态为“禁用”的员工账号不能登录系统</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113220915625.png" alt="image-20231113220915625"></p>
+</li>
+</ul>
+<h4 id="3-2-代码开发"><a href="#3-2-代码开发" class="headerlink" title="3.2 代码开发"></a>3.2 代码开发</h4><h4 id="3-3-功能测试"><a href="#3-3-功能测试" class="headerlink" title="3.3 功能测试"></a>3.3 功能测试</h4><h3 id="四-编辑员工"><a href="#四-编辑员工" class="headerlink" title="四 编辑员工"></a>四 编辑员工</h3><h4 id="4-1-需求分析与设计"><a href="#4-1-需求分析与设计" class="headerlink" title="4.1 需求分析与设计"></a>4.1 需求分析与设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>根据id查询员工信息</li>
+<li>编辑员工信息</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<ul>
+<li><p>根据id查询员工信息</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113222420681.png" alt="image-20231113222420681"></p>
+</li>
+<li><p>编辑员工信息</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113222441435.png" alt="image-20231113222441435"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-代码开发"><a href="#4-2-代码开发" class="headerlink" title="4.2 代码开发"></a>4.2 代码开发</h4><h4 id="4-3-功能测试"><a href="#4-3-功能测试" class="headerlink" title="4.3 功能测试"></a>4.3 功能测试</h4><h3 id="五-导入分类模块功能代码"><a href="#五-导入分类模块功能代码" class="headerlink" title="五 导入分类模块功能代码"></a>五 导入分类模块功能代码</h3><ul>
+<li>与员工管理类似</li>
+</ul>
+<h4 id="5-1-需求分析与设计"><a href="#5-1-需求分析与设计" class="headerlink" title="5.1 需求分析与设计"></a>5.1 需求分析与设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>分类名称必须是<strong>唯一</strong>的</li>
+<li>分类按照类型可以分为<strong>菜品分类</strong>和<strong>套餐分类</strong></li>
+<li>新添加的分类状态默认为<strong>“禁用”</strong></li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<ul>
+<li>新增分类</li>
+<li>分类分页查询</li>
+<li>根据id删除分类</li>
+<li>修改分类</li>
+<li>启用禁用分类</li>
+<li>根据类型查询分类</li>
+</ul>
+</li>
+<li><p>数据库设计（category表）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231113223801771.png" alt="image-20231113223801771"></p>
+</li>
+</ul>
+<h4 id="5-2-代码开发"><a href="#5-2-代码开发" class="headerlink" title="5.2 代码开发"></a>5.2 代码开发</h4><h4 id="5-3-功能测试"><a href="#5-3-功能测试" class="headerlink" title="5.3 功能测试"></a>5.3 功能测试</h4><h2 id="Ⅲ-菜品管理"><a href="#Ⅲ-菜品管理" class="headerlink" title="Ⅲ 菜品管理"></a>Ⅲ 菜品管理</h2><h3 id="一-公共字段自动填充"><a href="#一-公共字段自动填充" class="headerlink" title="一 公共字段自动填充"></a>一 公共字段自动填充</h3><h4 id="1-1-问题分析"><a href="#1-1-问题分析" class="headerlink" title="1.1 问题分析"></a>1.1 问题分析</h4><ul>
+<li><p>业务表中的公共字段重复，导致代码冗余、不便于后期维护</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231116224758489.png" alt="image-20231116224758489"></p>
+</li>
+</ul>
+<h4 id="1-2-实现思路"><a href="#1-2-实现思路" class="headerlink" title="1.2 实现思路"></a>1.2 实现思路</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231116224942816.png" alt="image-20231116224942816"></p>
+<ul>
+<li>自定义注解AutoFill，用于标识需要进行公共字段自动填充的方法</li>
+<li>自定义切面类 AutoFillAspect，统一拦截加入了 AutoFill 注解的方法，通过反射为公共字段赋值</li>
+<li>在 Mapper 的方法上加入 AutoFill 注解</li>
+<li>技术点：枚举、注解、AOP、反射</li>
+</ul>
+<h4 id="1-3-代码开发"><a href="#1-3-代码开发" class="headerlink" title="1.3 代码开发"></a>1.3 代码开发</h4><ul>
+<li>自定义注解AutoFill</li>
+<li>自定义切面 AutoFillAspect</li>
+<li>完善自定义切面 AutoFillAspect 的 autoFill 方法</li>
+<li>在Mapper接口的方法上加入 AutoFill 注解</li>
+<li>将业务层为公共字段赋值的代码注释掉</li>
+</ul>
+<h4 id="1-4-功能测试"><a href="#1-4-功能测试" class="headerlink" title="1.4 功能测试"></a>1.4 功能测试</h4><h3 id="二-新增菜品"><a href="#二-新增菜品" class="headerlink" title="二 新增菜品"></a>二 新增菜品</h3><h4 id="2-1-需求分析和设计-1"><a href="#2-1-需求分析和设计-1" class="headerlink" title="2.1 需求分析和设计"></a>2.1 需求分析和设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>菜品名称必须是唯一的</li>
+<li>菜品必须属于某个分类下，不能单独存在</li>
+<li>新增菜品时可以根据情况选择菜品的口味</li>
+<li>每个菜品必须对应一张图片</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<ul>
+<li><p>根据类型查询分类（已完成）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231116232910259.png" alt="image-20231116232910259"></p>
+</li>
+<li><p>文件上传</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231116233003532.png" alt="image-20231116233003532"></p>
+</li>
+<li><p>新增菜品</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231116233013731.png" alt="image-20231116233013731"></p>
+</li>
+</ul>
+</li>
+<li><p>数据库设计（dish菜品表和dish_flavor口味表）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231116233046342.png" alt="image-20231116233046342"></p>
+</li>
+</ul>
+<h4 id="2-2-代码开发-1"><a href="#2-2-代码开发-1" class="headerlink" title="2.2 代码开发"></a>2.2 代码开发</h4><h4 id="2-3-功能测试-1"><a href="#2-3-功能测试-1" class="headerlink" title="2.3 功能测试"></a>2.3 功能测试</h4><h3 id="三-菜品分页查询"><a href="#三-菜品分页查询" class="headerlink" title="三 菜品分页查询"></a>三 菜品分页查询</h3><h4 id="3-1-需求分析和设计"><a href="#3-1-需求分析和设计" class="headerlink" title="3.1 需求分析和设计"></a>3.1 需求分析和设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>根据页码展示菜品信息</li>
+<li>每页展示10条数据</li>
+<li>分页查询时可以根据需要输入菜品名称、菜品分类、菜品状态进行查询</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231117153112174.png" alt="image-20231117153112174"></p>
+</li>
+</ul>
+<h4 id="3-2-代码开发-1"><a href="#3-2-代码开发-1" class="headerlink" title="3.2 代码开发"></a>3.2 代码开发</h4><h4 id="3-3-功能测试-1"><a href="#3-3-功能测试-1" class="headerlink" title="3.3 功能测试"></a>3.3 功能测试</h4><h3 id="四-删除菜品"><a href="#四-删除菜品" class="headerlink" title="四 删除菜品"></a>四 删除菜品</h3><h4 id="4-1-需求分析和设计"><a href="#4-1-需求分析和设计" class="headerlink" title="4.1 需求分析和设计"></a>4.1 需求分析和设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>可以一次删除一个菜品，也可以批量删除菜品</li>
+<li>起售中的菜品不能删除</li>
+<li>被套餐关联的菜品不能删除</li>
+<li>删除菜品后，关联的口味数据也需要删除掉</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231117211019552.png" alt="image-20231117211019552"></p>
+</li>
+<li><p>数据库设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231117211032524.png" alt="image-20231117211032524"></p>
+</li>
+</ul>
+<h4 id="4-2-代码开发-1"><a href="#4-2-代码开发-1" class="headerlink" title="4.2 代码开发"></a>4.2 代码开发</h4><h4 id="4-3-功能测试-1"><a href="#4-3-功能测试-1" class="headerlink" title="4.3 功能测试"></a>4.3 功能测试</h4><h3 id="五-修改菜品"><a href="#五-修改菜品" class="headerlink" title="五 修改菜品"></a>五 修改菜品</h3><h4 id="5-1-需求分析和设计"><a href="#5-1-需求分析和设计" class="headerlink" title="5.1 需求分析和设计"></a>5.1 需求分析和设计</h4><ul>
+<li><p>接口设计</p>
+<ul>
+<li><p>根据id查询菜品</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231117215618556.png" alt="image-20231117215618556"></p>
+</li>
+<li><p>根据类型查询分类（已实现）</p>
+</li>
+<li><p>文件上传（已实现）</p>
+</li>
+<li><p>修改菜品</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231117215636319.png" alt="image-20231117215636319"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-代码开发-1"><a href="#5-2-代码开发-1" class="headerlink" title="5.2 代码开发"></a>5.2 代码开发</h4><h4 id="5-3-功能测试-1"><a href="#5-3-功能测试-1" class="headerlink" title="5.3 功能测试"></a>5.3 功能测试</h4><h2 id="Ⅳ-店铺状态"><a href="#Ⅳ-店铺状态" class="headerlink" title="Ⅳ 店铺状态"></a>Ⅳ 店铺状态</h2><h3 id="一-Redis"><a href="#一-Redis" class="headerlink" title="一 Redis"></a>一 Redis</h3><h4 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h4><ul>
+<li>Redis是一个基于<strong>内存</strong>的 key-value 结构数据库<ul>
+<li>基于内存存储，读写性能高</li>
+<li>适合存储热点数据（热点商品、资讯、新闻）</li>
+<li>企 业应用广泛</li>
+</ul>
+</li>
+<li>网站<ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io</a></li>
+<li>中文网：<a target="_blank" rel="noopener" href="https://www.redis.net.cn/">https://www.redis.net.cn/</a></li>
+</ul>
+</li>
+<li>下载与安装<ul>
+<li>win：<a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a></li>
+<li>Linux：<a target="_blank" rel="noopener" href="https://download.redis.io/releases/">https://download.redis.io/releases/</a> 、</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-Redis服务启动与停止"><a href="#1-2-Redis服务启动与停止" class="headerlink" title="1.2 Redis服务启动与停止"></a>1.2 Redis服务启动与停止</h4><ul>
+<li><p>服务端</p>
+<ul>
+<li>服务启动命令cmd：<code>redis-server.exe redis.windows.conf</code></li>
+<li>Redis服务默认端口号为 6379 ，通过快捷键Ctrl + C 即可停止Redis服务</li>
+</ul>
+</li>
+<li><p>客户端</p>
+<ul>
+<li><p>客户端连接命令cmd：<code>redis-cli.exe</code></p>
+</li>
+<li><p>通过redis-cli.exe命令默认连接的是本地的redis服务，并且使用默认6379端口。也可以通过指定如下参数连接：</p>
+<ul>
+<li><p>-h ip地址</p>
+</li>
+<li><p>-p 端口号</p>
+</li>
+<li><p>-a 密码（如果需要）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120095709243.png" alt="image-20231120095709243"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设置Redis服务密码</p>
+<ul>
+<li><p>修改redis.windows.conf</p>
+</li>
+<li><p>requirepass 123456</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120095546630.png" alt="image-20231120095546630"></p>
+</li>
+</ul>
+</li>
+<li><p>客户端图形工具</p>
+<ul>
+<li>Another-Redis-Desktop-</li>
+</ul>
+</li>
+</ul>
+<h3 id="二-Redis数据类型"><a href="#二-Redis数据类型" class="headerlink" title="二 Redis数据类型"></a>二 Redis数据类型</h3><h4 id="2-1-5种常用数据类型"><a href="#2-1-5种常用数据类型" class="headerlink" title="2.1 5种常用数据类型"></a>2.1 5种常用数据类型</h4><ul>
+<li>字符串 <code>String</code><ul>
+<li>普通字符串，Redis中最简单的数据类型</li>
+</ul>
+</li>
+<li>哈希 <code>hash</code><ul>
+<li>也叫散列，类似于Java中的HashMap结构</li>
+</ul>
+</li>
+<li>列表 <code>list</code><ul>
+<li>按照插入顺序排序，可以有重复元素，类似于Java中的LinkedList</li>
+</ul>
+</li>
+<li>集合 <code>set</code><ul>
+<li>无序集合，没有重复元素，类似于Java中的HashSet</li>
+</ul>
+</li>
+<li>有序集合 <code>sorted set/zset</code><ul>
+<li>集合中每个元素关联一个分数（score），根据分数升序排序，没有重复元素</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120100715094.png" alt="image-20231120100715094"></p>
+<h3 id="三-Redis常用命令"><a href="#三-Redis常用命令" class="headerlink" title="三 Redis常用命令"></a>三 Redis常用命令</h3><ul>
+<li><p>字符串操作命令</p>
+<ul>
+<li><code>SET key value</code></li>
+<li><code>GET key</code></li>
+<li><code>SETEX key seconds value</code>：设置指定key的值，并将 key 的过期时间设为 seconds 秒</li>
+<li><code>SETNX key value</code> ：只有在 key 不存在时设置 key 的值</li>
+</ul>
+</li>
+<li><p>哈希操作命令</p>
+<ul>
+<li><p><code>HSET key field value</code> ：将哈希表 key 中的字段 field 的值设为 value</p>
+</li>
+<li><p><code>HGET key field</code> ：获取存储在哈希表中指定字段的值</p>
+</li>
+<li><p><code>HDEL key field</code> ：删除存储在哈希表中的指定字段</p>
+</li>
+<li><p><code>HKEYS key</code> ：获取哈希表中所有字段</p>
+</li>
+<li><p><code>HVALS key</code> ：获取哈希表中所有值</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120101206111.png" alt="image-20231120101206111"></p>
+</li>
+</ul>
+</li>
+<li><p>列表操作命令</p>
+<ul>
+<li><p><code>LPUSH key value1 [value2]</code> ：将一个或多个值插入到列表头部(左边)</p>
+</li>
+<li><p><code>LRANGE key start stop</code> ：获取列表指定范围内的元素</p>
+</li>
+<li><p><code>RPOP key</code> ：移除并获取列表最后一个元素(右边)</p>
+</li>
+<li><p><code>LLEN key</code>  ：获取列表长度</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120101217359.png" alt="image-20231120101217359"></p>
+</li>
+</ul>
+</li>
+<li><p>集合操作命令</p>
+<ul>
+<li><p><code>SADD key member1 [member2]</code> ：向集合添加一个或多个成员</p>
+</li>
+<li><p><code>SMEMBERS key</code> ：返回集合中的所有成员</p>
+</li>
+<li><p><code>SCARD key</code>  ：获取集合的成员数</p>
+</li>
+<li><p><code>SINTER key1 [key2]</code>：返回给定所有集合的交集</p>
+</li>
+<li><p><code>SUNION key1 [key2]</code> ：返回所有给定集合的并集</p>
+</li>
+<li><p><code>SREM key member1 [member2]</code>：删除集合中一个或多个成员</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120101505467.png" alt="image-20231120101505467"></p>
+</li>
+</ul>
+</li>
+<li><p>有序集合操作命令</p>
+<ul>
+<li><p><code>ZADD key score1 member1 [score2 member2]</code> ：向有序集合添加一个或多个成员</p>
+</li>
+<li><p><code>ZRANGE key start stop [WITHSCORES]</code> ：通过索引区间返回有序集合中指定区间内的成员</p>
+</li>
+<li><p><code>ZINCRBY key increment member</code>  ：有序集合中对指定成员的分数加上增量 increment</p>
+</li>
+<li><p><code>ZREM key member [member ...]</code>  ：移除有序集合中的一个或多个成员</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120101738061.png" alt="image-20231120101738061"></p>
+</li>
+</ul>
+</li>
+<li><p>通用命令</p>
+<ul>
+<li><code>KEYS pattern</code> ：查找所有符合给定模式( pattern)的 key </li>
+<li><code>EXISTS key</code> ：检查给定 key 是否存在</li>
+<li><code>TYPE key</code> ：返回 key 所储存的值的类型</li>
+<li><code>DEL key</code> ：该命令用于在 key 存在是删除 key</li>
+</ul>
+</li>
+</ul>
+<h3 id="四-java中操作Redis"><a href="#四-java中操作Redis" class="headerlink" title="四 java中操作Redis"></a>四 java中操作Redis</h3><ul>
+<li><p>Redis的java客户端很多，常用的几种</p>
+<ul>
+<li><p>Jedis</p>
+</li>
+<li><p>Lettuce</p>
+</li>
+<li><p>Spring Data Redis ：是 Spring 的一部分，对 Redis 底层开发包进行了高度封装。</p>
+<p>在 Spring 项目中，可以使用Spring Data Redis来简化操作。</p>
+</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>导入Spring Data Redis坐标</p>
+</li>
+<li><p>配置数据源</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120103809024.png" alt="image-20231120103809024"></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120103824045.png" alt="image-20231120103824045"></p>
+</li>
+<li><p>编写配置类，创建Redis Template对象</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120104116616.png" alt="image-20231120104116616"></p>
+</li>
+<li><p>通过Redis Template对象操作Redis</p>
+</li>
+</ul>
+</li>
+<li><p><code>RedisTemplate</code>：针对大量api进行了归类封装,将同一数据类型的操作封装为对应的Operation接口，具体分类如下：</p>
+<ul>
+<li>ValueOperations：string数据操作</li>
+<li>SetOperations：set类型数据操作</li>
+<li>ZSetOperations：zset类型数据操作</li>
+<li>HashOperations：hash类型的数据操作</li>
+<li>ListOperations：list类型的数据操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="五-店铺营业状态设置"><a href="#五-店铺营业状态设置" class="headerlink" title="五 店铺营业状态设置"></a>五 店铺营业状态设置</h3><h4 id="5-1-需求分析和设置"><a href="#5-1-需求分析和设置" class="headerlink" title="5.1 需求分析和设置"></a>5.1 需求分析和设置</h4><ul>
+<li><p>接口设计</p>
+<ul>
+<li><p>设置营业状态</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120114209815.png" alt="image-20231120114209815"></p>
+</li>
+<li><p>管理端查询营业状态</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120114236302.png" alt="image-20231120114236302"></p>
+</li>
+<li><p>用户端查询营业状态</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120114251878.png" alt="image-20231120114251878"></p>
+</li>
+</ul>
+</li>
+<li><p>数据存储方式：基于Redis的字符串来进行存储</p>
+<ul>
+<li>约定：1表示营业。0表示打烊</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-代码开发-2"><a href="#5-2-代码开发-2" class="headerlink" title="5.2 代码开发"></a>5.2 代码开发</h4><h4 id="5-3-功能测试-2"><a href="#5-3-功能测试-2" class="headerlink" title="5.3 功能测试"></a>5.3 功能测试</h4><h2 id="Ⅴ-微信登录-商品浏览"><a href="#Ⅴ-微信登录-商品浏览" class="headerlink" title="Ⅴ 微信登录 商品浏览"></a>Ⅴ 微信登录 商品浏览</h2><h3 id="一-HttpClient"><a href="#一-HttpClient" class="headerlink" title="一 HttpClient"></a>一 HttpClient</h3><h4 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h4><ul>
+<li><p>HttpClient是Apache的一个子项目，是高效的、功能丰富的支持HTTP协议的客户端编程工具包。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120142148489.png" alt="image-20231120142148489"></p>
+</li>
+<li><p>作用</p>
+<ul>
+<li>发送HTTP请求</li>
+<li>接收响应数据</li>
+</ul>
+</li>
+<li><p>核心API</p>
+<ul>
+<li>HttpClient</li>
+<li>HttpClients</li>
+<li>CloseableHttpClient</li>
+<li>HttpGet</li>
+<li>HttpPost</li>
+</ul>
+</li>
+<li><p>发送请求步骤</p>
+<ul>
+<li>创建HttpClient对象</li>
+<li>创建Http请求对象</li>
+<li>调用HttpClient的execute方法发送请求</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-入门案例"><a href="#1-2-入门案例" class="headerlink" title="1.2 入门案例"></a>1.2 入门案例</h4><h3 id="二-微信小程序开发"><a href="#二-微信小程序开发" class="headerlink" title="二 微信小程序开发"></a>二 微信小程序开发</h3><h4 id="2-1-介绍"><a href="#2-1-介绍" class="headerlink" title="2.1 介绍"></a>2.1 介绍</h4><h4 id="2-2-准备工作"><a href="#2-2-准备工作" class="headerlink" title="2.2 准备工作"></a>2.2 准备工作</h4><ul>
+<li>创建完善信息</li>
+<li>获取APPID以及密钥<ul>
+<li>ID：wx51bff83287f6cf1e</li>
+<li>密钥：8d1d0cba4123d1b03f772b50f0266abc</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3-入门案例"><a href="#2-3-入门案例" class="headerlink" title="2.3 入门案例"></a>2.3 入门案例</h4><ul>
+<li><p>了解小程序的目录结构</p>
+<ul>
+<li><p>小程序包含一个描述整体程序的 app 和多个描述各自页面的 page。一个小程序主体部分由三个文件组成，必须放在项目的根目录，如下：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120151300404.png" alt="image-20231120151300404"></p>
+</li>
+<li><p>一个小程序页面由四个文件组成：</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120151330404.png" alt="image-20231120151330404"></p>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p>编写小程序代码</p>
+</li>
+<li><p>编译小程序</p>
+</li>
+</ul>
+<h3 id="三-微信登录"><a href="#三-微信登录" class="headerlink" title="三 微信登录"></a>三 微信登录</h3><h4 id="3-1-微信登录流程"><a href="#3-1-微信登录流程" class="headerlink" title="3.1 微信登录流程"></a>3.1 微信登录流程</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120170720902.png" alt="image-20231120170720902"></p>
+<h4 id="3-2-需求分析和设计"><a href="#3-2-需求分析和设计" class="headerlink" title="3.2 需求分析和设计"></a>3.2 需求分析和设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li><p>基于微信登录实现小程序的登录功能</p>
+</li>
+<li><p>如果是新用户需要自动完成注册</p>
+</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120171640916.png" alt="image-20231120171640916"></p>
+</li>
+<li><p>数据表设计（user表）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120171713035.png" alt="image-20231120171713035"></p>
+</li>
+</ul>
+<h4 id="3-3-代码开发"><a href="#3-3-代码开发" class="headerlink" title="3.3 代码开发"></a>3.3 代码开发</h4><ul>
+<li>配置微信登录所需配置项：</li>
+<li>配置为微信用户生成jwt令牌时使用的配置项：</li>
+<li>DTO设计：</li>
+<li>VO设计：</li>
+<li>Controller、service、Mapper的编写</li>
+</ul>
+<h4 id="3-4-功能测试"><a href="#3-4-功能测试" class="headerlink" title="3.4 功能测试"></a>3.4 功能测试</h4><h3 id="四-导入商品浏览功能代码"><a href="#四-导入商品浏览功能代码" class="headerlink" title="四 导入商品浏览功能代码"></a>四 导入商品浏览功能代码</h3><h4 id="4-1-需求分析和设计-1"><a href="#4-1-需求分析和设计-1" class="headerlink" title="4.1 需求分析和设计"></a>4.1 需求分析和设计</h4><ul>
+<li><p>查询分类</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120194321065.png" alt="image-20231120194321065"></p>
+</li>
+<li><p>根据分类id查询菜品</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120194340174.png" alt="image-20231120194340174"></p>
+</li>
+<li><p>根据分类id查询套餐</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120194355621.png" alt="image-20231120194355621"></p>
+</li>
+<li><p>根据套餐id查询包含的菜品</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231120194409786.png" alt="image-20231120194409786"></p>
+</li>
+</ul>
+<h2 id="Ⅵ-缓存商品、购物车"><a href="#Ⅵ-缓存商品、购物车" class="headerlink" title="Ⅵ 缓存商品、购物车"></a>Ⅵ 缓存商品、购物车</h2><h3 id="一-缓存菜品"><a href="#一-缓存菜品" class="headerlink" title="一 缓存菜品"></a>一 缓存菜品</h3><h4 id="1-1-问题说明"><a href="#1-1-问题说明" class="headerlink" title="1.1 问题说明"></a>1.1 问题说明</h4><ul>
+<li><p>用户端小程序展示的菜品数据都是通过查询数据库获得，如果用户端访问量比较大，数据库访问压力随之增大。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231121151948735.png" alt="image-20231121151948735"></p>
+</li>
+</ul>
+<h4 id="1-2-实现思路-1"><a href="#1-2-实现思路-1" class="headerlink" title="1.2 实现思路"></a>1.2 实现思路</h4><ul>
+<li><p>通过Redis来缓存菜品数据，减少数据库查询操作。</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231121152017276.png" alt="image-20231121152017276"></p>
+</li>
+<li><p>缓存逻辑分析</p>
+<ul>
+<li>每个分类下的菜品保存一份缓存数据</li>
+<li>数据库中的菜品数据有变更时清理缓存数据</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-代码开发-1"><a href="#1-3-代码开发-1" class="headerlink" title="1.3 代码开发"></a>1.3 代码开发</h4><ul>
+<li>修改管理端接口 DishController 的相关方法，加入清理缓存的逻辑，需要改造的方法：<ul>
+<li>新增菜品</li>
+<li>修改菜品</li>
+<li>批量删除菜品</li>
+<li>起售、停售菜品</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-4-功能测试-1"><a href="#1-4-功能测试-1" class="headerlink" title="1.4 功能测试"></a>1.4 功能测试</h4><h3 id="二-缓存套餐"><a href="#二-缓存套餐" class="headerlink" title="二 缓存套餐"></a>二 缓存套餐</h3><h4 id="2-1-Spring-Cache"><a href="#2-1-Spring-Cache" class="headerlink" title="2.1 Spring Cache"></a>2.1 Spring Cache</h4><ul>
+<li><p>Spring Cache 是一个框架，实现了基于注解的缓存功能，只需要简单地加一个注解，就能实现缓存功能</p>
+</li>
+<li><p>Spring Cache 提供了一层抽象，底层可以切换不同的缓存实现，例如：</p>
+<ul>
+<li>EHCache</li>
+<li>Caffeine</li>
+<li>Redis</li>
+</ul>
+</li>
+<li><p>常用注解</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231121171344515.png" alt="image-20231121171344515"></p>
+</li>
+</ul>
+<h4 id="2-2-实现思路"><a href="#2-2-实现思路" class="headerlink" title="2.2 实现思路"></a>2.2 实现思路</h4><ul>
+<li>导入坐标</li>
+<li>在启动类上加入@EnableCaching注解，开启缓存注解功能</li>
+<li>在用户端接口SetmealController的 list 方法上加入@Cacheable注解</li>
+<li>在管理端接口SetmealController的 save、delete、update、startOrStop等方法上加入CacheEvict注解</li>
+</ul>
+<h4 id="2-3-代码开发与功能测试"><a href="#2-3-代码开发与功能测试" class="headerlink" title="2.3 代码开发与功能测试"></a>2.3 代码开发与功能测试</h4><h3 id="三-添加购物车"><a href="#三-添加购物车" class="headerlink" title="三 添加购物车"></a>三 添加购物车</h3><h4 id="3-1-需求分析和设计-1"><a href="#3-1-需求分析和设计-1" class="headerlink" title="3.1 需求分析和设计"></a>3.1 需求分析和设计</h4><ul>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231121224256927.png" alt="image-20231121224256927"></p>
+</li>
+<li><p>数据库设计</p>
+<ul>
+<li><p>作用：暂时存放所选商品的地方</p>
+<ul>
+<li>选的什么商品，每个商品买了几个，不同的用户的购物车需要分开</li>
+</ul>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231121224403598.png" alt="image-20231121224403598"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="四-查看购物车"><a href="#四-查看购物车" class="headerlink" title="四 查看购物车"></a>四 查看购物车</h3><h4 id="4-1-需求分析和设计-2"><a href="#4-1-需求分析和设计-2" class="headerlink" title="4.1 需求分析和设计"></a>4.1 需求分析和设计</h4><ul>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122141933057.png" alt="image-20231122141933057"></p>
+</li>
+</ul>
+<h3 id="五-清空购物车"><a href="#五-清空购物车" class="headerlink" title="五 清空购物车"></a>五 清空购物车</h3><ul>
+<li><p>需求分析和设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122142543137.png" alt="image-20231122142543137"></p>
+</li>
+</ul>
+<h2 id="Ⅶ-用户下单-订单支付"><a href="#Ⅶ-用户下单-订单支付" class="headerlink" title="Ⅶ 用户下单 订单支付"></a>Ⅶ 用户下单 订单支付</h2><h3 id="一-导入地址簿功能"><a href="#一-导入地址簿功能" class="headerlink" title="一 导入地址簿功能"></a>一 导入地址簿功能</h3><h4 id="1-1-查询地址列表"><a href="#1-1-查询地址列表" class="headerlink" title="1.1 查询地址列表"></a>1.1 查询地址列表</h4><ul>
+<li><p>查询登录用户所有地址</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193352335.png" alt="image-20231122193352335"></p>
+</li>
+<li><p>查询默认地址</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193416024.png" alt="image-20231122193416024"></p>
+</li>
+</ul>
+<h4 id="1-2-新增地址"><a href="#1-2-新增地址" class="headerlink" title="1.2 新增地址"></a>1.2 新增地址</h4><ul>
+<li><p>接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193334415.png" alt="image-20231122193334415"></p>
+</li>
+</ul>
+<h4 id="1-3-修改地址"><a href="#1-3-修改地址" class="headerlink" title="1.3 修改地址"></a>1.3 修改地址</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193425846.png" alt="image-20231122193425846"></p>
+<h4 id="1-4-删除地址"><a href="#1-4-删除地址" class="headerlink" title="1.4 删除地址"></a>1.4 删除地址</h4><ul>
+<li><p>根据id删除地址</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193445677.png" alt="image-20231122193445677"></p>
+</li>
+</ul>
+<h4 id="1-5-设置默认地址"><a href="#1-5-设置默认地址" class="headerlink" title="1.5 设置默认地址"></a>1.5 设置默认地址</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193529096.png" alt="image-20231122193529096"></p>
+<h4 id="1-6-查询默认地址"><a href="#1-6-查询默认地址" class="headerlink" title="1.6 查询默认地址"></a>1.6 查询默认地址</h4><ul>
+<li><p>根据id查询地址</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193516107.png" alt="image-20231122193516107"></p>
+</li>
+</ul>
+<h4 id="1-7-数据表（address-book）"><a href="#1-7-数据表（address-book）" class="headerlink" title="1.7 数据表（address_book）"></a>1.7 数据表（address_book）</h4><p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122193553555.png" alt="image-20231122193553555"></p>
+<h3 id="二-用户下单"><a href="#二-用户下单" class="headerlink" title="二 用户下单"></a>二 用户下单</h3><h4 id="2-1-需求分析和设计-2"><a href="#2-1-需求分析和设计-2" class="headerlink" title="2.1 需求分析和设计"></a>2.1 需求分析和设计</h4><ul>
+<li><p>业务说明</p>
+<ul>
+<li>电商系统中，用户是通过下单的方式通知商家，用户已经购买了商品，需要商家进行备货和发货。</li>
+<li>用户下单后会产生订单相关数据，订单数据需要能够体现如下信息：<ul>
+<li>总金额</li>
+<li>用户</li>
+<li>商品种类及数量</li>
+<li>收获地址</li>
+<li>手机号码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>业务流程</p>
+<ul>
+<li>购物车页面</li>
+<li>订单提交页面</li>
+<li>订单支付页面</li>
+<li>下单成功页面</li>
+</ul>
+</li>
+<li><p>接口分析</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122202159725.png" alt="image-20231122202159725"></p>
+</li>
+<li><p>数据库设计</p>
+<ul>
+<li><p>订单表 <code>orders</code></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122202411139.png" alt="image-20231122202411139"></p>
+</li>
+<li><p>订单明细表 <code>order_detail</code></p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122202403269.png" alt="image-20231122202403269"></p>
+</li>
+<li><p>订单表和订单明细表的关系：一对多</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-代码与测试"><a href="#2-2-代码与测试" class="headerlink" title="2.2 代码与测试"></a>2.2 代码与测试</h4><h3 id="三-订单支付"><a href="#三-订单支付" class="headerlink" title="三 订单支付"></a>三 订单支付</h3><h4 id="3-1-微信支付介绍"><a href="#3-1-微信支付介绍" class="headerlink" title="3.1 微信支付介绍"></a>3.1 微信支付介绍</h4><ul>
+<li><p>微信支付产品</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122210746038.png" alt="image-20231122210746038"></p>
+</li>
+<li><p>微信支付接入流程</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122210810830.png" alt="image-20231122210810830"></p>
+</li>
+<li><p>微信小程序支付时序图</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122210859604.png" alt="image-20231122210859604"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_5_4.shtml">微信小程序调起支付</a>：通过JSAPI下单接口获取到发起支付的必要参数prepay_id，然后使用微信支付提供的小程序方法调起小程序支付</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231122210950716.png" alt="image-20231122210950716"></p>
+</li>
+</ul>
+<h4 id="3-2-微信支付准备工作"><a href="#3-2-微信支付准备工作" class="headerlink" title="3.2 微信支付准备工作"></a>3.2 微信支付准备工作</h4><ul>
+<li>如何保证数据安全</li>
+<li>微信后台如何调用到商户系统？</li>
+<li>获取微信支付平台证书、商户私钥文件</li>
+<li><a target="_blank" rel="noopener" href="https://dashboard.cpolar.com/login">获取临时域名</a>：支付成功后微信服务通过该域名回调我们的程序</li>
+</ul>
+<h4 id="3-3-代码与功能测试"><a href="#3-3-代码与功能测试" class="headerlink" title="3.3 代码与功能测试"></a>3.3 代码与功能测试</h4><ul>
+<li>（看看就好）</li>
+</ul>
+<h2 id="Ⅷ-订单处理"><a href="#Ⅷ-订单处理" class="headerlink" title="Ⅷ 订单处理"></a>Ⅷ 订单处理</h2><h3 id="一-Spring-Task"><a href="#一-Spring-Task" class="headerlink" title="一 Spring Task"></a>一 Spring Task</h3><h4 id="1-1-介绍-1"><a href="#1-1-介绍-1" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h4><ul>
+<li><p>Spring Task 是Spring框架提供的任务调度工具，可以按照约定的时间自动执行某个代码逻辑。</p>
+</li>
+<li><p>作用：定时自动执行某段Java代码</p>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>信用卡每月还款提醒</li>
+<li>银行贷款每月还款提醒</li>
+<li>火车票售票系统处理未支付订单</li>
+<li>入职纪念日为用户发送通知</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-cron表达式"><a href="#1-2-cron表达式" class="headerlink" title="1.2 cron表达式"></a>1.2 cron表达式</h4><ul>
+<li><p>cron表达式其实就是一个字符串，通过cron表达式可以<strong>定义任务触发的时间</strong></p>
+</li>
+<li><p>构成规则</p>
+<ul>
+<li><p>分为6或7个域，由空格分隔开，每个域代表一个含义</p>
+</li>
+<li><p>每个域的含义分别为：秒、分钟、小时、日、月、周、年(可选)</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231123195357807.png" alt="image-20231123195357807"></p>
+</li>
+</ul>
+</li>
+<li><p>cron表达式在线生成器：<a target="_blank" rel="noopener" href="https://cron.qqe2.com/">https://cron.qqe2.com/</a></p>
+</li>
+</ul>
+<h4 id="1-3-demo"><a href="#1-3-demo" class="headerlink" title="1.3 demo"></a>1.3 demo</h4><ul>
+<li><p>导入坐标<code>spring-context</code></p>
+</li>
+<li><p>启动类添加注解<code>@EnableScheduling</code>开启任务调度</p>
+</li>
+<li><p>自定义定时任务类（要加入<code>@Component</code>交给容器管理）</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231123195755121.png" alt="image-20231123195755121"></p>
+</li>
+</ul>
+<h3 id="二-订单状态定时处理"><a href="#二-订单状态定时处理" class="headerlink" title="二 订单状态定时处理"></a>二 订单状态定时处理</h3><h4 id="2-1-需求分析"><a href="#2-1-需求分析" class="headerlink" title="2.1 需求分析"></a>2.1 需求分析</h4><ul>
+<li><p>场景</p>
+<ul>
+<li><p>下单后未支付，订单一直处于“待支付”状态</p>
+</li>
+<li><p>用户收货后管理端未点击完成按钮，订单一直处于“派送中”状态</p>
+</li>
+</ul>
+</li>
+<li><p>逻辑</p>
+<ul>
+<li>通过定时任务<strong>每分钟检查一次</strong>是否存在支付超时订单（下单后超过15分钟仍未支付则判定为支付超时订单），如果存在则修改订单状态为“已取消”</li>
+<li>通过定时任务每天凌晨1点检查一次是否存在“派送中”的订单，如果存在则修改订单状态为“已完成”</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-代码与功能测试"><a href="#2-2-代码与功能测试" class="headerlink" title="2.2 代码与功能测试"></a>2.2 代码与功能测试</h4><ul>
+<li>自定义定时任务类OrderTask</li>
+<li>在OrderMapper接口中扩展方法</li>
+</ul>
+<h3 id="三-WebSocket"><a href="#三-WebSocket" class="headerlink" title="三 WebSocket"></a>三 WebSocket</h3><h4 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h4><ul>
+<li><p>WebSocket 是基于 TCP 的一种新的网络协议。它实现了浏览器与服务器全双工通信——浏览器和服务器只需要完成一次握手，两者之间就可以创建持久性的连接， 并进行双向数据传输。</p>
+</li>
+<li><p>与http对比</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231123201650217.png" alt="image-20231123201650217"></p>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>视频弹幕</li>
+<li>网页聊天</li>
+<li>体育实况更新</li>
+<li>股票基金报价实时更新</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>服务器长期维护长连接需要一定的成本</li>
+<li>各个浏览器支持程度不一</li>
+<li>WebSocket 是长连接，受网络限制比较大，需要处理好重连</li>
+<li>结论：WebSocket并不能完全取代HTTP，它只适合在特定的场景下使用</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-2-demo"><a href="#3-2-demo" class="headerlink" title="3.2 demo"></a>3.2 demo</h4><ul>
+<li>直接使用websocket.html页面作为WebSocket客户端</li>
+<li>导入WebSocket的maven坐标</li>
+<li>导入WebSocket服务端组件WebSocketServer，用于和客户端通信</li>
+<li>导入配置类WebSocketConfiguration，注册WebSocket的服务端组件</li>
+<li>导入定时任务类WebSocketTask，定时向客户端推送数据</li>
+</ul>
+<h3 id="四-来电提醒"><a href="#四-来电提醒" class="headerlink" title="四 来电提醒"></a>四 来电提醒</h3><h4 id="4-1-需求分析与设计-1"><a href="#4-1-需求分析与设计-1" class="headerlink" title="4.1 需求分析与设计"></a>4.1 需求分析与设计</h4><ul>
+<li><p>需求分析</p>
+<ul>
+<li>语音播报</li>
+<li>弹出提示框</li>
+</ul>
+</li>
+<li><p>设计</p>
+<ul>
+<li>通过WebSocket实现管理端页面和服务端保持长连接状态</li>
+<li>当客户支付后，调用WebSocket的相关API实现服务端向客户端推送消息</li>
+<li>客户端浏览器解析服务端推送的消息，判断是来单提醒还是客户催单，进行相应的消息提示和语音播报</li>
+<li>约定服务端发送给客户端浏览器的数据格式为JSON，字段包括：type，orderId，content<ul>
+<li>type 为消息类型，1为来单提醒 2为客户催单</li>
+<li>orderId 为订单id</li>
+<li>content 为消息内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="五-客户催单"><a href="#五-客户催单" class="headerlink" title="五 客户催单"></a>五 客户催单</h3><ul>
+<li>需求分析<ul>
+<li>语音播报</li>
+<li>弹出提示框</li>
+</ul>
+</li>
+<li>设计<ul>
+<li>通过WebSocket实现管理端页面和服务端保持长连接状态</li>
+<li>当客户支付后，调用WebSocket的相关API实现服务端向客户端推送消息</li>
+<li>客户端浏览器解析服务端推送的消息，判断是来单提醒还是客户催单，进行相应的消息提示和语音播报</li>
+<li>约定服务端发送给客户端浏览器的数据格式为JSON，字段包括：type，orderId，content<ul>
+<li>type 为消息类型，1为来单提醒 2为客户催单</li>
+<li>orderId 为订单id</li>
+<li>content 为消息内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Ⅸ-数据统计-图形"><a href="#Ⅸ-数据统计-图形" class="headerlink" title="Ⅸ 数据统计-图形"></a>Ⅸ 数据统计-图形</h2><h3 id="一-Apache-ECharts"><a href="#一-Apache-ECharts" class="headerlink" title="一 Apache ECharts"></a>一 Apache ECharts</h3><h4 id="1-1-介绍-2"><a href="#1-1-介绍-2" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h4><ul>
+<li><p>Apache ECharts 是一款基于 Javascript 的数据可视化图表库，提供直观，生动，可交互，可个性化定制的数据可视化图表。</p>
+</li>
+<li><p>官网地址：<a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/index.html">https://echarts.apache.org/zh/index.html</a></p>
+</li>
+<li><p>总结：使用Echarts，重点在于研究当前图表所需的数据格式。通常是需要后端提供符合格式要求的动态数据，然后响应给前端来展示图表。</p>
+</li>
+</ul>
+<h3 id="二-营业额统计"><a href="#二-营业额统计" class="headerlink" title="二 营业额统计"></a>二 营业额统计</h3><h4 id="2-1-需求分析和设计-3"><a href="#2-1-需求分析和设计-3" class="headerlink" title="2.1 需求分析和设计"></a>2.1 需求分析和设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>营业额指订单状态为已完成的订单金额合计</li>
+<li>基于可视化报表的折线图展示营业额数据，X轴为日期，Y轴为营业额</li>
+<li>根据时间选择区间，展示每天的营业额数据</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231123214519493.png" alt="image-20231123214519493"></p>
+</li>
+</ul>
+<h3 id="三-用户统计"><a href="#三-用户统计" class="headerlink" title="三 用户统计"></a>三 用户统计</h3><h4 id="3-1-需求分析和设计-2"><a href="#3-1-需求分析和设计-2" class="headerlink" title="3.1 需求分析和设计"></a>3.1 需求分析和设计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>基于可视化报表的折线图展示用户数据，X轴为日期，Y轴为用户数</li>
+<li>根据时间选择区间，展示每天的用户总量和新增用户量数据</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231123221333769.png" alt="image-20231123221333769"></p>
+</li>
+</ul>
+<h3 id="四-订单统计"><a href="#四-订单统计" class="headerlink" title="四 订单统计"></a>四 订单统计</h3><h4 id="4-1-订单统计"><a href="#4-1-订单统计" class="headerlink" title="4.1 订单统计"></a>4.1 订单统计</h4><ul>
+<li><p>业务规则</p>
+<ul>
+<li>有效订单指状态为 “已完成” 的订单</li>
+<li>基于可视化报表的折线图展示订单数据，X轴为日期，Y轴为订单数量</li>
+<li>根据时间选择区间，展示每天的订单总数和有效订单数</li>
+<li>展示所选时间区间内的有效订单数、总订单数、订单完成率，订单完成率 &#x3D; 有效订单数 &#x2F; 总订单数 * 100%</li>
+</ul>
+</li>
+<li><p>接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231123222330814.png" alt="image-20231123222330814"></p>
+</li>
+</ul>
+<h3 id="五-销量排名"><a href="#五-销量排名" class="headerlink" title="五 销量排名"></a>五 销量排名</h3><ul>
+<li><p>业务规则</p>
+<ul>
+<li>根据时间选择区间，展示销量前10的商品（包括菜品和套餐）</li>
+<li>基于可视化报表的柱状图降序展示商品销量</li>
+<li>此处的销量为商品销售的份数</li>
+</ul>
+</li>
+<li><p>接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231123223256614.png" alt="image-20231123223256614"></p>
+</li>
+</ul>
+<h2 id="Ⅹ-数据统计-excel"><a href="#Ⅹ-数据统计-excel" class="headerlink" title="Ⅹ 数据统计-excel"></a>Ⅹ 数据统计-excel</h2><h3 id="一-工作台"><a href="#一-工作台" class="headerlink" title="一 工作台"></a>一 工作台</h3><ul>
+<li><p>展示数据</p>
+<ul>
+<li>今日数据</li>
+<li>订单管理</li>
+<li>菜品总览</li>
+<li>套餐总览</li>
+<li>订单信息</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<ul>
+<li><p>今日数据接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231124093537630.png" alt="image-20231124093537630"></p>
+</li>
+<li><p>订单管理接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231124093545626.png" alt="image-20231124093545626"></p>
+</li>
+<li><p>菜品总览接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231124093606798.png" alt="image-20231124093606798"></p>
+</li>
+<li><p>套餐总览接口</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231124093615891.png" alt="image-20231124093615891"></p>
+</li>
+<li><p>订单搜索</p>
+</li>
+<li><p>各个状态订单数量统计</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二-Apache-POI"><a href="#二-Apache-POI" class="headerlink" title="二 Apache POI"></a>二 Apache POI</h3><h4 id="2-1-介绍-1"><a href="#2-1-介绍-1" class="headerlink" title="2.1 介绍"></a>2.1 介绍</h4><ul>
+<li>Apache POI 是一个处理Miscrosoft Office各种文件格式的开源项目。简单来说就是，我们可以使用 POI 在 Java 程序中对Miscrosoft Office各种文件进行读写操作。</li>
+<li>一般情况下，POI 都是用于操作 Excel 文件。</li>
+</ul>
+<h4 id="2-2-应用场景"><a href="#2-2-应用场景" class="headerlink" title="2.2 应用场景"></a>2.2 应用场景</h4><ul>
+<li>银行网银系统导出交易明细</li>
+<li>各种业务系统导出Excel报表</li>
+<li>批量导入业务数据</li>
+</ul>
+<h4 id="2-3-demo"><a href="#2-3-demo" class="headerlink" title="2.3 demo"></a>2.3 demo</h4><ul>
+<li>导入坐标</li>
+<li>读写</li>
+</ul>
+<h3 id="三-导出运营数据Excel报表"><a href="#三-导出运营数据Excel报表" class="headerlink" title="三 导出运营数据Excel报表"></a>三 导出运营数据Excel报表</h3><ul>
+<li><p>业务规则</p>
+<ul>
+<li><p>导出Excel形式的报表文件</p>
+</li>
+<li><p>导出最近30天的运营数据</p>
+</li>
+</ul>
+</li>
+<li><p>接口设计</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96.assets/image-20231124111425930.png" alt="image-20231124111425930"></p>
+</li>
+<li><p>设计excel模板文件</p>
+</li>
+<li><p>查询数据</p>
+</li>
+<li><p>将数据写入到模板文件</p>
+</li>
+<li><p>通过输出流将Excel文件下载到客户端浏览器</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://yileman.github.io">myl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://yileman.github.io/posts/21962.html">http://yileman.github.io/posts/21962.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yileman.github.io" target="_blank">myl's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A1%B9%E7%9B%AE/">项目</a></div><div class="post_share"><div class="social-share" data-image="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/50254.html" title="学成在线"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">学成在线</div></div></a></div><div class="next-post pull-right"><a href="/posts/46256.html" title="力扣刷题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">力扣刷题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/57008.html" title="瑞吉外卖"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-19</div><div class="title">瑞吉外卖</div></div></a></div><div><a href="/posts/62391.html" title="黑马头条"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-14</div><div class="title">黑马头条</div></div></a></div><div><a href="/posts/50254.html" title="学成在线"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">学成在线</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">myl</div><div class="author-info__description">后端学习</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yileman"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">写写记记</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96"><span class="toc-number">1.</span> <span class="toc-text">苍穹外卖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%87-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.</span> <span class="toc-text">〇 经验总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-number">1.1.1.</span> <span class="toc-text">0 自动装配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Mybatis"><span class="toc-number">1.1.2.</span> <span class="toc-text">1 Mybatis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">2 微信登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-redis%E5%92%8CSpringCache"><span class="toc-number">1.1.4.</span> <span class="toc-text">3 redis和SpringCache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98"><span class="toc-number">1.1.5.</span> <span class="toc-text">4 微信支付</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE"><span class="toc-number">1.1.6.</span> <span class="toc-text">5 百度地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%9D%A5%E5%8D%95%E6%8F%90%E9%86%92-%E7%94%A8%E6%88%B7%E5%82%AC%E5%8D%95"><span class="toc-number">1.1.7.</span> <span class="toc-text">6 来单提醒&#x2F;用户催单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A0-%E6%95%B4%E4%BD%93%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">Ⅰ 整体介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%95%B4%E4%BD%93%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.1.</span> <span class="toc-text">一 软件开发整体介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1.1 流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E8%A7%92%E8%89%B2%E5%88%86%E5%B7%A5"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">1.2 角色分工</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">1.3 软件环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.2.</span> <span class="toc-text">二 苍穹外卖项目介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">2.1 项目介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E4%BA%A7%E5%93%81%E5%8E%9F%E5%9E%8B"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2.2 产品原型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">2.3 技术选型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.2.3.</span> <span class="toc-text">三 开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">3.1 前端环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E5%90%8E%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">3.2 后端环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%AE%8C%E5%96%84%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">3.3 完善登录功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%8E%A5%E5%85%A5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.2.4.</span> <span class="toc-text">四 接入接口文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">4.1 前后端分离开发流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-Swagger"><span class="toc-number">1.2.5.</span> <span class="toc-text">五 Swagger</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">5.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">5.2 使用方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">5.3 常用注解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A1-%E5%91%98%E5%B7%A5%E7%AE%A1%E7%90%86%E3%80%81%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">Ⅱ 员工管理、分类管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text">一 新增员工</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1.1 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">1.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">1.3 功能测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E4%BB%A3%E7%A0%81%E5%AE%8C%E5%96%84"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">1.3 代码完善</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%91%98%E5%B7%A5%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.2.</span> <span class="toc-text">二 员工分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">2.1 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">2.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">2.3 功能测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E4%BB%A3%E7%A0%81%E5%AE%8C%E5%96%84"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">2.4 代码完善</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%90%AF%E7%94%A8%E7%A6%81%E7%94%A8%E5%91%98%E5%B7%A5%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.3.3.</span> <span class="toc-text">三 启用禁用员工账号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">3.1 需求分析与设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">3.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">3.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E7%BC%96%E8%BE%91%E5%91%98%E5%B7%A5"><span class="toc-number">1.3.4.</span> <span class="toc-text">四 编辑员工</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">4.1 需求分析与设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">4.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">4.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%AF%BC%E5%85%A5%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9D%97%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.5.</span> <span class="toc-text">五 导入分类模块功能代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">5.1 需求分析与设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">5.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">5.3 功能测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A2-%E8%8F%9C%E5%93%81%E7%AE%A1%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">Ⅲ 菜品管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85"><span class="toc-number">1.4.1.</span> <span class="toc-text">一 公共字段自动填充</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">1.1 问题分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">1.2 实现思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">1.3 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.4.1.4.</span> <span class="toc-text">1.4 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E6%96%B0%E5%A2%9E%E8%8F%9C%E5%93%81"><span class="toc-number">1.4.2.</span> <span class="toc-text">二 新增菜品</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1-1"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">2.1 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-1"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">2.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95-1"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">2.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E8%8F%9C%E5%93%81%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.4.3.</span> <span class="toc-text">三 菜品分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">3.1 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-1"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">3.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95-1"><span class="toc-number">1.4.3.3.</span> <span class="toc-text">3.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E5%88%A0%E9%99%A4%E8%8F%9C%E5%93%81"><span class="toc-number">1.4.4.</span> <span class="toc-text">四 删除菜品</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">4.1 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-1"><span class="toc-number">1.4.4.2.</span> <span class="toc-text">4.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95-1"><span class="toc-number">1.4.4.3.</span> <span class="toc-text">4.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%93%81"><span class="toc-number">1.4.5.</span> <span class="toc-text">五 修改菜品</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.5.1.</span> <span class="toc-text">5.1 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-1"><span class="toc-number">1.4.5.2.</span> <span class="toc-text">5.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95-1"><span class="toc-number">1.4.5.3.</span> <span class="toc-text">5.3 功能测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A3-%E5%BA%97%E9%93%BA%E7%8A%B6%E6%80%81"><span class="toc-number">1.5.</span> <span class="toc-text">Ⅳ 店铺状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Redis"><span class="toc-number">1.5.1.</span> <span class="toc-text">一 Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">1.1 简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-Redis%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%81%9C%E6%AD%A2"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">1.2 Redis服务启动与停止</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.2.</span> <span class="toc-text">二 Redis数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-5%E7%A7%8D%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">2.1 5种常用数据类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-Redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.3.</span> <span class="toc-text">三 Redis常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-java%E4%B8%AD%E6%93%8D%E4%BD%9CRedis"><span class="toc-number">1.5.4.</span> <span class="toc-text">四 java中操作Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%BA%97%E9%93%BA%E8%90%A5%E4%B8%9A%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.5.5.</span> <span class="toc-text">五 店铺营业状态设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.5.5.1.</span> <span class="toc-text">5.1 需求分析和设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-2"><span class="toc-number">1.5.5.2.</span> <span class="toc-text">5.2 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95-2"><span class="toc-number">1.5.5.3.</span> <span class="toc-text">5.3 功能测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A4-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95-%E5%95%86%E5%93%81%E6%B5%8F%E8%A7%88"><span class="toc-number">1.6.</span> <span class="toc-text">Ⅴ 微信登录 商品浏览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-HttpClient"><span class="toc-number">1.6.1.</span> <span class="toc-text">一 HttpClient</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">1.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">1.2 入门案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91"><span class="toc-number">1.6.2.</span> <span class="toc-text">二 微信小程序开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">2.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">2.2 准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">2.3 入门案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95"><span class="toc-number">1.6.3.</span> <span class="toc-text">三 微信登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">3.1 微信登录流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">3.2 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.6.3.3.</span> <span class="toc-text">3.3 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.6.3.4.</span> <span class="toc-text">3.4 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E5%AF%BC%E5%85%A5%E5%95%86%E5%93%81%E6%B5%8F%E8%A7%88%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81"><span class="toc-number">1.6.4.</span> <span class="toc-text">四 导入商品浏览功能代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1-1"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">4.1 需求分析和设计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A5-%E7%BC%93%E5%AD%98%E5%95%86%E5%93%81%E3%80%81%E8%B4%AD%E7%89%A9%E8%BD%A6"><span class="toc-number">1.7.</span> <span class="toc-text">Ⅵ 缓存商品、购物车</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E7%BC%93%E5%AD%98%E8%8F%9C%E5%93%81"><span class="toc-number">1.7.1.</span> <span class="toc-text">一 缓存菜品</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">1.1 问题说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF-1"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">1.2 实现思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-1"><span class="toc-number">1.7.1.3.</span> <span class="toc-text">1.3 代码开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95-1"><span class="toc-number">1.7.1.4.</span> <span class="toc-text">1.4 功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E7%BC%93%E5%AD%98%E5%A5%97%E9%A4%90"><span class="toc-number">1.7.2.</span> <span class="toc-text">二 缓存套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-Spring-Cache"><span class="toc-number">1.7.2.1.</span> <span class="toc-text">2.1 Spring Cache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">1.7.2.2.</span> <span class="toc-text">2.2 实现思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E4%B8%8E%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.7.2.3.</span> <span class="toc-text">2.3 代码开发与功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%B7%BB%E5%8A%A0%E8%B4%AD%E7%89%A9%E8%BD%A6"><span class="toc-number">1.7.3.</span> <span class="toc-text">三 添加购物车</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1-1"><span class="toc-number">1.7.3.1.</span> <span class="toc-text">3.1 需求分析和设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%9F%A5%E7%9C%8B%E8%B4%AD%E7%89%A9%E8%BD%A6"><span class="toc-number">1.7.4.</span> <span class="toc-text">四 查看购物车</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1-2"><span class="toc-number">1.7.4.1.</span> <span class="toc-text">4.1 需求分析和设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E6%B8%85%E7%A9%BA%E8%B4%AD%E7%89%A9%E8%BD%A6"><span class="toc-number">1.7.5.</span> <span class="toc-text">五 清空购物车</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A6-%E7%94%A8%E6%88%B7%E4%B8%8B%E5%8D%95-%E8%AE%A2%E5%8D%95%E6%94%AF%E4%BB%98"><span class="toc-number">1.8.</span> <span class="toc-text">Ⅶ 用户下单 订单支付</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%AF%BC%E5%85%A5%E5%9C%B0%E5%9D%80%E7%B0%BF%E5%8A%9F%E8%83%BD"><span class="toc-number">1.8.1.</span> <span class="toc-text">一 导入地址簿功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%9F%A5%E8%AF%A2%E5%9C%B0%E5%9D%80%E5%88%97%E8%A1%A8"><span class="toc-number">1.8.1.1.</span> <span class="toc-text">1.1 查询地址列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E6%96%B0%E5%A2%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">1.8.1.2.</span> <span class="toc-text">1.2 新增地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E4%BF%AE%E6%94%B9%E5%9C%B0%E5%9D%80"><span class="toc-number">1.8.1.3.</span> <span class="toc-text">1.3 修改地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E5%88%A0%E9%99%A4%E5%9C%B0%E5%9D%80"><span class="toc-number">1.8.1.4.</span> <span class="toc-text">1.4 删除地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%9C%B0%E5%9D%80"><span class="toc-number">1.8.1.5.</span> <span class="toc-text">1.5 设置默认地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-%E6%9F%A5%E8%AF%A2%E9%BB%98%E8%AE%A4%E5%9C%B0%E5%9D%80"><span class="toc-number">1.8.1.6.</span> <span class="toc-text">1.6 查询默认地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-%E6%95%B0%E6%8D%AE%E8%A1%A8%EF%BC%88address-book%EF%BC%89"><span class="toc-number">1.8.1.7.</span> <span class="toc-text">1.7 数据表（address_book）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E7%94%A8%E6%88%B7%E4%B8%8B%E5%8D%95"><span class="toc-number">1.8.2.</span> <span class="toc-text">二 用户下单</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1-2"><span class="toc-number">1.8.2.1.</span> <span class="toc-text">2.1 需求分析和设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E4%BB%A3%E7%A0%81%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="toc-number">1.8.2.2.</span> <span class="toc-text">2.2 代码与测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E8%AE%A2%E5%8D%95%E6%94%AF%E4%BB%98"><span class="toc-number">1.8.3.</span> <span class="toc-text">三 订单支付</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">3.1 微信支付介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.8.3.2.</span> <span class="toc-text">3.2 微信支付准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E4%BB%A3%E7%A0%81%E4%B8%8E%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.8.3.3.</span> <span class="toc-text">3.3 代码与功能测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A7-%E8%AE%A2%E5%8D%95%E5%A4%84%E7%90%86"><span class="toc-number">1.9.</span> <span class="toc-text">Ⅷ 订单处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Spring-Task"><span class="toc-number">1.9.1.</span> <span class="toc-text">一 Spring Task</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">1.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-cron%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.9.1.2.</span> <span class="toc-text">1.2 cron表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-demo"><span class="toc-number">1.9.1.3.</span> <span class="toc-text">1.3 demo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E8%AE%A2%E5%8D%95%E7%8A%B6%E6%80%81%E5%AE%9A%E6%97%B6%E5%A4%84%E7%90%86"><span class="toc-number">1.9.2.</span> <span class="toc-text">二 订单状态定时处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">2.1 需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E4%BB%A3%E7%A0%81%E4%B8%8E%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">2.2 代码与功能测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-WebSocket"><span class="toc-number">1.9.3.</span> <span class="toc-text">三 WebSocket</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.9.3.1.</span> <span class="toc-text">3.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-demo"><span class="toc-number">1.9.3.2.</span> <span class="toc-text">3.2 demo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%9D%A5%E7%94%B5%E6%8F%90%E9%86%92"><span class="toc-number">1.9.4.</span> <span class="toc-text">四 来电提醒</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1-1"><span class="toc-number">1.9.4.1.</span> <span class="toc-text">4.1 需求分析与设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%AE%A2%E6%88%B7%E5%82%AC%E5%8D%95"><span class="toc-number">1.9.5.</span> <span class="toc-text">五 客户催单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A8-%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1-%E5%9B%BE%E5%BD%A2"><span class="toc-number">1.10.</span> <span class="toc-text">Ⅸ 数据统计-图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Apache-ECharts"><span class="toc-number">1.10.1.</span> <span class="toc-text">一 Apache ECharts</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">1.10.1.1.</span> <span class="toc-text">1.1 介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E8%90%A5%E4%B8%9A%E9%A2%9D%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.10.2.</span> <span class="toc-text">二 营业额统计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1-3"><span class="toc-number">1.10.2.1.</span> <span class="toc-text">2.1 需求分析和设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E7%94%A8%E6%88%B7%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.10.3.</span> <span class="toc-text">三 用户统计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1-2"><span class="toc-number">1.10.3.1.</span> <span class="toc-text">3.1 需求分析和设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E8%AE%A2%E5%8D%95%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.10.4.</span> <span class="toc-text">四 订单统计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E8%AE%A2%E5%8D%95%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.10.4.1.</span> <span class="toc-text">4.1 订单统计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E9%94%80%E9%87%8F%E6%8E%92%E5%90%8D"><span class="toc-number">1.10.5.</span> <span class="toc-text">五 销量排名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%85%A9-%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1-excel"><span class="toc-number">1.11.</span> <span class="toc-text">Ⅹ 数据统计-excel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%B7%A5%E4%BD%9C%E5%8F%B0"><span class="toc-number">1.11.1.</span> <span class="toc-text">一 工作台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-Apache-POI"><span class="toc-number">1.11.2.</span> <span class="toc-text">二 Apache POI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">1.11.2.1.</span> <span class="toc-text">2.1 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.11.2.2.</span> <span class="toc-text">2.2 应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-demo"><span class="toc-number">1.11.2.3.</span> <span class="toc-text">2.3 demo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%AF%BC%E5%87%BA%E8%BF%90%E8%90%A5%E6%95%B0%E6%8D%AEExcel%E6%8A%A5%E8%A1%A8"><span class="toc-number">1.11.3.</span> <span class="toc-text">三 导出运营数据Excel报表</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By myl</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
