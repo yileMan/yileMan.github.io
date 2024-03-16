@@ -424,7 +424,7 @@ void testCustomWrapper() &#123;
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'webcomments-dow3o18os-manyiles-projects.vercel.app',
+      envId: 'https://www.manyile.top',
       region: 'ap-shanghai',
       urls: [window.location.pathname],
       includeReply: false
@@ -438,7 +438,7 @@ void testCustomWrapper() &#123;
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'webcomments-dow3o18os-manyiles-projects.vercel.app',
+      envId: 'https://www.manyile.top',
       region: 'ap-shanghai',
       onCommentLoaded: () => {
         btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
