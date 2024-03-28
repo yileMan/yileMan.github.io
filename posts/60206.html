@@ -160,7 +160,14 @@
     endLoading: () => {
       //- console.log("end")
       $body.style.overflow = 'auto'
-      $loadingBox.classList.add('loaded')
+
+      document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+      document.getElementById('loading-box').style.opacity = '0'
+      setTimeout(function(){
+        document.getElementById('loading-box').classList.add("loaded")
+      }, 3000);
+
+      //- $loadingBox.classList.add('loaded')
     },
     initLoading: () => {
       $body.style.overflow = ''
@@ -170,6 +177,7 @@
   }
 
   preloader.initLoading()
+  //- setTimeout(function(){preloader.endLoading();}, 3000);
   window.addEventListener('load',() => { preloader.endLoading() })
   document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})
 
