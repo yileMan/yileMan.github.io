@@ -42,8 +42,7 @@
 
 /* 导航栏菜单鼠标移入字体放大 */
 #nav #site-name:hover, 
-#nav .menus_item:hover, 
-#nav #search-button:hover{
+#nav .menus_item:hover:hover{
   font-size:35px;
 }
 
@@ -51,4 +50,5 @@
 #page-name:hover{
   font-size:35px;
 }
+
 
