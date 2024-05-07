@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yileman.github.io/posts/56035.html</loc>
+    
+    <lastmod>2024-05-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yileman.github.io/posts/37774.html</loc>
     
     <lastmod>2024-05-07</lastmod>
@@ -32,15 +41,6 @@
     <loc>http://yileman.github.io/posts/46256.html</loc>
     
     <lastmod>2024-05-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yileman.github.io/posts/56035.html</loc>
-    
-    <lastmod>2024-04-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -236,13 +236,6 @@
 
   
   <url>
-    <loc>http://yileman.github.io/tags/java%E5%9F%BA%E7%A1%80-%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2024-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://yileman.github.io/tags/java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2024-05-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -250,7 +243,7 @@
   </url>
   
   <url>
-    <loc>http://yileman.github.io/tags/java%E4%B8%AD%E7%BA%A7/</loc>
+    <loc>http://yileman.github.io/tags/java%E5%9F%BA%E7%A1%80-%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2024-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -258,6 +251,13 @@
   
   <url>
     <loc>http://yileman.github.io/tags/java%E9%AB%98%E7%BA%A7/</loc>
+    <lastmod>2024-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://yileman.github.io/tags/java%E4%B8%AD%E7%BA%A7/</loc>
     <lastmod>2024-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -294,14 +294,14 @@
 
   
   <url>
-    <loc>http://yileman.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://yileman.github.io/categories/study/</loc>
     <lastmod>2024-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://yileman.github.io/categories/study/</loc>
+    <loc>http://yileman.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2024-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
