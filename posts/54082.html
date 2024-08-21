@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- 百度的html标记--><meta name="baidu-site-verification" content="codeva-bSLYjtWXtR"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>整理 | myl's blog</title><meta name="author" content="myl"><meta name="copyright" content="myl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="https://pdai.tech https://javaguide.cn https://xiaolincoding.com/ 一 JavaSE1数据类型 8个基本：boolean(1)、byte(8)、char(16)、short(16)、int(32)、float(32)、long(64)、double(64) Integer缓存池范围 -128~127  String的不可变性  可以缓">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- 百度的html标记--><meta name="baidu-site-verification" content="codeva-bSLYjtWXtR"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>整理 | myl's blog</title><meta name="author" content="myl"><meta name="copyright" content="myl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="https://pdai.tech https://javaguide.cn https://xiaolincoding.com/ https://www.mianshiya.com/ 一 JavaSE1数据类型 8个基本：boolean(1)、byte(8)、char(16)、short(16)、int(32)、float(32)、long(64)、double(64) Integer缓存池范围">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整理">
 <meta property="og:url" content="http://yileman.github.io/posts/54082.html">
 <meta property="og:site_name" content="myl's blog">
-<meta property="og:description" content="https://pdai.tech https://javaguide.cn https://xiaolincoding.com/ 一 JavaSE1数据类型 8个基本：boolean(1)、byte(8)、char(16)、short(16)、int(32)、float(32)、long(64)、double(64) Integer缓存池范围 -128~127  String的不可变性  可以缓">
+<meta property="og:description" content="https://pdai.tech https://javaguide.cn https://xiaolincoding.com/ https://www.mianshiya.com/ 一 JavaSE1数据类型 8个基本：boolean(1)、byte(8)、char(16)、short(16)、int(32)、float(32)、long(64)、double(64) Integer缓存池范围">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/cover/article_cover2.png">
 <meta property="article:published_time" content="2024-05-12T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-20T15:54:05.196Z">
+<meta property="article:modified_time" content="2024-08-21T10:04:03.091Z">
 <meta property="article:author" content="myl">
 <meta property="article:tag" content="基础">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-08-20 23:54:05'
+  postUpdate: '2024-08-21 18:04:03'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -188,9 +188,10 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/cover/article_cover2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="myl's blog"><span class="site-name">myl's blog</span></a></span><div id="menus"></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="randomPost"><a class="site-page social-icon search" href="javascript:;" onclick="randomPost()" title="随机访问一篇文章"><i class="fas fa-circle-notch fa-fw"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">整理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-12T00:00:00.000Z" title="发表于 2024-05-12 08:00:00">2024-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-20T15:54:05.196Z" title="更新于 2024-08-20 23:54:05">2024-08-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/study/">study</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="整理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/cover/article_cover2.png');"></div><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://pdai.tech">https://pdai.tech</a></p>
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/cover/article_cover2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="myl's blog"><span class="site-name">myl's blog</span></a></span><div id="menus"></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="randomPost"><a class="site-page social-icon search" href="javascript:;" onclick="randomPost()" title="随机访问一篇文章"><i class="fas fa-circle-notch fa-fw"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">整理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-12T00:00:00.000Z" title="发表于 2024-05-12 08:00:00">2024-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-21T10:04:03.091Z" title="更新于 2024-08-21 18:04:03">2024-08-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/study/">study</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="整理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/cover/article_cover2.png');"></div><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://pdai.tech">https://pdai.tech</a></p>
 <p><a target="_blank" rel="noopener" href="https://javaguide.cn">https://javaguide.cn</a></p>
 <p><a target="_blank" rel="noopener" href="https://xiaolincoding.com/">https://xiaolincoding.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.mianshiya.com/">https://www.mianshiya.com/</a></p>
 <h2 id="一-JavaSE"><a href="#一-JavaSE" class="headerlink" title="一 JavaSE"></a>一 JavaSE</h2><h3 id="1数据类型"><a href="#1数据类型" class="headerlink" title="1数据类型"></a>1数据类型</h3><ul>
 <li>8个基本：boolean(1)、byte(8)、char(16)、short(16)、int(32)、float(32)、long(64)、double(64)</li>
 <li><p>Integer缓存池范围 <code>-128~127</code></p>
@@ -575,9 +576,31 @@
 <li>并发清除：用户线程继续</li>
 </ul>
 </li>
-<li>G1 收集器</li>
+<li>G1 收集器：引入了分区的概念，不再使用新生老年代的划分，将堆区划分为若干等分<ul>
+<li>启发式算法收集高效益的分区</li>
 </ul>
 </li>
+</ul>
+</li>
+<li><p>三色标记法：黑：自身和成员都被标记；灰：自身被标记，成员未被；白：未被标记，最终回收白色的</p>
+<ul>
+<li><p>如何防止在并发标记的时候错删、漏删对象？漏删还好，下次回收即可，错删会引发npe</p>
+<p><img src="https://myl-mdimg.oss-cn-beijing.aliyuncs.com/TyporaImg/image-20240821180153853.png" style="zoom:33%;"></p>
+</li>
+<li><p>CMS：写屏障 + 增量更新</p>
+<ul>
+<li>黑色对象建立对白色对象的引用时，把该黑色对象标记为灰色，缺点是会造成重复标记（只记录增加的引用）</li>
+</ul>
+</li>
+<li><p>G1：写屏障 + 原始快照 SATB</p>
+<ul>
+<li>灰色对象断开对白色对象的引用时，把被删除的灰色对象到白色对象的引用记录下来，把白色对象修改为灰色。（只记录删除的引用）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li><p>内存分配和回收策略</p>
 <ul>
 <li>回收策略<ul>
@@ -1256,19 +1279,37 @@
 <li><strong>B+树</strong>：多路平衡查找树，更稳定快速。原因：数据存放在叶子节点，保证了其他节点能够存放更多的索引，大大压缩了树的高度，减少磁盘IO次数；且叶子节点之间用双向链表连接</li>
 </ul>
 </li>
-<li>索引——分类<ul>
-<li>主键索引：加速查询 + 列值唯一（不可以有 NULL）+ 表中只有一个<ul>
+<li><p>索引——分类</p>
+<ul>
+<li><p>主键索引：加速查询 + 列值唯一（不可以有 NULL）+ 表中只有一个</p>
+<ul>
 <li>除了这个其他的索引都是二级索引，二级索引数据位置存储的是主键</li>
 </ul>
 </li>
-<li>普通索引：加速查询</li>
-<li>唯一索引：加速查询 + 列值唯一（可以有 NULL）</li>
-<li>覆盖索引：一个索引包含（或者说覆盖）所有需要查询的字段的值</li>
-<li>联合索引：多列值组成一个索引，专门用于组合搜索，其效率大于索引合并</li>
-<li>全文索引：对文本的内容进行分词，一般不会使用，效率较低，通常使用搜索引擎如 ElasticSearch 代替</li>
+<li><p>普通索引：加速查询</p>
+</li>
+<li><p>唯一索引：加速查询 + 列值唯一（可以有 NULL）</p>
+</li>
+<li><p>覆盖索引：一个索引包含（或者说覆盖）所有需要查询的字段的值</p>
+</li>
+<li><p>联合索引：多列值组成一个索引，专门用于组合搜索，其效率大于索引合并（最左匹配原则）</p>
+<ul>
+<li><p>最左匹配原则：如果建立了(a,b,c)索引，查表的时候需要包含 a 或者 ab 或者abc，顺序无所谓，优化器会自动优化</p>
+</li>
+<li><p>索引下推：通过联合索引对索引进行过滤，减少回表的次数（ 5.6版本）</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span>  <span class="keyword">from</span> t_user <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'l%'</span> <span class="keyword">and</span> age <span class="operator">=</span> <span class="number">17</span>; # 索引是(name, age)</span><br><span class="line"><span class="comment">-- 第一步：取name 比如得到 li lisi lisa ll 四个</span></span><br><span class="line"><span class="comment">-- 第二部：在这四个中取 age = 17的 得到li，对应id为123</span></span><br><span class="line"><span class="comment">-- 第三步：回表去找id=123的数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 如果没有开启索引下推，会回表4次</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
 </ul>
 </li>
-<li>Mysql性能优化<ul>
+</ul>
+</li>
+</ul>
+<ul>
+<li>全文索引：对文本的内容进行分词，一般不会使用，效率较低，通常使用搜索引擎如 ElasticSearch 代替</li>
+</ul>
+<ul>
+<li><p>Mysql性能优化</p>
+<ul>
 <li>优化数据访问：<ul>
 <li>减少请求数据量：列用select，行用limit，使用缓存</li>
 <li>减少服务端扫描的行数：索引来覆盖查询</li>
@@ -1281,7 +1322,8 @@
 </li>
 </ul>
 </li>
-<li>Mysql分库分表：垂直/水平<ul>
+<li><p>Mysql分库分表：垂直/水平</p>
+<ul>
 <li>Sharding策略(水平)：哈希取模、范围切分、映射表</li>
 <li>Sharding策略的问题及解决<ul>
 <li>事务：使用分布式事务解决</li>
@@ -1318,6 +1360,12 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li><p>索引实验 2838426行数据</p>
+<p>是否使用索引是由查询优化器决定</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- EXPLAIN SELECT from_date, salary from salaries WHERE salary &gt; 50000; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- SELECT salary from salaries WHERE salary &gt; 50000; # &gt; 时间: 1.351s 索引前</span></span><br><span class="line"><span class="comment">-- SELECT from_date, salary from salaries WHERE salary &gt; 50000; # 时间: 1.407s 索引前</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># salary加普通索引</span><br><span class="line"><span class="comment">-- ALTER TABLE `salaries` ADD INDEX (`salary`) # 时间: 9.011s</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> from_date, salary <span class="keyword">from</span> salaries <span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">50000</span>; # 时间: <span class="number">1.082</span>s 索引后</span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> from_date, salary <span class="keyword">from</span> salaries <span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">50000</span>; #  发生了回表:extra列中有<span class="keyword">Using</span> <span class="keyword">where</span> 和 <span class="keyword">Using</span> index</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> salary <span class="keyword">from</span> salaries <span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">50000</span>; # <span class="operator">&gt;</span> 时间: <span class="number">0.993</span>s 索引后</span><br><span class="line">EXPLAIN <span class="keyword">SELECT</span> from_date, salary <span class="keyword">from</span> salaries <span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">50000</span>; #  发生了回表:extra列中有<span class="keyword">Using</span> <span class="keyword">where</span> 和 <span class="keyword">Using</span> index</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="operator">-</span> <span class="keyword">Using</span> <span class="keyword">where</span></span><br><span class="line">	表示查询需要通过索引回表查询数据。</span><br><span class="line"><span class="operator">-</span> <span class="keyword">Using</span> index</span><br><span class="line">	表示查询需要通过索引，索引就可以满足所需数据。</span><br><span class="line"><span class="operator">-</span> <span class="keyword">Using</span> filesort</span><br><span class="line">	表示查询出来的结果需要额外排序，数据量小在内存，大的话在磁盘，因此有<span class="keyword">Using</span> filesort建议优化。</span><br><span class="line"><span class="operator">-</span> <span class="keyword">Using</span> temprorary</span><br><span class="line">	查询使用到了临时表，一般出现于去重、分组等操作。</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="3-NoSQL—Redis"><a href="#3-NoSQL—Redis" class="headerlink" title="3 NoSQL—Redis"></a>3 NoSQL—Redis</h3><ul>
 <li><p>redis：Remote Dictionary Server</p>
 </li>
@@ -3196,7 +3244,6 @@
 <li>redis 分布式锁、incr对象</li>
 <li>漏桶算法（宽进严出）：队列实现</li>
 <li>令牌桶算法：定速往桶里放令牌，请求来的时候如果桶里有令牌就拿令牌走，没令牌就放弃（面对突发流量有更好的表现）</li>
-<li></li>
 </ul>
 <link rel="stylesheet" href="https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.15.2/tianli_gpt.css">
 
@@ -3314,7 +3361,7 @@ document.addEventListener('pjax:error', e => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="iconfont icon-baidu"></i><span>百度搜索</span></a><a class="rightMenu-item" href="javascript:rmf.searchinThisPage();"><i class="fas fa-search"></i><span>站内搜索</span></a><a class="rightMenu-item" href="#post-comment" onclick="rmf.yinyong()"><i class="fa-solid fa-message"></i><span>引用文本评论</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:switchCommentBarrage()"><i class="iconfont icon-danmu"></i><span>开/关评论弹幕</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.click()"><i class="fa fa-arrows-alt"></i><span>全屏显示</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:fullScreen();"><i class="fas fa-expand"></i><span>进入全屏</span></a></div></div><!-- hexo injector body_end start --><script data-pjax="">function electric_clock_injector_config(){
+})</script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="iconfont icon-baidu"></i><span>百度搜索</span></a><a class="rightMenu-item" href="javascript:rmf.searchinThisPage();"><i class="fas fa-search"></i><span>站内搜索</span></a><a class="rightMenu-item" href="#post-comment" onclick="rmf.yinyong()"><i class="fa-solid fa-message"></i><span>引用文本评论</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:switchCommentBarrage()"><i class="iconfont icon-danmu"></i><span>开/关评论弹幕</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.click()"><i class="fa fa-arrows-alt"></i><span>全屏显示</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="javascript:fullScreen();"><i class="fas fa-expand"></i><span>进入全屏</span></a></div></div><!-- hexo injector body_end start --><script data-pjax="">function electric_clock_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
                 var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-clock/clock/images/weather/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading" class="entered loading"></div></div></div></div></div>';
                 console.log('已挂载electric_clock')
