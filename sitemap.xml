@@ -245,6 +245,20 @@
 
   
   <url>
+    <loc>http://yileman.github.io/tags/java%E5%9F%BA%E7%A1%80-%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2024-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://yileman.github.io/tags/java%E4%B8%AD%E7%BA%A7/</loc>
+    <lastmod>2024-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://yileman.github.io/tags/java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -259,21 +273,7 @@
   </url>
   
   <url>
-    <loc>http://yileman.github.io/tags/java%E4%B8%AD%E7%BA%A7/</loc>
-    <lastmod>2024-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://yileman.github.io/tags/%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2024-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://yileman.github.io/tags/java%E5%9F%BA%E7%A1%80-%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -303,7 +303,7 @@
 
   
   <url>
-    <loc>http://yileman.github.io/categories/study/</loc>
+    <loc>http://yileman.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -317,14 +317,14 @@
   </url>
   
   <url>
-    <loc>http://yileman.github.io/categories/%E5%AE%9E%E6%88%98/</loc>
+    <loc>http://yileman.github.io/categories/study/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://yileman.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://yileman.github.io/categories/%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
